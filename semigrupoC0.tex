@@ -319,10 +319,12 @@ Se {$x_0\not\in D(A)$} em $X$, então $x(t)=S(t)x_0$ {\color{red}não é diferen
 
 \begin{xca}
 Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se $x\in D(A)$ mostre que
-\[S(t)x-S(s)x=\int_s^t AS(\tau)x\,d\tau =\int_s^t S(\tau)Ax\,d\tau\] 
+\begin{equation}\label{TFC1}
+S(t)x-S(s)x=\int_s^t AS(\tau)x\,d\tau =\int_s^t S(\tau)Ax\,d\tau
+\end{equation}
 \end{xca}
 
-\begin{proposition}
+\begin{proposition}\label{prop2.11}
 Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Então para todo $x\in X$, 
 \[\int_0^tS(s)x\,ds\in D(A)\ \text{ e }\ A\left(\int_0^t S(s)x\,ds\right)=S(t)x-x.\]
 \end{proposition}
@@ -354,10 +356,33 @@ Como queríamos.
 \end{proof}
 
 \begin{proposition}
-    Se $S(t)=e^{tA}$ em $X$, então $A$ é fechado e seu domínio é denso em $X$.
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Então $A$ é fechado e seu domínio é denso em $X$.
 \end{proposition}
 \begin{proof}
-    {\color{red} ESCREVER}
+\noindent
+
+\noindent\textbf{1. $D(A)$ é denso em $X$.}
+
+Dado $x\in X$, basta mostrar que 
+\[v_h=\frac{1}{h}\int_0^h S(t)x\,dt\in D(A) \text{ e } v_h\to x, \text{ quando } h\to 0^+.\]
+De fato, que $v_h\in D(A)$ decorre diretamente da Proposição \ref{prop2.11}. Como $S(\cdot)x$ é contínua, pelo Teorema do Valor Médio para integrais, 
+\[\lim\limits_{h\to 0^+} v_h=\lim\limits_{h\to 0^+}\frac{1}{h}\int_0^h S(t)x\,dt=x.\]
+
+\noindent\textbf{1. $A$ é fechado.}
+
+Seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ e $Ax_n\to y$. 
+em  $X$. Devemos mostrar que $x\in D(A)$ e $Ax=y$.
+
+Como $A_h$ é contínuo, temos que
+
+\begin{align*}
+A_hx & =\lim\limits_{n\to +\infty}A_hx_n
+=\lim\limits_{n\to +\infty}\frac{1}{h}\left(S(h)x_n-x_n\right)\\
+\shortintertext{(Da identidade \eqref{TFC1})}
+&  =\lim\limits_{n\to +\infty}\frac{1}{h}\left(\int_0^h S(t)Ax_n\,dt\right)\\
+\end{align*}
+
+
 \end{proof}
 
 \begin{remark}
