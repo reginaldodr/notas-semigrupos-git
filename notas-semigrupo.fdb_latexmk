@@ -1,21 +1,21 @@
 # Fdb version 4
-["bibtex notas-semigrupo"] 1733303978.49389 "notas-semigrupo.aux" "notas-semigrupo.bbl" "notas-semigrupo" 1733303979.24505 0
+["bibtex notas-semigrupo"] 1733309758.22721 "notas-semigrupo.aux" "notas-semigrupo.bbl" "notas-semigrupo" 1733309758.9841 0
   "./bibliografia.bib" 1733303801.12705 442 9c8075002bda61770f89a4346e560e82 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/acm.bst" 1292289607 21064 c61a48664f3c347ce7f73c1a6a530506 ""
-  "notas-semigrupo.aux" 1733303979.04413 511 261ee8e84b253a3391130c9ab1be9ebd "pdflatex"
-  "preliminares.aux" 1733303979.00013 1376 54cd7ef89d01891d8616323b498f6b83 "pdflatex"
-  "semigrupoC0.aux" 1733303979.04113 1544 ca6094bca4bf7b6eb1053ca737ba9b3c "pdflatex"
+  "notas-semigrupo.aux" 1733309758.78439 511 261ee8e84b253a3391130c9ab1be9ebd "pdflatex"
+  "preliminares.aux" 1733309758.74139 1376 54cd7ef89d01891d8616323b498f6b83 "pdflatex"
+  "semigrupoC0.aux" 1733309758.78039 1544 a1c87a7d95d13129db0922df96325c2a "pdflatex"
   (generated)
   "notas-semigrupo.bbl"
   "notas-semigrupo.blg"
   (rewritten before read)
-["makeindex notas-semigrupo.idx"] 1733303858.9397 "notas-semigrupo.idx" "notas-semigrupo.ind" "notas-semigrupo" 1733303979.24497 0
-  "notas-semigrupo.idx" 1733303979.04513 436 203df2841be6ac9e30ce9ef38c4d94ae "pdflatex"
+["makeindex notas-semigrupo.idx"] 1733303858.9397 "notas-semigrupo.idx" "notas-semigrupo.ind" "notas-semigrupo" 1733309758.98402 0
+  "notas-semigrupo.idx" 1733309758.78539 436 89345eba28d4314f29a9cbd7ed80a5f1 "pdflatex"
   (generated)
   "notas-semigrupo.ilg"
   "notas-semigrupo.ind"
   (rewritten before read)
-["pdflatex"] 1733303978.56592 "notas-semigrupo.tex" "notas-semigrupo.pdf" "notas-semigrupo" 1733303979.24513 0
+["pdflatex"] 1733309758.29911 "notas-semigrupo.tex" "notas-semigrupo.pdf" "notas-semigrupo" 1733309758.98417 0
   "/etc/texmf/web2c/texmf.cnf" 1716325393.65637 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -230,16 +230,16 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1716327371.34122 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716327462 8213687 df671cd833fe332ba53f3ed08a1545a1 ""
   "brasao-cor.png" 1733303801.13005 344507 41f8cb5440b33adcdc2f9bda5406fb77 ""
-  "notas-semigrupo.aux" 1733303979.04413 511 261ee8e84b253a3391130c9ab1be9ebd "pdflatex"
-  "notas-semigrupo.bbl" 1733303978.56214 441 3774effbd650c1c20b08e93acbd1d2a5 "bibtex notas-semigrupo"
+  "notas-semigrupo.aux" 1733309758.78439 511 261ee8e84b253a3391130c9ab1be9ebd "pdflatex"
+  "notas-semigrupo.bbl" 1733309758.2934 441 3774effbd650c1c20b08e93acbd1d2a5 "bibtex notas-semigrupo"
   "notas-semigrupo.ind" 1733303859.00575 479 1cb5bd6b4e5c12acca3c3a948c2e2272 "makeindex notas-semigrupo.idx"
-  "notas-semigrupo.out" 1733303979.04513 980 4f8ccdf6b95133aaba5dc7b12ac53089 "pdflatex"
+  "notas-semigrupo.out" 1733309758.78539 980 4f8ccdf6b95133aaba5dc7b12ac53089 "pdflatex"
   "notas-semigrupo.tex" 1733303801.13005 5095 2158f53102f3c5a7d3724fe6a446b56c ""
-  "notas-semigrupo.toc" 1733303979.04513 550 4acf28c86617baa9ecdba6d90979cd9e "pdflatex"
-  "preliminares.aux" 1733303979.00013 1376 54cd7ef89d01891d8616323b498f6b83 "pdflatex"
+  "notas-semigrupo.toc" 1733309758.78539 550 4acf28c86617baa9ecdba6d90979cd9e "pdflatex"
+  "preliminares.aux" 1733309758.74139 1376 54cd7ef89d01891d8616323b498f6b83 "pdflatex"
   "preliminares.tex" 1733303801.13105 2473 b2bc6f9ad3bad9185a85c1b907150f5b ""
-  "semigrupoC0.aux" 1733303979.04113 1544 ca6094bca4bf7b6eb1053ca737ba9b3c "pdflatex"
-  "semigrupoC0.tex" 1733303974.42823 15951 0f0d8a9c5059cf5482f93bcda121dc8c ""
+  "semigrupoC0.aux" 1733309758.78039 1544 a1c87a7d95d13129db0922df96325c2a "pdflatex"
+  "semigrupoC0.tex" 1733309757.44242 16433 03eae4d700a771e998f06911883c87e0 ""
   (generated)
   "notas-semigrupo.aux"
   "notas-semigrupo.idx"

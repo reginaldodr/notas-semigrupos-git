@@ -201,6 +201,9 @@ Consequentemente,
 \[Ax:=\lim\limits_{h\to 0^+} \frac{S(h)x-x}{h},\, x\in D(A)\]
 \end{definition}
 
+Dado $S$ um semigrupo de classe $C^0$ em $X$, vamos designar por $A_h$ o operador linear limitado 
+    \[A_hx=\frac{S(h)x-x}{h},\ \forall x\in X.\]
+
 \begin{proposition}
      $D(A)$ é um subespaço vetorial de $X$ e $A$ é um operador linear.
 \end{proposition}
@@ -214,20 +217,20 @@ De acordo com a definição acima, todo semigrupo tem um gerador infinitesimal a
 \end{remark}
 
 
-A seguir, apresentamos algumas notações que serão adotadas.
-\begin{enumerate}
- \item Dado $S$ é um semigrupo de classe $C^0$ em $X$, vamos designar por $A_h$ o operador linear limitado 
-    \[A_hx=\frac{S(h)x-x}{h},\ \forall x\in X.\]
-\item Escrevemos $S(t)=e^{tA}$ para dizer que $A$ é o gerador infinitesimal de um semigrupo de classe $C^0$ em $X$.
-\item Escrevemos $A\in G(M,\omega)$ para exprimir que $A$ é o gerador infinitesimal de um semigrupo de classe $C^0$, que satisfaz a condição:
-\[\|e^{tA}\|\leq {M}e^{{\omega} t}, \forall t\geq 0.\]
-\end{enumerate}
+%A seguir, apresentamos algumas notações que serão adotadas.
+%\begin{enumerate}
+% \item Dado $S$ é um semigrupo de classe $C^0$ em $X$, vamos designar por $A_h$ o operador linear limitado 
+%    \[A_hx=\frac{S(h)x-x}{h},\ \forall x\in X.\]
+%\item Escrevemos $S(t)=e^{tA}$ para dizer que $A$ é o gerador infinitesimal de um semigrupo de classe $C^0$ em $X$.
+%\item Escrevemos $A\in G(M,\omega)$ para exprimir que $A$ é o gerador infinitesimal de um semigrupo de classe $C^0$, que satisfaz a condição:
+%\[\|e^{tA}\|\leq {M}e^{{\omega} t}, \forall t\geq 0.\]
+%\end{enumerate}
 
 \begin{theorem}
-Seja $S(t)=e^{tA}$ em $X$. Dado $x\in D(A)$, então 
-\[e^{(\cdot)A}x\in C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X)\]
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Dado $x\in D(A)$, então 
+\[S(t)A x\in C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X)\]
 e
-\[\frac{d}{dt}\left(e^{tA}x\right)=Ae^{tA}x=e^{tA}Ax.\]
+\[\frac{d}{dt}\left(S(t)x\right)=AS(t)x=S(t)Ax.\]
 \end{theorem}
 \begin{proof}\noindent
 
@@ -304,27 +307,34 @@ Portanto, de \eqref{d+} e \eqref{d-}, temos que
 
 \begin{example} \textbf{Existência e Unicidade de um PVI}
 
-Seja $S(t)=e^{tA}$ em $X$. Se {$x_0\in D(A)$}, então $x(t)=e^{tA}x_0$ define {uma única solução} do PVI
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se {$x_0\in D(A)$}, então $x(t)=S(t)x_0$ define {uma única solução} do PVI
 \[
 \begin{cases}
     x'(t)=Ax,\ t\in [0,+\infty)\\
     x(0)=x_0.
 \end{cases}
 \]
-Se {$x_0\not\in D(A)$} em $X$, então $x(t)=e^{tA}x_0$ {não é diferenciável}. Neste caso, dizemos que $x=x(t)$ é uma \dt{solução branda} (\dt{mild solution}, em inglês.)\index{Solução!branda} \index{Solução!fraca} do PVI.
+Se {$x_0\not\in D(A)$} em $X$, então $x(t)=S(t)x_0$ {\color{red}não é diferenciável}. Neste caso, dizemos que $x=x(t)$ é uma \dt{solução branda} (\dt{mild solution}, em inglês.)\index{Solução!branda} \index{Solução!fraca} do PVI.
 \end{example}
 
 \begin{xca}
-Seja $S(t)=e^{tA}$ em $X$. Se $x\in D(A)$ mostre que
-\[e^{tA}x-e^{sA}x=\int_s^t Ae^{\tau A}x\,d\tau =\int_s^t e^{\tau A}Ax\,d\tau\] 
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se $x\in D(A)$ mostre que
+\[S(t)x-S(s)x=\int_s^t AS(\tau)x\,d\tau =\int_s^t S(\tau)Ax\,d\tau\] 
 \end{xca}
 
 \begin{proposition}
-Se $S(t)=e^{tA}$ em $X$, então para todo $x\in X$, 
-\[\int_0^t e^{sA}x\,ds\in D(A)\ \text{ e }\ A\left(\int_0^t e^{sA}x\,ds\right)=e^{tA}x-x.\]
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Então para todo $x\in X$, 
+\[\int_0^tS(s)x\,ds\in D(A)\ \text{ e }\ A\left(\int_0^t S(s)x\,ds\right)=S(t)x-x.\]
 \end{proposition}
 \begin{proof}
-    {\color{red} ESCREVER}
+   Dado $t\in [0,+\infty)$, seja 
+\begin{equation*}
+v=\int_0^t S(s)x\, ds.
+\end{equation*}
+Note que
+\begin{align*}
+A_hv=A_h\left(\int_0^t S(s)x\,ds\right)
+\end{align*}
 \end{proof}
 
 \begin{proposition}
