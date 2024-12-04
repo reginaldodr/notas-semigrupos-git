@@ -1,0 +1,50 @@
+\chapter{Preliminares}
+\section{Espaços Normados}
+
+\begin{definition}
+    Uma \dt{norma} é \index{Norma} 
+\end{definition}
+
+
+\section{Operadores Lineares Ilimitados}
+
+Sejam $X$ e $Y$ dois espaços de Banach. Seja $A:D(A)\subset X\longrightarrow Y$ um operador linear,  onde $D(A)$ é um subespaço de $X$, chamado de \dt{domínio}\index{Operador Linear!domínio} de $A$.
+\medskip
+Dizemos que $A$ é \dt{limitado (ou contínuo)} \index{Operador Linear!limtado} se $D(A)=X$ e se existe  $C>0$ tal que 
+\begin{equation}\label{ltdo}
+\|Ax\|_{Y}\leq C\|x\|_X, \ \forall x\in X.
+\end{equation}
+Denotaremos por $\mathcal{L}(X,Y)$ o espaço de Banach dos \dt{operadores lineares limitados} com norma dada por
+\[\|A\|_{_{\mathcal{L}(X,Y)}}=\sup\limits_{x\in X, x\neq 0}\frac{\|Ax\|_{_Y}}{\|x\|_{_X}},\]
+por $\mathcal{L}(X)=\mathcal{L}(X,X)$ e $X'=\mathcal{L}(X,\R)$.
+$A$ é dito ser \dt{ilimitado} \index{Operador Linear!ilimitado} quando não satisfazer \eqref{ltdo}. Dizemos que $A$ é \dt{densamente definito} \index{Operador Linear!desamente definido} se $\overline{D(A)}=X$.
+
+\begin{theorem}[Banach-Steinhaus]\label{th-BS}
+	Sejam $X$ um espaço de Banach e $Y$ um espaço vetorial normado. Se $\{T_i\}_{i\in I}$  é uma família (não necessariamente enumerável) em $\mathcal{L}(X,Y)$ pontualmente limitada, então $\{T_i\}_{i\in I}$ é uniformemente limitada, isto é, se 
+	 \[\sup_{i\in I}\|T_ix\|< \infty,\ \forall x\in X,\] 
+	 então
+	 \[\sup_{i\in I}\|T_i\|_{\mathcal{L}(X,Y)}<\infty.\]
+\end{theorem}
+
+\section{Integrais Vetoriais}
+
+\begin{definition}
+Sejam $X$ um espaço de Banach e $u:[a,b]\longrightarrow X$ uma aplicação tal que, para cada $\varphi\in X'$,  a função real
+\[t\in [a,b] \longmapsto \langle\varphi, u(t) \rangle_{X'X}\in \R,\]
+seja integrável. Dizemos que \dt{$u$ é integrável} se existe um vetor $v\in X$ que satisfaz:
+\[\langle \varphi, v\rangle_{X',X}=\int_a^b \langle\varphi, u(t) \rangle_{X'X}\,dt,\ \forall \varphi\in X'.\]
+Em caso afirmativo, $v$ é único e escrevemos
+\[v=\int_a^b u(t)\,dt.\]
+\end{definition}
+
+\begin{proposition}
+Se $u:[a,b]\longrightarrow X$ é {contínua}, então $u$ é integrável. Além disso, 
+\begin{enumerate}
+    \item $\displaystyle\left\|\int_a^b u(t)\,dt\right\|\leq \int_a^b \|u(t)\|\,dt$
+    \item Se $A\in \mathcal{L}(X,Y)$, então
+    \[ A\left(\int_a^b u(t)\,dt\right)=\int_a^b A(u(t))\,dt. \]
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Veja em \cite[Theorem A3.2]{kesavan2015topics}
+\end{proof}

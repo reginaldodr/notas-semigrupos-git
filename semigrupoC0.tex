@@ -1,0 +1,372 @@
+\chapter{Semigrupos de Classe $C^0$}
+
+\section{Semigrupos}
+
+
+
+\begin{definition}
+     Seja $X$ um espaço de Banach. Dizemos que a aplicação $S:[0,+\infty)\longrightarrow \mathcal{L}(X)$ é um  \dt{semigrupo de operadores limitados em X} quando:
+\begin{enumerate}
+    \item $S(0)=\operatorname{Id}$;
+    \item $S(t+s)=S(t)S(s)$, $\forall t,s\in [0,+\infty)$;
+
+Dizemos que $S$ é \dt{de classe $C^0$ ou fortemente contínuo} se
+
+    \item $\lim\limits_{t\to0^+} \|(S(t)-\operatorname{Id})x\|=0$, $\forall x\in X$.
+
+Dizemos que $S$ é \dt{uniformemente contínuo} se 
+
+\item $\lim\limits_{t\to 0^+}\|S(t)-\operatorname{Id}\|_{\mathcal{L}(X)}=0$.
+\end{enumerate}
+\end{definition}
+
+   \begin{example} São exemplos de semigrupos:
+        \begin{enumerate}
+            \item Sejam $X$ um espaço de Banach e  $A\in \mathcal{L}(X)$. Define-se a aplicação exponencial por
+            \[e^{A}=\operatorname{Id}+\sum_{n=1}^\infty \frac{A^n}{n!}.\]
+            Pode-se mostrar que esta série é absolutamente convergente e define $e^{A}\in \mathcal{L}(X)$, veja \cite[Apêndice 2]{gomes1985semigrupos}. Neste caso,  $e^{tA}:[0,+\infty)\to \mathcal{L}(X)$, quando $A\in \mathcal{L}(X)$, é um semigrupo.
+            \item Seja $X=C_b(\R)$  o espaço das funções $f:\R\longrightarrow \R$ uniformemente contínuas e limitadas, com a norma do $\sup$. Então $S(t)f(s)=f(t+s)$ definie um semigrupo de classe $C^0$.
+        \end{enumerate}
+    \end{example}
+
+
+\begin{proposition}
+    Se $S$ é um semigrupo de classe $C^0$ em X, então existem $\mu\geq 0$ e $M\geq 1$ tais que 
+    \begin{equation}\label{des.wT}
+    \|S(t)\|_{\mathcal{L}(X)}\leq Me^{\mu t},\ \forall t\geq 0.  
+    \end{equation}    
+    Em particular, $\|S(t)\|_{\mathcal{L}(X)}$ é uma função limitada em todo intervalo $[0,T]$. 
+\end{proposition}
+
+\begin{proof}
+Vamos aplicar o Teorema de Banach-Steinhaus (Teorema \ref{th-BS} )  à família  $\{S(t)\}_{t\geq 0}$ em $\mathcal{L}(X)$, onde $X$ é Banach. Para isso, basta mostrar que esta família é pontualmente limitada. 
+
+De fato,  $S$ é um semigrupo de classe $C^0$, então
+\[\lim\limits_{t\to 0^+}\|S(t)x-x\|=0,\ \forall x\in X.\]
+Com isso, dado $x\in X$, para $\ep=1$, existe $\delta>0$ tal que, se $0\leq t\leq \delta$, então
+\[\|S(t)x\|\leq \|S(t)x-x\|+\|x\|\leq 1+\|x\|=C_x.\]
+
+Portanto, pelo Teorema de Banach-Steinhaus, $\{S(t)\}_{0\leq t\leq\delta}$ é uniformemente limitada, isto é, $\exists\, M>0$ tal que
+\begin{equation}\label{eq1}
+\|S(t)\|_{\mathcal{L}(X)}\leq M,\, \text{ para todo  } t\in [0,\delta]. 
+\end{equation}
+Além disso, $M\geq \|S(0)\|_{\mathcal{L}(X)}=\|\operatorname{Id}\|_{\mathcal{L}(X)}=1$.
+
+Por outro lado, dado $t>\delta$, pelo algorítimo da divisão, existem $n\in\mathbb{N}$ e $r\in [0,\delta)$ tais que $t=n\delta+r$. Com isso, do item 2 da definição de Semigrupo e da desigualdade \eqref{eq1}, temos que
+\begin{align*}
+ \|S(t)\|_{\mathcal{L}(X)} &
+ \leq \|S(n\delta +r)\|_{\mathcal{L}(X)}= \|S(n\delta)S(r)\|_{\mathcal{L}(X)}=
+ \|\overbrace{S(\delta)\cdots S(\delta)}^{n \text{ vezes}}S(r)\|_{\mathcal{L}(X)}\\
+& \leq 
+\|S(\delta)\|^n_{\mathcal{L}(X)}\|S(r)\|_{\mathcal{L}(X)}\leq M^{n+1}. 
+\end{align*}
+ Note que, como $n\leq t/\delta$ e $M\geq 1$, temos que $M^n\leq M^{t/\delta}$. Da desigualdade anterior,
+\[\|S(t)\|_{\mathcal{L}(X)}\leq M M^{t/\delta}=Me^{\frac{t}{\delta}\log(M)}
+=Me^{\mu t},\]
+onde $\mu=\frac{1}{\delta}\log(M)$.
+
+Em particular, 
+\[\|S(t)\|_{\mathcal{L}(X)}\leq Me^{\mu t}\leq Me^{\mu T},\, \forall t\in [0,T].\]
+Em outras palavras, $\nl{S(t)}$ é limitada em $[0,T]$.
+\end{proof}
+
+
+\begin{corollary}\label{Scontinua}
+Todo semigrupo de classe $C^0$ é fortemente contínuo em $[0,+\infty)$, i.e., 
+para todo $x\in X$, $S(\cdot)x\in C^0([0,+\infty);X)$. Em outras palavras,
+\begin{center}
+$t\in [0,+\infty)\longmapsto S(\cdot)x\in  X$ é contínua.
+\end{center}
+\end{corollary}
+
+\begin{proof}
+    Dado $x\in X$, devemos mostrar que, para todo $t\in [0,+\infty)$,
+    \[\|S(t+h)x-S(t)x\|\to 0,\, \text{ quando } h\to 0.\]
+Do item (3) da definição de semigrupos, já temos que
+  \[\|S(h)x-S(0)x\|=\|(S(h)-\operatorname{Id})x\|\to 0,\, \text{ quando } h\to 0.\]
+Isto é, $S(\cdot)x$ é contínua em $t=0$. Dado $t\in (0,+\infty)$, se $h>0$, então
+\begin{align*}
+    \|S(t+h)x-S(t)x\|& =\|S(t)S(h)x-S(t)x\|=\|S(t)(S(h)-\operatorname{Id})x\|\\
+    & \leq \|S(t)\|_{\mathcal{L}(X)}\|(S(h)-\operatorname{Id})x\|\\
+    & \leq Me^{\mu t}\|(S(h)-\operatorname{Id})x\|\to 0,\, \text{ quando } h\to 0^+.
+\end{align*}
+
+Se $h<0$, então seja $k=-h>0$. Daí, se $h\to 0^+$, então $k\to0^+$. Com isso,
+\begin{align*}
+    \|S(t+h)x-S(t)x\|& = \|S(t-k)x-S(t)x\|=\|S(t-k)x-S(t-k+k)x\|\\
+    & =\|S(t-k)x-S(t-k)S(k)x\|=\|S(t-k)(\id-S(k)x\|\\
+    & \leq \|S(t-k)\|_{\mathcal{L}(X)}\|(S(k)-\operatorname{Id})x\|\\
+    & \leq Me^{\mu t}\|(S(k)-\operatorname{Id})x\|\to 0,\, \text{ quando } k\to 0^+.
+\end{align*}
+\end{proof}
+
+Vamos melhorar a estimativa \eqref{des.wT} através do seguinte teorema. 
+\begin{theorem}\label{th2.5}
+Seja $S$ um semigrupo de classe $C^0$ em $X$. Então,
+\[\lim\limits_{t\to +\infty}\frac{\log(\nl{S(t)})}{t}=\inf\limits_{t>0}\frac{\log(\nl{S(t)})}{t}=:\omega_0\]
+e para cada $\omega>\omega_0$, existe {$M\geq 1$} tal que 
+\begin{equation*}
+{\nl{S(t)}\leq Me^{\omega t},\, \forall t\geq 0.}
+\end{equation*}
+\end{theorem} 
+
+
+\begin{remark}
+Quando $\omega_0<0$, então para $\omega=0$, temos que 
+\[\nl{S(t)}\leq M,\ \forall t\geq 0. \]
+Neste caso, dizemos que $S$ é um \dt{semigrupo uniformemente limitado}. Se, além disso, $M=1$, $S$ é dito \dt{semigrupo das contrações}. \index{semigrupo das contrações}
+    
+\end{remark}
+
+
+\begin{lemma}\label{lem2.5}
+    Seja $p:[0,+\infty)\longrightarrow \R$ uma função {subaditiva}, isto é, $p(t+s)\leq p(t)+p(s)$. Se $p$ é limitada superiormente em todo intervalo limitado, então $p(t)/t$ tem um limite quanto $t\to +\infty$ e 
+    \[\lim\limits_{t\to +\infty}\frac{p(t)}{t}=\inf\limits_{t>0}\frac{p(t)}{t}.\]
+Prova: Ver \cite[Lema 1.2.5]{gomes1985semigrupos} 
+\end{lemma}
+
+
+\begin{proof}[Prova do Teorema \ref{th2.5}]
+Primeiramente, vejamos que $p(t)=\log\left(\nl{S(t)}\right)$ é subaditiva. De fato,
+como $S(t)\in \mathcal{L}(X)$, temos que
+\[\nl{S(t+s)}\leq \nl{S(t)S(s)}\leq \nl{S(t)}\nl{S(s)},\, \forall t,s\geq 0.\]
+Assim, como a função $\log$ é crescente, temos que
+\begin{align*}
+p(t+s)& =\log\left(\nl{S(t+s)}\right)=\log\left(\nl{S(t)}\nl{S(s)}\right)\\
+& \leq\log\left(\nl{S(t)}\right)+\log\left(\nl{S(s)}\right)\\
+& \leq p(t)+p(s).
+\end{align*}
+
+A fim de aplicarmos o lema anterior, resta mostrar que $p$ é limitada superimente em todo intervalo limitado. Com efeito, seja $(a,b)$ um intervalo limitado em $[0,+\infty)$. Em particular, $(a,b)\subset [0,b]$. Portanto, da desigualdade \eqref{des.wT}, temos que
+\begin{equation*}
+    \nl{S(t)}\leq Me^{\mu b},\, \forall t\in (a,b).
+\end{equation*}
+Isto é, $\nl{S(t)}$ é limitada superiormente em todo intervalo limitado. Como $\log$ é crescente, temos que  $p$ também o é. Logo, do Lema \ref{lem2.5}, temos que
+\begin{equation*}
+    \lim\limits_{t\to \infty}\frac{\log\left(\nl{S(t)}\right)}{t}
+    =\inf\limits_{t>0}\frac{\log\left(\nl{S(t)}\right)}{t}=:\omega_0.
+\end{equation*}
+Se $\omega>\omega_0$, tome $\ep=\omega-\omega_0$, pela definição de limite, existe $t_0>0$ tal que se $t>t_0$, então
+\[\frac{\log\left(\nl{S(t)}\right)}{t}-\omega_0<\ep=\omega-\omega_0.\]
+Donde, 
+\[\frac{\log\left(\nl{S(t)}\right)}{t}<\omega\Rightarrow 
+\nl{S(t)} \leq e^{\omega t},\, \forall t>t_0.\]
+Por outro lado, da desigualdade \eqref{des.wT}, temos que
+\[
+\nl{S(t)} \leq Me^{\mu t_0}=:M_0,\, \forall t\in [0,t_0].
+\]
+E como $S(0)=\id$, então $M_0\geq 1$.
+
+\noindent\textbf{1º caso:} $\omega\geq 0$.\\
+Vimos que
+\begin{equation*}
+    \begin{cases}
+    \log\left(\nl{S(t)}\right)\leq \log(M_0), & 0\leq t\leq t_0,\\
+        \log\left(\nl{S(t)}\right)< t\omega, & t>t_0.        
+    \end{cases}
+\end{equation*}
+Com isso, 
+\begin{equation*}
+ \log\left(\nl{S(t)}\right)\leq \max\{ \log(M_0),t\omega\}\leq \log(M_0)+t\omega ,\, \forall t\in [0,+\infty).
+\end{equation*}
+Donde,
+\begin{equation*}
+    \nl{S(t)}\leq e^{\log(M_0)+t\omega}\leq M_0e^{t\omega},\, \forall t\in [0,+\infty). 
+\end{equation*}
+
+\noindent\textbf{2º caso:} $\omega< 0$.\\
+Neste caso, se $t>t_0$, como $-t_0\omega\geq 0$ e $\log(M_0)\geq 0$, então
+\begin{equation*}
+\log\left(\nl{S(t)}\right)\leq t\omega<\underbrace{\log(M_0)-t_0\omega}_{\geq 0}+t\omega, \, \forall t>t_0. 
+\end{equation*}
+
+Por outro lado, se $t\leq t_0$, então $t\omega-t_0\omega\geq 0$, daí,
+\begin{equation*}
+\log\left(\nl{S(t)}\right)\leq \log(M_0)<\log(M_0)\underbrace{-t_0\omega+t\omega}_{\geq 0}, \, \forall 0\leq t\leq t_0. 
+\end{equation*}
+
+Em resumo,
+\begin{equation*}
+\log\left(\nl{S(t)}\right)\leq \log(M_0){-t_0\omega+t\omega}, \, \forall t\geq 0. 
+\end{equation*}
+Consequentemente,
+\begin{equation*}
+    \nl{S(t)}\leq \underbrace{M_0e^{-t_0\omega}}_{M}e^{t\omega}=Me^{t\omega}, \forall t\geq 0.
+\end{equation*}
+\end{proof}
+
+\begin{definition}
+    Seja $S$ um semigrupo de classe $C^0$ em $X$. O \dt{gerador infinitesimal}\index{Gerador Infinitesimal} de $S$ é o operador $A:D(A)\subset X\longrightarrow X$ definido por 
+\[D(A)=\left\{x\in X;\ \lim\limits_{h\to 0^+} \frac{S(h)x-x}{h} \text{ existe}\right\},\]
+\[Ax:=\lim\limits_{h\to 0^+} \frac{S(h)x-x}{h},\, x\in D(A)\]
+\end{definition}
+
+\begin{proposition}
+     $D(A)$ é um subespaço vetorial de $X$ e $A$ é um operador linear.
+\end{proposition}
+\begin{proof}
+    Exercício.
+\end{proof}
+
+De acordo com a definição acima, todo semigrupo tem um gerador infinitesimal associado. A principal questão é a recíproca, isto é, {\color{blue} quando um operador $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de algum semigrupo?} O Teorema de Hille-Yosida nos dará as condições para responder a essa pergunta.
+
+
+A seguir, apresentamos algumas notações que serão adotadas.
+\begin{enumerate}
+ \item Dado $S$ é um semigrupo de classe $C^0$ em $X$, vamos designar por $A_h$ o operador linear limitado 
+    \[A_hx=\frac{S(h)x-x}{h},\ \forall x\in X.\]
+\item Escrevemos $S(t)=e^{tA}$ para dizer que $A$ é o gerador infinitesimal de um semigrupo de classe $C^0$ em $X$.
+\item Escrevemos $A\in G(M,\omega)$ para exprimir que $A$ é o gerador infinitesimal de um semigrupo de classe $C^0$, que satisfaz a condição:
+\[\|e^{tA}\|\leq {M}e^{{\omega} t}, \forall t\geq 0.\]
+\end{enumerate}
+
+\begin{theorem}
+Seja $S(t)=e^{tA}$ em $X$. Dado $x\in D(A)$, então 
+\[e^{(\cdot)A}x\in C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X)\]
+e
+\[\frac{d}{dt}\left(e^{tA}x\right)=Ae^{tA}x=e^{tA}Ax.\]
+\end{theorem}
+\begin{proof}\noindent
+
+
+\noindent\textbf{Afirmação 1:} Se $x\in D(A)$, então $S(t)x\in D(A)$ e $A(S(t)x)=S(t)Ax$.
+
+Dado $x\in D(A)$, seja $y=S(t)x$. Primeiramente, vamos mostrar que
+$\lim\limits_{h\to 0^+} A_hy=S(t)Ax$. Para isso, note que
+\begin{align*}
+    A_hy&=\frac{S(h)y-y}{h}=\frac{S(h)S(t)x-S(t)x}{h}=\frac{S(t+h)x-S(t)x}{h}\\
+    &=\frac{S(t)S(h)x-S(t)x}{h}=S(t)\frac{S(h)x-x}{h}=S(t)A_hx.
+\end{align*}
+Como $x\in D(A)$, temos que $\lim\limits_{h\to^0}A_hx=Ax$. Além disso, $S(t)\in \mathcal{L}(X)$, então $S(t)$ é contínua. Portanto, 
+\[
+\lim\limits_{h\to 0^+} A_hy=\lim\limits_{h\to 0^+} S(t)A_hx
+=S(t)\left(\lim\limits_{h\to 0^+} A_hx\right)=S(t)Ax.
+\]
+
+Neste caso, provamos que $S(t)x=y\in D(A)$ e que $Ay=S(t)Ax$, ou seja, $A(S(t)x)=S(t)Ax$.
+
+\noindent\textbf{Afirmação 2:} $\frac{d}{dt}S(t)x=A(S(t)x)=S(t)Ax,\ \forall x\in D(A).$
+
+Primeiramente, note que
+\begin{equation*}
+\begin{split}
+    A(S(t)x)& =\lim\limits_{h\to 0^+} A_h(S(t)x) =\lim_{h \to 0^+} \frac{S(h)S(t)x - S(t)x}{h}\\
+    &= \lim_{h \to 0^+} \frac{S(t+h)x - S(t)x}{h} = \frac{d^+}{dt} S(t)x, \quad \forall x \in D(A).
+\end{split}
+\end{equation*}
+Com isso, temos que 
+    \begin{equation}\label{d+}
+\frac{d}{dt}^+ S(t)x = A(S(t)x) = S(t)(Ax).    
+\end{equation}
+
+Agora, vamos calcular a derivada pela esquerda.
+\[
+\frac{d}{dt}^- S(t)x = \lim_{\delta \to 0^-} \frac{S(\overbrace{t+\delta}^{>0})x - S(t)x}{\delta}, \ \text{ para } -t < \delta < 0.
+\]
+Fazendo $\delta=-h$, temos que $0<h<t$ e 
+\begin{equation}\label{eq2.3}
+\begin{split}
+    \frac{d}{dt}^- S(t)x 
+    & = \lim_{h \to 0^+} \frac{S(t-h)x - S(t)x}{-h}=
+    \lim_{h \to 0^+} \frac{S(t-h)x - S(t-h)S(h)x}{-h}\\
+    &=  \lim_{h \to 0^-} S(t-h)\left(\frac{x - S(h)x}{-h}\right)
+    =\lim_{h \to 0^+} S(t-h)A_hx\\
+    &= \lim_{h \to 0^+} \Big(S(t-h)(A_hx-Ax)+S(t-h)Ax\Big).
+\end{split}
+\end{equation}
+Do Corolário \eqref{Scontinua}, temos que $f(h)=S(t-h)Ax$ é contínua em $[0,t)$, portanto
+\begin{equation}\label{eq2.4}
+\lim_{h \to 0^+} S(t-h)Ax=\lim_{h \to 0^+}f(h)=f(0)=S(t)Ax.
+\end{equation}
+Por outro lado, do Teorema \ref{th2.5}, temos que
+\[\nl{S(t-h)}\leq Me^{\omega(t-h)}\leq Me^{\omega t},\ \forall h\in [0,t),\]
+donde,
+\begin{equation}\label{eq2.5}
+\begin{split}
+ \lim_{h \to 0^+}\|S(t-h)(A_hx-Ax)\|
+ & \leq \lim_{h \to 0^+}\nl{S(t-h)}\|A_hx-Ax\|\\
+ & \leq \lim_{h \to 0^+}Me^{\omega t}\|A_hx-Ax\|=0.
+\end{split}
+\end{equation}
+Com isso, \eqref{eq2.3}, \eqref{eq2.4} e \eqref{eq2.5} implicam que 
+\begin{equation}\label{d-}
+\frac{d}{dt}^-S(t)x=S(t)Ax=A(S(t)x),\ \forall x\in D(A).    
+\end{equation}
+Portanto, de \eqref{d+} e \eqref{d-}, temos que
+\begin{equation*}
+\frac{d}{dt}S(t)x=S(t)Ax=A(S(t)x),\ \forall x\in D(A).    
+\end{equation*}
+\end{proof}
+
+
+\begin{example} \textbf{Existência e Unicidade de um PVI}
+
+Seja $S(t)=e^{tA}$ em $X$. Se {$x_0\in D(A)$}, então $x(t)=e^{tA}x_0$ define {uma única solução} do PVI
+\[
+\begin{cases}
+    x'(t)=Ax,\ t\in [0,+\infty)\\
+    x(0)=x_0.
+\end{cases}
+\]
+Se {$x_0\not\in D(A)$} em $X$, então $x(t)=e^{tA}x_0$ {não é diferenciável}. Neste caso, dizemos que $x=x(t)$ é uma \dt{solução branda} (\dt{mild solution}, em inglês.)\index{Solução!branda} \index{Solução!fraca} do PVI.
+\end{example}
+
+\begin{xca}
+Seja $S(t)=e^{tA}$ em $X$. Se $x\in D(A)$ mostre que
+\[e^{tA}x-e^{sA}x=\int_s^t Ae^{\tau A}x\,d\tau =\int_s^t e^{\tau A}Ax\,d\tau\] 
+\end{xca}
+
+\begin{proposition}
+Se $S(t)=e^{tA}$ em $X$, então para todo $x\in X$, 
+\[\int_0^t e^{sA}x\,ds\in D(A)\ \text{ e }\ A\left(\int_0^t e^{sA}x\,ds\right)=e^{tA}x-x.\]
+\end{proposition}
+\begin{proof}
+    {\color{red} ESCREVER}
+\end{proof}
+
+\begin{proposition}
+    Se $S(t)=e^{tA}$ em $X$, então $A$ é fechado e seu domínio é denso em $X$.
+\end{proposition}
+\begin{proof}
+    {\color{red} ESCREVER}
+\end{proof}
+
+\begin{remark}
+    Esta última proposição nos dá uma condição necessária para que um operador $A$ seja o gerador infinitesimal de um semigrupo.
+\end{remark}
+
+\begin{proposition}[Unicidade]
+    Se $S_1(t)=e^{tA}$ e $S_2(t)=e^{tA}$ em $X$, então $S_1=S_2$.
+\end{proposition}
+\begin{proof}
+    {\color{red} ESCREVER}
+\end{proof}
+
+\begin{definition}
+    Seja $S(t)=e^{tA}$ em $X$. Defina $A^0=\operatorname{Id}$, $A^1=A$ e, supondo que $A^{n-1}$ esteja definido, vamos definir $A^n$ pondo:
+\[D(A^n)=\{x\in D(A^{n-1});\ A^{n-1}x\in D(A)\},\]
+\[A^nx=A(A^{n-1}x), \ \forall x\in D(A^{n}).\]
+\end{definition}
+
+\begin{proposition}
+Seja $S(t)=e^{tA}$ em $X$. Temos:
+
+\begin{enumerate}[(i)]
+ \item $\mathcal{D}\left(A^n\right)$ é um subespaço de $X$ e $A^n$ é um operador linear de $X$;
+
+ \item Se $x \in \mathcal{D}\left(A^n\right)$, então $S(t) x \in \mathcal{D}\left(A^n\right), \forall t \geq 0 \mathrm{e}$
+\[
+\frac{d^n}{d t^n} S(t) x=A^n S(t) x=S(t) A^n x, \forall n \in \mathbb{N}
+\]
+\item É válida a fórmula de Taylor: se $x \in \mathcal{D}\left(A^n\right)$, então
+\[
+S(t) x=\sum_{k=0}^{n-1} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{(n-1)!} \int_a^t(t-\tau)^{n-1} A^n S(\tau) x d \tau
+\]
+\item  $(S(t)-I)^n x=\int_0^t \cdots \int_0^t S\left(\tau_1+\cdots+\tau_n\right) A^n x\, d \tau_1 \cdots d \tau_n, \forall x \in \mathcal{D}\left(A^n\right)$;
+\item $\displaystyle\bigcap_n \mathcal{D}\left(A^n\right)$ é denso em $X$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    {\color{red} ESCREVER}
+\end{proof}

@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{book}
+
+
+%\usepackage{gfsartemisia-euler}
+
+\usepackage{fancyhdr}
+
+\usepackage{makeidx} % para criar indice remissivo
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+
+\usepackage{amsthm,amssymb, amsmath}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{wrapfig}
+
+\usepackage{xspace,setspace}
+\usepackage[rm]{titlesec}
+\usepackage{fancybox}
+\usepackage[hmargin=2cm,vmargin=2.5cm]{geometry}
+\usepackage{tikz}
+
+
+% \setlength{\topmargin}{0in} \setlength{\headsep}{1cm}
+% \setlength{\textwidth}{6.5in} \setlength{\textheight}{8.5in}
+% \setlength{\oddsidemargin}{0cm} \setlength{\evensidemargin}{0cm}
+% \setlength{\footskip}{1.cm}
+
+\renewcommand{\baselinestretch}{1.3}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\nonstopmode
+
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolário}
+\newtheorem{proposition}[theorem]{Proposição}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definição}
+\newtheorem{example}[theorem]{Exemplo}
+\newtheorem{xca}[theorem]{Exercício}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Observação}
+
+\numberwithin{section}{chapter}
+\numberwithin{equation}{chapter}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}				      % conjunto dos reais
+\newcommand{\dt}[1]{{\color{blue}\textbf{#1}}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\nl}[1]{\|#1\|_{\mathcal{L}(X)}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------  Caixa para Instruções  --------------------------------
+
+\usetikzlibrary{shapes,snakes}
+\tikzstyle{mybox2} = [draw=black, very thick,
+rectangle, rounded corners, inner sep=0pt, inner ysep=9pt]
+\tikzstyle{fancytitle2} =[fill=white, text=black]
+
+
+%---------------------------------------------------------------------------
+
+
+%-----------------------------------------------------------------------
+%                         ESTILO DO INÍCIO DO CAPÍTULO
+%-----------------------------------------------------------------------
+\font\largefont= pzcmi scaled 3500 \font\numberfont= pzcmi scaled
+3000
+\titleformat{\chapter}[display]
+   {\normalfont\Large % roman
+    }
+  { \filright
+   \rule[32pt]{.7\linewidth}{4pt}
+   \hspace{-8pt}
+      \shadowbox{
+   \begin{minipage}{.15\linewidth}
+     \begin{center}
+          \textsl{\large \chaptertitlename}\\
+       \vspace{1ex}
+       {\numberfont \thechapter}\\
+       \vspace{1ex}
+     \end{center}
+   \end{minipage}}}
+  {-10pt}
+  {\filcenter  \sl  \Huge }
+  [\vspace{-1cm}\singlespacing\hfill\rule{.8\textwidth}{0.5pt}\\
+     \vskip-2.8ex\hfill\rule{.7\textwidth}{4pt}\onehalfspacing]
+\titlespacing{\chapter}{0pt}{*4}{*1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeindex
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.15]{brasao-cor.png}~\\
+UNIVERSIDADE FEDERAL FLUMINENSE \\[5cm]
+{\Huge \textbf{Semigrupos de Operadores Lineares}}\\
+{\Large
+\begin{equation*}
+\begin{cases}
+x'(t)={\color{red}A}x+{\color{black}f},& t\in [0,+\infty)\\
+x(0)=x_0
+\end{cases}
+\end{equation*}
+\begin{equation*}
+x(t)=e^{t\color{red}A}x_0+\int_0^t e^{(t-s){\color{red}A}f(s)}ds
+\end{equation*}}\\[2cm]
+\textbf{Luiz Viana}\footnote{Departamento de Análise, Universidade Federal Fluminense, Niterói, RJ.}\\
+%{\footnotesize Departamento de Análise, Universidade Federal Fluminense, Niterói, RJ.}\\[0.5cm]
+\textbf{Reginaldo Demarque}\footnote{Departamento de Ciências da Natureza, Universidade Federal Fluminense, Rio das Ostras, RJ.}\\
+% {\footnotesize Departamento de Ciências da Natureza, Universidade Federal Fluminense, Rio das Ostras, RJ.}
+\vfill
+% Bottom of the page
+{\large Niterói, 2025}
+\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%
+%%%%%       PÁGINAS PRÉ-TEXTUAIS
+%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+%----------------------------------------------------------------------
+%                         ESTILO DA PÁGINA
+%----------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhead[LO]{\slshape \rightmark}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyhead[LE,RO]{\thepage}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{%
+ \markboth{\chaptername
+\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%
+%%%% Capitulos da Monografia
+%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{preliminares}
+\include{semigrupoC0}
+
+\bibliographystyle{acm}
+\bibliography{bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografia}
+
+\printindex
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
