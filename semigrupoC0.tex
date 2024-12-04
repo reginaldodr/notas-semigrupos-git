@@ -226,9 +226,9 @@ De acordo com a definição acima, todo semigrupo tem um gerador infinitesimal a
 %\[\|e^{tA}\|\leq {M}e^{{\omega} t}, \forall t\geq 0.\]
 %\end{enumerate}
 
-\begin{theorem}
+\begin{theorem}\label{th-der}
 Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Dado $x\in D(A)$, então 
-\[S(t)A x\in C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X)\]
+\[S(t)x\in C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X)\]
 e
 \[\frac{d}{dt}\left(S(t)x\right)=AS(t)x=S(t)Ax.\]
 \end{theorem}
@@ -314,7 +314,20 @@ Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se
     x(0)=x_0.
 \end{cases}
 \]
-Se {$x_0\not\in D(A)$} em $X$, então $x(t)=S(t)x_0$ {\color{red}não é diferenciável}. Neste caso, dizemos que $x=x(t)$ é uma \dt{solução branda} (\dt{mild solution}, em inglês.)\index{Solução!branda} \index{Solução!fraca} do PVI.
+De fato, do Teorema \ref{th-der}, como $x_0\in D(A)$, temos que
+\[x'(t)=\frac{d}{dt}(S(t)x_0)=A(S(t))x_0=Ax(t),\ \forall t\in [0,+\infty).\]
+E também a condição inicial
+\[x(0)=S(0)x_0=x_0.\]
+Além disso, o Teorema \ref{th-der} garante a seguinte regularidade:
+\[x\in  C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X).\]
+
+Para provar a unicidade, seja $v=v(t)$ uma outra solução paro o mesmo PVI. Defina, para cada $t\geq 0$,  $w(s)=S(t-s)v(s)$, $s\in (-\infty,t)$. Então,
+\[w'(s)=\frac{d}{ds}S(t-s)v(s)=-S(t-s)Av(s)+S(t-s)v'(s)=-S(t-s)v'(s)+S(t-s)v'(s)=0.\]
+Com isso, $w$ é constante. Então 
+\[w(t)=w(0)\Rightarrow S(0)v(t)=S(t)v(0)\Rightarrow v(t)=S(t)u_0=u(t).\]
+
+
+Se {$x_0\not\in D(A)$} em $X$, então $x(t)=S(t)x_0$ {\color{red}não é diferenciável}. Neste caso, dizemos que $x=x(t)$ é uma \dt{solução branda} (\dt{mild solution}, em inglês.)\index{Solução!branda} \index{Solução!fraca} do PVI. Além disso, do Corolário \ref{Scontinua}, temos que $x\in C^0([0,+\infty);X)$.
 \end{example}
 
 \begin{xca}
