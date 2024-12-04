@@ -348,7 +348,7 @@ A_hv& =A_h\left(\int_0^t S(s)x\,ds\right)=\int_0^t A_h(S(s)x)\,ds\\
  \left(\frac{1}{h}\int_0^h S(\tau)x\,d\tau+\frac{1}{h}\int_h^t S(\tau)x\,d\tau\right)\\
 &=\frac{1}{h}\int_t^{t+h} S(\tau)x\,d\tau-\frac{1}{h}\int_0^h S(\tau)x\,d\tau.
 \end{align*}
-Como $S(\cdot)x$ é contínua (Corolário \ref{Scontinua}), pelo Teorema do Valor Médio para integrais, 
+Como $S(\cdot)x$ é contínua (Corolário \ref{Scontinua}), pela identidade \eqref{ineq.VM}, 
 \begin{equation*}
 \lim\limits_{h\to 0^+} A_hv =\lim\limits_{h\to 0^+} \left(\frac{1}{h}\int_t^{t+h} S(\tau)x\,d\tau-\frac{1}{h}\int_0^h S(\tau)x\,d\tau\right) S(t)x-S(0)x=S(t)x-x.
 \end{equation*}
@@ -365,7 +365,7 @@ Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. En
 
 Dado $x\in X$, basta mostrar que 
 \[v_h=\frac{1}{h}\int_0^h S(t)x\,dt\in D(A) \text{ e } v_h\to x, \text{ quando } h\to 0^+.\]
-De fato, que $v_h\in D(A)$ decorre diretamente da Proposição \ref{prop2.11}. Como $S(\cdot)x$ é contínua, pelo Teorema do Valor Médio para integrais, 
+De fato, que $v_h\in D(A)$ decorre diretamente da Proposição \ref{prop2.11}. Como $S(\cdot)x$ é contínua, pela identidade \eqref{ineq.VM}, 
 \[\lim\limits_{h\to 0^+} v_h=\lim\limits_{h\to 0^+}\frac{1}{h}\int_0^h S(t)x\,dt=x.\]
 
 \noindent\textbf{1. $A$ é fechado.}
@@ -396,9 +396,9 @@ Da da identidade \eqref{aux.inq1}, temos que
 A_hx=\lim\limits_{n\to +\infty}\frac{1}{h}\int_0^h S(t)Ax_n\,dt=
 \frac{1}{h}\int_0^h S(t)y\,dt.
 \end{equation*}
-Por fim, como $x\in D(A)$ e $S(\cdot)y$ é contínua (Corolário \ref*{Scontinua}), temos que
+Por fim, como $x\in D(A)$ e $S(\cdot)y$ é contínua (Corolário \ref*{Scontinua}), da identidade \eqref{ineq.VM}, temos que
 \[
-Ax=\lim\lim_{h \to 0^+} A_hx=\lim_{h \to 0^+} \frac{1}{h}\int_0^h S(t)y\,dt=S(0)y=y.
+Ax=\lim_{h \to 0^+} A_hx=\lim_{h \to 0^+} \frac{1}{h}\int_0^h S(t)y\,dt=S(0)y=y.
 \]
 
 \end{proof}

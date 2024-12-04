@@ -48,3 +48,32 @@ Se $u:[a,b]\longrightarrow X$ é {contínua}, então $u$ é integrável. Além d
 \begin{proof}
 Veja em \cite[Theorem A3.2]{kesavan2015topics}
 \end{proof}
+
+\begin{proposition}
+Se $u:[a,b]\longrightarrow X$ é {contínua}, então
+\begin{equation}\label{ineq.VM}
+\lim\limits_{b\to a^+} \frac{1}{b-a}\int_a^b u(t)\,dt = u(a).
+\end{equation}
+\end{proposition}
+\begin{proof}
+A função  $f:t\in [a,b]\longmapsto \|u(t)-u(a)\|\in \R$ é contínua. Pelo Teorema do Valor Médio para integrais, existe $c\in [a,b]$ tal que 
+\[
+\frac{1}{b-a}\int_a^b f(t)\,dt=f(c).
+\]
+Como $a\leq c\leq b$, se $b\to a^+$, então $c\to a^+$. Neste caso, 
+\[
+\lim_{b\to a^+}\frac{1}{b-a}\int_a^b f(t)\,dt=\lim_{b\to a^+}f(c)=f(a).
+\]
+Isto é, 
+\begin{equation*}
+\lim_{b\to a^+}\frac{1}{b-a}\int_a^b \|u(t)-u(a)\|\,dt=0.
+\end{equation*}
+Assim, 
+\begin{align*}
+\lim_{b\to a^+}\left\|\frac{1}{b-a}\int_a^b u(t)\,dt -u(a)\right\|& =
+\lim_{b\to a^+}\left\|\frac{1}{b-a}\int_a^b u(t)-u(a)\,dt\right\|\\
+&\leq \lim_{b\to a^+}\frac{1}{b-a}\int_a^b\left\| u(t)-u(a)\right\|\,dt
+=0.
+\end{align*}
+O que é equivalente à identidade \eqref{ineq.VM}.
+\end{proof}
