@@ -105,9 +105,9 @@ Vamos melhorar a estimativa \eqref{des.wT} através do seguinte teorema.
 Seja $S$ um semigrupo de classe $C^0$ em $X$. Então,
 \[\lim\limits_{t\to +\infty}\frac{\log(\nl{S(t)})}{t}=\inf\limits_{t>0}\frac{\log(\nl{S(t)})}{t}=:\omega_0\]
 e para cada $\omega>\omega_0$, existe {$M\geq 1$} tal que 
-\begin{equation*}
+\begin{equation}\label{Sbound}
 {\nl{S(t)}\leq Me^{\omega t},\, \forall t\geq 0.}
-\end{equation*}
+\end{equation}
 \end{theorem} 
 
 
@@ -370,18 +370,36 @@ De fato, que $v_h\in D(A)$ decorre diretamente da Proposição \ref{prop2.11}. C
 
 \noindent\textbf{1. $A$ é fechado.}
 
-Seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ e $Ax_n\to y$. 
+Seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ e $Ax_n\to y$ 
 em  $X$. Devemos mostrar que $x\in D(A)$ e $Ax=y$.
 
-Como $A_h$ é contínuo, temos que
 
+
+Como $A_h$ é contínuo, da identidade \eqref{TFC1}, temos que
+
+\begin{equation}\label{aux.inq1}
+A_hx =\lim\limits_{n\to +\infty}A_hx_n
+=\lim\limits_{n\to +\infty}\frac{1}{h}\left(S(h)x_n-x_n\right)  =\lim\limits_{n\to +\infty}\frac{1}{h}\int_0^h S(t)Ax_n\,dt
+\end{equation}
+Da desigualdade \eqref{Sbound}, temos que
+\begin{equation*}
+\|S(t)Ax_n-S(t)y\|\leq \nl{S(t)}\|Ax_n-y\|\leq Me^{\omega t} \|Ax_n-y\|\leq Me^{\omega h}\|Ax_n-y\|.
+\end{equation*}
+Donde, 
 \begin{align*}
-A_hx & =\lim\limits_{n\to +\infty}A_hx_n
-=\lim\limits_{n\to +\infty}\frac{1}{h}\left(S(h)x_n-x_n\right)\\
-\shortintertext{(Da identidade \eqref{TFC1})}
-&  =\lim\limits_{n\to +\infty}\frac{1}{h}\left(\int_0^h S(t)Ax_n\,dt\right)\\
+\left|\frac{1}{h}\int_0^h S(t)Ax_n-S(t)y\,dt\right|& \leq 
+\frac{1}{h}\int_0^h\|S(t)Ax_n-S(t)y\|\,dt  \leq \frac{1}{h}\int_0^h \underbrace{Me^{\omega h}\|Ax_n-y\|}_{\text{não depende de $t$}}\,dt \\
+& \leq Me^{\omega h}\|Ax_n-y\|\to 0, \text{ quando } n\to +\infty. 
 \end{align*}
-
+Da da identidade \eqref{aux.inq1}, temos que
+\begin{equation*}
+A_hx=\lim\limits_{n\to +\infty}\frac{1}{h}\int_0^h S(t)Ax_n\,dt=
+\frac{1}{h}\int_0^h S(t)y\,dt.
+\end{equation*}
+Por fim, como $x\in D(A)$ e $S(\cdot)y$ é contínua (Corolário \ref*{Scontinua}), temos que
+\[
+Ax=\lim\lim_{h \to 0^+} A_hx=\lim_{h \to 0^+} \frac{1}{h}\int_0^h S(t)y\,dt=S(0)y=y.
+\]
 
 \end{proof}
 
