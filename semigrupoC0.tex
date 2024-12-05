@@ -304,8 +304,53 @@ Portanto, de \eqref{d+} e \eqref{d-}, temos que
 \end{equation*}
 \end{proof}
 
+\begin{proposition}
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se $x:(a,b)\to D(A)\subset X$ é uma curva diferenciável, então a curva $y(s)=S(s)x(s)$ também é diferenciável e
+\begin{equation}\label{reg.cad}
+y'(s)=S(s)x'(s)+S(s)Ax(s),\ \forall s\in (a,b)
+\end{equation}
+\end{proposition}
+\begin{proof}
+Primeiramente, vamos calcular a derivada de $y$ pela direita.
+\begin{align*}
+y'_+(s)& = \lim\limits_{h\to 0^+}\frac{y(s+h)-y(s)}{h}
+=\lim\limits_{h\to 0^+}\frac{S(s+h)x(s+h)-S(s)x(s)}{h}\\
+& =\lim\limits_{h\to 0^+}\frac{S(s+h)x(s+h){-S(s+h)x(s)+S(s+h)x(s)}-S(s)x(s)}{h}\\
+& =\lim\limits_{h\to 0^+}\left(\frac{S(s+h)x(s+h)-S(s+h)x(s)}{h}+\frac{S(s+h)x(s)-S(s)x(s)}{h}\right)
+\\
+& =\lim\limits_{h\to 0^+}\left(S(s+h)\frac{x(s+h)-x(s)}{h}+S(s)\frac{S(h)x(s)-S(s)x(s)}{h}\right)\\
+& =\lim\limits_{h\to 0^+}\left(S(s+h)\frac{x(s+h)-x(s)}{h}+S(s)A_h(x(s))\right)\\
+& =\lim\limits_{h\to 0^+}\left(S(s+h)\left(\frac{x(s+h)-x(s)}{h}-S(s+h)x'(s)+S(s+h)x'(s)\right)
++S(s)A_h(x(s))\right)\\
+& =\lim\limits_{h\to 0^+}\left(S(s+h)\left(\frac{x(s+h)-x(s)}{h}-x'(s)\right)+S(s+h)x'(s)
++S(s)A_h(x(s))\right)\\
+&\stackrel{(\ast)}{=}S(s)x'(s)+S(s)Ax(s).
+\end{align*}
 
-\begin{example} \textbf{Existência e Unicidade de um PVI}
+\noindent($\ast$) Vamos provar a seguir a convergência de cada um dos limites.
+
+Da desigualdade \eqref{Sbound}, temos que 
+\begin{equation*}
+\lim\limits_{h\to 0^+}\left\|S(s+h)\left(\frac{x(s+h)-x(s)}{h}-x'(s)\right)\right\|
+\leq \lim\limits_{h\to 0^+}
+Me^{\omega(s+h)}\underbrace{\left\|\frac{x(s+h)-x(s)}{h}-x'(s)\right\|}_{\to\  0}
+=0
+\end{equation*}
+
+Como $S(\cdot)x$ é contínua, temos que
+\[
+\lim\limits_{h\to 0^+}S(s+h)x'(s)=S(s)x'(s).
+\]
+Da continuidade de $S(s)$ e do fato que $\lim_{h \to 0^+}A_hx=Ax$, para todo $x\in D(A)$, temos que 
+\[
+\lim\limits_{h\to 0^+}S(s)A_h(x(s))=S(s)Ax(s).
+\]
+
+Agora vamos provar a derivada pela esquerda {\color{red} PROVAR}
+\end{proof}
+
+\begin{theorem}\label{PVI}
+%\begin{example} \textbf{Existência e Unicidade de um PVI}
 
 Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se {$x_0\in D(A)$}, então $x(t)=S(t)x_0$ define {uma única solução} do PVI
 \[
@@ -314,6 +359,10 @@ Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se
     x(0)=x_0.
 \end{cases}
 \]
+Além disso, \[x\in  C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X).\]
+\end{theorem}
+
+\begin{proof}
 De fato, do Teorema \ref{th-der}, como $x_0\in D(A)$, temos que
 \[x'(t)=\frac{d}{dt}(S(t)x_0)=A(S(t))x_0=Ax(t),\ \forall t\in [0,+\infty).\]
 E também a condição inicial
@@ -321,14 +370,41 @@ E também a condição inicial
 Além disso, o Teorema \ref{th-der} garante a seguinte regularidade:
 \[x\in  C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X).\]
 
-Para provar a unicidade, seja $v=v(t)$ uma outra solução paro o mesmo PVI. Defina, para cada $t\geq 0$,  $w(s)=S(t-s)v(s)$, $s\in (-\infty,t)$. Então,
-\[w'(s)=\frac{d}{ds}S(t-s)v(s)=-S(t-s)Av(s)+S(t-s)v'(s)=-S(t-s)v'(s)+S(t-s)v'(s)=0.\]
-Com isso, $w$ é constante. Então 
+Resta provar a unicidade. Para isso,  seja $v=v(t)$ uma outra solução paro o mesmo PVI. Defina, para cada $t\geq 0$,  $w(s)=S(t-s)v(s)$, $s\in [0,t]$.
+
+\noindent\textbf{Afirmação 1:} $w'(s)=S(t-s)v'(s)-S(t-s)Av(s)$, para todo $s\in [0,t]$.
+
+Com efeito, defina $z(\tau)=v(t-\tau)$ e $u(\tau)=w(t-\tau)$, então
+\begin{equation*}
+u(\tau)=w(t-\tau)=S(t-(t-\tau))v(t-\tau)=S(\tau)v(t-\tau)=S(\tau)z(\tau).
+\end{equation*}
+Da identidade \eqref{reg.cad} e da regra da cadeia para funções vetoriais,
+\begin{equation*}
+u'(\tau)=S(\tau)z'(\tau)+S(\tau)Az(\tau)= -S(\tau)v'(t-\tau)+S(\tau)Av(t-\tau).
+\end{equation*}
+Como $u'(\tau)=-w'(t-\tau)$, temos que 
+\begin{equation*}
+w'(t-\tau)=S(\tau)v'(t-\tau)-S(\tau)Av(t-\tau).
+\end{equation*}
+Portanto, fazendo $\tau=t-s$, temos que
+\begin{align*}
+w'(s)& =w'(t-(t-s))=S(t-s)v'(t-(t-s))-S(t-s)Av(t-(t-s))\\
+& =S(t-s)v'(s)-S(t-s)Av(s),
+\end{align*}
+como queríamos.
+
+Como $v$ é solução do PVI, então $v'(s)=Av(s)$, donde
+ \[w'(s)=S(t-s)v'(s)-S(t-s)Av(s)=S(t-s)Av(s)-S(t-s)Av(s)=0.\]
+Portanto, $w$ é constante. Então 
 \[w(t)=w(0)\Rightarrow S(0)v(t)=S(t)v(0)\Rightarrow v(t)=S(t)u_0=u(t).\]
+\end{proof}
 
-
+\begin{remark}
 Se {$x_0\not\in D(A)$} em $X$, então $x(t)=S(t)x_0$ {\color{red}não é diferenciável}. Neste caso, dizemos que $x=x(t)$ é uma \dt{solução branda} (\dt{mild solution}, em inglês.)\index{Solução!branda} \index{Solução!fraca} do PVI. Além disso, do Corolário \ref{Scontinua}, temos que $x\in C^0([0,+\infty);X)$.
-\end{example}
+\end{remark}
+
+
+%\end{example}
 
 \begin{xca}
 Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se $x\in D(A)$ mostre que
@@ -420,10 +496,14 @@ Ax=\lim_{h \to 0^+} A_hx=\lim_{h \to 0^+} \frac{1}{h}\int_0^h S(t)y\,dt=S(0)y=y.
 \end{remark}
 
 \begin{proposition}[Unicidade]
-Sejam $S_1,S_2$ dois semigrupos de classe $C^0$ em $X$ e $A_1,A_2$ os respectivos geradores infinitesimais. Então $S_1=S_2$.
+Sejam $S_1,S_2$ dois semigrupos de classe $C^0$ em $X$ com o mesmo gerador infinitesimal $A$. Então $S_1=S_2$.
 \end{proposition}
 \begin{proof}
-    {\color{red} ESCREVER}
+   Primeiramente, vamos mostrar que $S_1(t)x=S_2(t)x$, para todo $x\in D(A)$.
+De fato, dado $x\in D(A)$, como $S_1$ e $S_2$ tem o mesmo gerador infinitesimal,  pelo Teorema \ref{PVI}, temos que $x_1(t)=S_1(t)x$ e $x_2(t)=S_2(t)x$ são duas soluções do mesmo PVI. Da unicidade de soluções, temos que $S_1(t)x=S_2(t)x$.
+
+Agora vamos usar a densidade de $D(A)$ em $X$ para concluir a demonstração. Com efeito, dado $x\in X$, seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ em $X$ quando $n\to +\infty$. Como   $x_n\in D(A)$, temos que $S_1(t)x_n=S_2(t)x_n$, para todo $n\in \mathcal{N}$. E como  $S_1(t),S_2(t)\in \mathcal{L}(X)$, então
+\[S_1(t)x=\lim_{n\to +\infty}S_1(t)x_n=\lim_{n\to +\infty}S_2(t)x_n=S_2x.\]
 \end{proof}
 
 \begin{definition}
