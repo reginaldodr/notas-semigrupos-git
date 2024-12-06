@@ -204,7 +204,7 @@ Consequentemente,
 Dado $S$ um semigrupo de classe $C^0$ em $X$, vamos designar por $A_h$ o operador linear limitado 
     \[A_hx=\frac{S(h)x-x}{h},\ \forall x\in X.\]
 
-\begin{proposition}
+\begin{proposition}\label{DAsubspace}
      $D(A)$ é um subespaço vetorial de $X$ e $A$ é um operador linear.
 \end{proposition}
 \begin{proof}
@@ -230,7 +230,10 @@ De acordo com a definição acima, todo semigrupo tem um gerador infinitesimal a
 Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Dado $x\in D(A)$, então 
 \[S(t)x\in C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X)\]
 e
-\[\frac{d}{dt}\left(S(t)x\right)=AS(t)x=S(t)Ax.\]
+\begin{equation}\label{eq-der}
+\frac{d}{dt}\left(S(t)x\right)=AS(t)x=S(t)Ax.
+\end{equation}
+
 \end{theorem}
 \begin{proof}\noindent
 
@@ -544,30 +547,64 @@ Agora vamos usar a densidade de $D(A)$ em $X$ para concluir a demonstração. Co
 \end{proof}
 
 \begin{definition}
-    Seja $S(t)=e^{tA}$ em $X$. Defina $A^0=\operatorname{Id}$, $A^1=A$ e, supondo que $A^{n-1}$ esteja definido, vamos definir $A^n$ pondo:
+    Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Defina $A^0=\operatorname{Id}$, $A^1=A$ e, supondo que $A^{n-1}$ esteja definido, vamos definir $A^n$ pondo:
 \[D(A^n)=\{x\in D(A^{n-1});\ A^{n-1}x\in D(A)\},\]
 \[A^nx=A(A^{n-1}x), \ \forall x\in D(A^{n}).\]
 \end{definition}
 
 \begin{proposition}
-Seja $S(t)=e^{tA}$ em $X$. Temos:
+Seja   $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal.. Temos:
 
-\begin{enumerate}[(i)]
- \item $\mathcal{D}\left(A^n\right)$ é um subespaço de $X$ e $A^n$ é um operador linear de $X$;
+\begin{enumerate}[$(i)$]
+ \item $D\left(A^n\right)$ é um subespaço de $X$ e $A^n$ é um operador linear de $X$;
 
- \item Se $x \in \mathcal{D}\left(A^n\right)$, então $S(t) x \in \mathcal{D}\left(A^n\right), \forall t \geq 0 \mathrm{e}$
-\[
+ \item Se $x \in {D}\left(A^n\right)$, então $S(t) x \in {D}\left(A^n\right), \forall t \geq 0$ e
+\begin{equation}\label{id-dern}
 \frac{d^n}{d t^n} S(t) x=A^n S(t) x=S(t) A^n x, \forall n \in \mathbb{N}
-\]
-\item É válida a fórmula de Taylor: se $x \in \mathcal{D}\left(A^n\right)$, então
+\end{equation}
+\item É válida a fórmula de Taylor: se $x \in {D}\left(A^n\right)$, então
 \[
 S(t) x=\sum_{k=0}^{n-1} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{(n-1)!} \int_a^t(t-\tau)^{n-1} A^n S(\tau) x d \tau
 \]
-\item  $(S(t)-I)^n x=\int_0^t \cdots \int_0^t S\left(\tau_1+\cdots+\tau_n\right) A^n x\, d \tau_1 \cdots d \tau_n, \forall x \in \mathcal{D}\left(A^n\right)$;
-\item $\displaystyle\bigcap_n \mathcal{D}\left(A^n\right)$ é denso em $X$.
+\item  $(S(t)-I)^n x=\displaystyle\int_0^t \cdots \int_0^t S\left(\tau_1+\cdots+\tau_n\right) A^n x\, d \tau_1 \cdots d \tau_n, \forall x \in D\left(A^n\right)$;
+\item $\displaystyle\bigcap_n {D}\left(A^n\right)$ é denso em $X$.
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}
-    {\color{red} ESCREVER}
+\begin{proof}\noindent
+
+\begin{enumerate}[$(i)$]
+\item Sabemos que $D(A)$ é um subespaço de $X$. Suponha que $D(A^{n-1})$ seja subspaço. Dados $x,y\in D(A^n)$ e $\lambda\in \R$, como $x,y\in D(A^{n-1})$, então
+$x+\lambda y\in D(A^{n-1})$ e, como $A^{n-1}$ é linear,
+\[A^{n-1}(x+\lambda y)=\underbrace{A^{n-1}x}_{\in D(A)}+\lambda \underbrace{A^{n-1}y}_{\in D(A)}\in D(A).\]
+Portanto, $D(A^n)$ também é subespaço. Logo, por indução, segue o resultado. $A^n$ é linear pois é a composição de operadores lineares.
+
+\item Teorema \ref{th-der} garante a validade para $n=1$. 
+
+\noindent\textbf{Hipótese de Indução:} Suponha que, para algum $k>1$,
+
+\noindent Se $x \in {D}\left(A^k\right)$, então $S(t) x \in {D}\left(A^k\right), \forall t \geq 0$ e
+\[
+\frac{d^k}{d t^k} S(t) x=A^k S(t) x=S(t) A^k x
+\]
+
+Vamos mostrar que é válido para $n=k+1$. De fato, se \underline{$x\in D(A^{k+1})$}, por definição, $x\in D(A^k)$ e $y=A^kx\in D(A)$. Aplicando-se o  Teorema \ref{th-der} a $y$, temos que $S(t)A^kx=S(t)y\in D(A)$.  Da Hipótese de Indução, temos que $S(t)x\in D(A^k)$ e $A^kS(t)x=S(t)A^kx\in D(A)$, portanto \underline{$S(t)x\in D(A^{k+1})$}. Além disso, da identidade \eqref{eq-der}, temos que
+\[
+\frac{d}{dt} S(t)y=AS(t)y=S(t)Ay.
+\]
+Donde,
+\[
+\frac{d}{dt}S(t)A^kx=AS(t)A^k=S(t)A^{k+1}x.
+\]
+Da Hipótese de Indução, já temos que $S(t)x\in D(A^k)$ e, da identidade anterior, que $A^kS(t)x=S(t)A^kx\in D(A)$, portanto $S(t)x\in D(A^{k+1})$. temos que $S(t)A^k=\frac{d^k}{dt^k}S(t)x$ e $S(t)A^kx=A^kS(t)x$. Substituindo-se na identidade anterior, Obtemos
+\[
+\frac{d}{dt}\left(\frac{d^k}{dt^k}S(t)x\right)=AA^kS(t)x=S(t)A^{k+1}x.
+\]
+Portanto, 
+\[
+\frac{d^{k+1}}{dt^{k+1}}S(t)x=A^{k+1}S(t)x=S(t)A^{k+1}x.
+\]
+O que prova a identidade \eqref{id-dern} para $n={k+1}$. Logo, o resultado segue pelo princípio da indução finita.
+
+\end{enumerate}
 \end{proof}
