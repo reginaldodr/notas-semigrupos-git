@@ -305,7 +305,7 @@ Portanto, de \eqref{d+} e \eqref{d-}, temos que
 \end{proof}
 
 \begin{proposition}
-Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se $x:(a,b)\to D(A)\subset X$ é uma curva diferenciável, então a curva $y(s)=S(s)x(s)$ também é diferenciável e
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Se  $x:(a,b)\to D(A)\subset X$ é uma curva diferenciável tal que  $x'\in D(A)$, então a curva $y(s)=S(s)x(s)$ também é diferenciável e
 \begin{equation}\label{reg.cad}
 y'(s)=S(s)x'(s)+S(s)Ax(s),\ \forall s\in (a,b)
 \end{equation}
@@ -346,7 +346,44 @@ Da continuidade de $S(s)$ e do fato que $\lim_{h \to 0^+}A_hx=Ax$, para todo $x\
 \lim\limits_{h\to 0^+}S(s)A_h(x(s))=S(s)Ax(s).
 \]
 
-Agora vamos provar a derivada pela esquerda {\color{red} PROVAR}
+Agora vamos provar a derivada pela esquerda.
+\begin{align*}
+y'_-(s)=\lim_{\delta\to 0^-}\frac{y(s+\delta)-y(s)}{\delta}, \text{ para } -s<\delta <0.
+\end{align*}
+Analogamente, fazendo $h=-\delta>0$, temos
+\begin{align*}
+y'_-(s)&=\lim_{h\to 0^+}\frac{y(s-h)-y(s)}{-h}
+=\lim_{h\to 0^+}\frac{S(s-h)x(s-h)-S(s)x(s)}{-h}\\
+& = \lim_{h\to 0^+}\frac{S(s-h)x(s-h)-S(s-h)x(s)+S(s-h)x(s)-S(s)x(s)}{-h}\\
+& = \lim_{h\to 0^+}
+\left(S(s-h)\frac{x(s-h)-x(s)}{-h}+\frac{S(s-h)x(s)-S(s)x(s)}{-h}
+\right)\\
+& = \lim_{h\to 0^+}
+\left(S(s-h)\frac{x(s-h)-x(s)}{-h}\right)
++\lim_{h\to 0^+}\left(\frac{S(s-h)-S(s)}{-h}x(s)
+\right)\\
+& = \lim_{\delta\to 0^-}
+\left(S(s+\delta)\frac{x(s+\delta)-x(s)}{\delta}\right)+
+\lim_{h\to0^+}\left(S(s-h)\frac{\id- S(h)}{-h}x(s)
+\right)\\
+\shortintertext{(Como antes, vamos calcular os limites usando a limitação de $S$ e a continuidade de $S(\cdot)x$)}
+&\begin{multlined}
+= \lim_{\delta\to 0^-}
+\left(\underbrace{S(s+\delta)}_{\text{limitado}}
+\underbrace{\left(\frac{x(s+\delta)-x(s)}{\delta}-x'(s)\right)}_{\to 0}+\underbrace{S(s+\delta)x'(s)}_{S(\cdot)x \text{ é contínua}}
+\right)+\\
+\lim_{h\to0^+}\left(S(s-h)A_h(x(s))
+\right)
+\end{multlined} \\
+&= S(s)x'(s)+\lim_{h\to0^+}\left(\underbrace{S(s-h)}_{\text{limitado}}
+\left(\underbrace{A_h(x(s)-Ax(s)}_{\to 0}\right)+\underbrace{S(s-h)Ax(s)}_{S(\cdot)x \text{ contínua}})
+\right)\\
+& = S(s)x'(s)+S(s)Ax(s)
+\end{align*}
+
+
+
+
 \end{proof}
 
 \begin{theorem}\label{PVI}
@@ -502,7 +539,7 @@ Sejam $S_1,S_2$ dois semigrupos de classe $C^0$ em $X$ com o mesmo gerador infin
    Primeiramente, vamos mostrar que $S_1(t)x=S_2(t)x$, para todo $x\in D(A)$.
 De fato, dado $x\in D(A)$, como $S_1$ e $S_2$ tem o mesmo gerador infinitesimal,  pelo Teorema \ref{PVI}, temos que $x_1(t)=S_1(t)x$ e $x_2(t)=S_2(t)x$ são duas soluções do mesmo PVI. Da unicidade de soluções, temos que $S_1(t)x=S_2(t)x$.
 
-Agora vamos usar a densidade de $D(A)$ em $X$ para concluir a demonstração. Com efeito, dado $x\in X$, seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ em $X$ quando $n\to +\infty$. Como   $x_n\in D(A)$, temos que $S_1(t)x_n=S_2(t)x_n$, para todo $n\in \mathcal{N}$. E como  $S_1(t),S_2(t)\in \mathcal{L}(X)$, então
+Agora vamos usar a densidade de $D(A)$ em $X$ para concluir a demonstração. Com efeito, dado $x\in X$, seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ em $X$ quando $n\to +\infty$. Como   $x_n\in D(A)$, temos que $S_1(t)x_n=S_2(t)x_n$, para todo $n\in \mathbb{N}$. E como  $S_1(t),S_2(t)\in \mathcal{L}(X)$, então
 \[S_1(t)x=\lim_{n\to +\infty}S_1(t)x_n=\lim_{n\to +\infty}S_2(t)x_n=S_2x.\]
 \end{proof}
 
