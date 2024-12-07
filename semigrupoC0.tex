@@ -606,7 +606,23 @@ Portanto,
 \]
 O que prova a identidade \eqref{id-dern} para $n={k+1}$. Logo, o resultado segue pelo princípio da indução finita.
 
-\item 
+\item Este resultado também segue por indução. Para $n=1$ é simplesmente a identidade \eqref{TFC1}. 
+Para $n=2$, vamos aplicar a integração por partes.
+\begin{align*}
+\int_a^t (t-\tau)A^2S(t)x\,d\tau& \stackrel{(ii)}{=}\int_a^t (t-\tau)\frac{d^2}{d\tau^2}S(t)x\,d\tau\\
+& =(t-\tau)\frac{d}{dt}S(t)x\Big\vert_{\tau=a}^{\tau=t}-\int_a^t -\frac{d}{d\tau}S(t)x\, d\tau\\
+& \stackrel{(ii)}{=}(t-\tau)AS(t)x\Big\vert_{\tau=a}^{\tau=t}-\int_a^t -AS(t)x\\
+& =-(t-\tau)AS(a)x+\int_a^t AS(t)x\,d\tau\\
+& \stackrel{n=1}{=}-(t-\tau)AS(a)x+S(t)x-S(t)a, 
+\end{align*}
+donde obtemos o caso $n=2$,
+\begin{equation*}
+S(t)x=S(t)a+(t-\tau)AS(a)x+\int_a^t (t-\tau)A^2S(t)x\,d\tau.
+\end{equation*}
+Para obter o caso $n=3$, basta integrar novamente por partes a integral
+\[\int_a^t (t-\tau)^2A^3S(t)x\,d\tau.\]
+E assim, por diante o resultado segue por indução.
+
 
 \end{enumerate}
 \end{proof}
