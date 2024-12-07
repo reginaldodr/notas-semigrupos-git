@@ -581,12 +581,14 @@ Portanto, $D(A^n)$ também é subespaço. Logo, por indução, segue o resultado
 
 \item Teorema \ref{th-der} garante a validade para $n=1$. 
 
+\begin{tcolorbox}
 \noindent\textbf{Hipótese de Indução:} Suponha que, para algum $k>1$,
 
 \noindent Se $x \in {D}\left(A^k\right)$, então $S(t) x \in {D}\left(A^k\right), \forall t \geq 0$ e
 \[
 \frac{d^k}{d t^k} S(t) x=A^k S(t) x=S(t) A^k x
 \]
+\end{tcolorbox}
 
 Vamos mostrar que é válido para $n=k+1$. De fato, se \underline{$x\in D(A^{k+1})$}, por definição, $x\in D(A^k)$ e $y=A^kx\in D(A)$. Aplicando-se o  Teorema \ref{th-der} a $y$, temos que $S(t)A^kx=S(t)y\in D(A)$.  Da Hipótese de Indução, temos que $S(t)x\in D(A^k)$ e $A^kS(t)x=S(t)A^kx\in D(A)$, portanto \underline{$S(t)x\in D(A^{k+1})$}. Além disso, da identidade \eqref{eq-der}, temos que
 \[
@@ -607,21 +609,31 @@ Portanto,
 O que prova a identidade \eqref{id-dern} para $n={k+1}$. Logo, o resultado segue pelo princípio da indução finita.
 
 \item Este resultado também segue por indução. Para $n=1$ é simplesmente a identidade \eqref{TFC1}. 
-Para $n=2$, vamos aplicar a integração por partes.
+
+\begin{tcolorbox}
+\noindent\textbf{Hipótese de Indução:} Suponha que, para algum $m>1$, se $x \in {D}\left(A^m\right)$, então vale a fórmula de Taylor:
+\[
+S(t) x=\sum_{k=0}^{m-1} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{(m-1)!} \int_a^t(t-\tau)^{m-1} A^m S(\tau) x d \tau
+\]
+\end{tcolorbox}
+Vamos mostrar que também vale para $n=m+1$. Par isso, vamos fazer uma integação por partes e usar a fórmula do item $(ii)$. 
 \begin{align*}
-\int_a^t (t-\tau)A^2S(t)x\,d\tau& \stackrel{(ii)}{=}\int_a^t (t-\tau)\frac{d^2}{d\tau^2}S(t)x\,d\tau\\
-& =(t-\tau)\frac{d}{dt}S(t)x\Big\vert_{\tau=a}^{\tau=t}-\int_a^t -\frac{d}{d\tau}S(t)x\, d\tau\\
-& \stackrel{(ii)}{=}(t-\tau)AS(t)x\Big\vert_{\tau=a}^{\tau=t}-\int_a^t -AS(t)x\\
-& =-(t-\tau)AS(a)x+\int_a^t AS(t)x\,d\tau\\
-& \stackrel{n=1}{=}-(t-\tau)AS(a)x+S(t)x-S(t)a, 
+&\frac{1}{m!}\int_a^t (t-\tau)^mA^{m+1}S(t)x\,d\tau\\
+& \quad \stackrel{(ii)}{=}\frac{1}{m!}\int_a^t (t-\tau)^m\frac{d^{m+1}}{d\tau^{m+1}}S(t)x\,d\tau\\
+&\quad =\frac{1}{m!}(t-\tau)^m\frac{d^m}{dt^m}S(t)x\Big\vert_{\tau=a}^{\tau=t}-\frac{1}{m!}\int_a^t -m(t-\tau)^{m-1}\frac{d^m}{dt^m}S(t)x\, d\tau\\
+&\quad \stackrel{(ii)}{=}\frac{1}{m!}(t-\tau)^mA^mS(t)x\Big\vert_{\tau=a}^{\tau=t}
++\frac{1}{(m-1)!}\int_a^t (t-\tau)^{m-1} A^mS(t)x\\
+&\quad =-\frac{1}{m!}(t-a)^mA^mS(a)x+\frac{1}{(m-1)!}\int_a^t (t-\tau)^{m-1} A^mS(t)x\\
+\shortintertext{(Hipótese de Indução)}
+&\quad= -\frac{1}{m!}(t-a)^mA^mS(a)x+S(t)x-\sum_{k=0}^{m-1} \frac{(t-a)^k}{k!} A^k S(a) x\\
+&\quad= S(t)x-\sum_{k=0}^{m} \frac{(t-a)^k}{k!} A^k S(a) x.
 \end{align*}
-donde obtemos o caso $n=2$,
-\begin{equation*}
-S(t)x=S(t)a+(t-\tau)AS(a)x+\int_a^t (t-\tau)A^2S(t)x\,d\tau.
-\end{equation*}
-Para obter o caso $n=3$, basta integrar novamente por partes a integral
-\[\int_a^t (t-\tau)^2A^3S(t)x\,d\tau.\]
-E assim, por diante o resultado segue por indução.
+Logo, 
+\[
+S(t)x=\sum_{k=0}^{m} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{m!}\int_a^t (t-\tau)^mA^{m+1}S(t)x\,d\tau,
+\]
+como queríamos.
+
 
 
 \end{enumerate}
