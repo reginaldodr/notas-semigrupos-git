@@ -8,4 +8,4 @@ Posteriormente pretendemos ampliá-las para que se tornem notas de aulas para um
 [Semigrupos de Operadores Lineares](notas-semigrupo.pdf)
 
 Para mais informações sobre o minicurso e a disciplina acessem: 
-[Disciplinas](https://reginaldodr.github.io/academic/teaching.html)
+[Disciplinas](https://reginaldodr.github.io/academic/semigrupos/minicurso-2025-verao.html)
