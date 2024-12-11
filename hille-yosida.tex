@@ -1,8 +1,11 @@
 \section{Geração de Semigrupos}
 
 \begin{definition}
-Seja $X$ um espaço normado e $A:X\longrightarrow X$ um operador linear. Definimos o conjunto \dt{resolvente de $A$} por
-\begin{equation*}
-\rho(A):=\{\lambda \in \mathbb{C};\ \}
-\end{equation*}
+Seja $X$ um espaço normado e $A:X\longrightarrow X$ um operador linear. O conjunto \dt{resolvente de $A$}, \index{Resolvente!conjunto} denotado por $\rho(A)$, é o conjunto de todos os $\lambda\in \mathbb{C}$ tais que:
+\begin{itemize}
+    \item $\lambda \id -A$ é invertível;
+    \item $R(\lambda,A):=(\lambda \id -A)^{-1}$, chamado de \dt{operador resolvente} \index{Resolvente!operador} de $A$, é limitado e tem domínio denso em $X$.
+\end{itemize}
+O conjunto $\sigma(A)=\mathbb{C}\setminus\rho(A)$ é dito \dt{espectro} \index{Espectro} de $A$.
+
 \end{definition}
