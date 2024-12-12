@@ -1,12 +1,116 @@
-\section{Geração de Semigrupos}
+\section{Teorema de Hille-Yosida}
+
+
 
 \begin{definition}
-Seja $X$ um espaço normado e $A:D(A)\subset X\longrightarrow X$ um operador linear. O conjunto \dt{resolvente de $A$}, \index{Resolvente!conjunto} denotado por $\rho(A)$, é o conjunto de todos os $\lambda\in \mathbb{C}$ tais que:
-\begin{itemize}
-    \item $\lambda \id -A$ é injetor;
-	\item $\operatorname{Im}(\lambda \id-A)$ é denso em $X$;
-    \item $R(\lambda,A):=(\lambda \id -A)^{-1}$, chamado de \dt{operador resolvente} \index{Resolvente!operador} de $A$, é limitado.
-\end{itemize}
-O conjunto $\sigma(A)=\mathbb{C}\setminus\rho(A)$ é dito \dt{espectro} \index{Espectro} de $A$.
+Seja $X$ um espaço de Banach e $A:D(A)\subset X\longrightarrow X$ um operador linear fechado. Chamamos de \dt{resolvente de $A$}, \index{Resolvente!conjunto} o seguinte conjunto
+\[\rho(A)=\{\lambda \in \mathbb{C};\ \lambda \id -A \text{ é bijetor }\}\]
+%O conjunto \dt{resolvente de $A$}, \index{Resolvente!conjunto} denotado por $\rho(A)$, é o conjunto de todos os $\lambda\in \mathbb{C}$ tais que:
+%\begin{itemize}
+%    \item $\lambda \id -A$ é bijetor;
+%    \item $R(\lambda,A):=(\lambda \id -A)^{-1}: X\to $, chamado de \dt{operador resolvente} \index{Resolvente!operador} de $A$, é limitado.
+%\end{itemize}
+O conjunto $\sigma(A)=\mathbb{C}\setminus\rho(A)$ é dito \dt{espectro} \index{Espectro} de $A$. Para cada $\lambda\in \rho(A)$, definimos o  \dt{operador resolvente} \index{Resolvente!operador} por
+\[R(\lambda,A):=(\lambda \id -A)^{-1}: X\longrightarrow D(A).\]
+O qual, pelo Teorema do Gráfico fechado, é um operador linear limitado. 
 
 \end{definition}
+
+\begin{theorem}[Hille-Yosida]
+Seja $X$ um espaço de Banach. Um operador linear $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de um \underline{semigrupos de contrações} se, e somente se, 
+\begin{enumerate}[$(i)$]
+\item $A$ é fechado e densamente definido, i.e., $\overline{D(A)}=X$. 
+\item $(0,+\infty)\subset \rho(A)$ e para todo $\lambda>0$
+\begin{equation*}
+\nl{R(\lambda,A)}\leq \frac{1}{\lambda}.
+\end{equation*}
+\end{enumerate}
+\end{theorem}
+
+A prova deste teorema será divida em  lemas.
+
+\begin{lemma}[Condição Necessária]
+Seja $A$ o gerador infinitesimal de um semigrupo de contrações. Então $A$ é fechado e densamente definido. Além disso, $(0,+\infty)\subset \rho(A)$, 
+\[R(\lambda,A)x=\displaystyle\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi,\] 
+e $\nl{R(\lambda, A)}\leq \displaystyle\frac{1}{\lambda}$.
+\end{lemma}
+\begin{proof} Da Proposição \ref{Afd}, temos que $A$ é fechado e densamente definido.
+
+Dados $x\in X$ e $\lambda>0$ defina
+\begin{equation*}
+L_\lambda x =\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi.
+\end{equation*}
+Primeiramente, vejamos que $L_\lambda x$ está bem definida. 
+Para isso, vamos usar o Teste de Weierstrass
+(Proposição \ref{TWeierstrass}). Do Corolário \ref{Scontinua}, temos que a função
+\begin{equation*}
+(t,\lambda)\in [0,+\infty)\times (0,+\infty)\longmapsto e^{-\lambda t}S(t)x\in  X,
+\end{equation*}
+é contínua em $t$ para cada $\lambda\in (0,+\infty)$. 
+
+Como $S$ é um semigrupo de contrações, temos que
+\begin{equation*}
+\|e^{-\lambda t}S(t)x\| =e^{-\lambda t}\|S(t)x\|\leq e^{-\lambda t}\|x\|
+\leq e^{-t}\|x\| =:M(t), 
+\; \forall\ (t,\lambda)\in [0,+\infty)\times (0,+\infty)
+\end{equation*}
+Além disso, 
+\begin{align*}
+ \int_0^\infty M(t)\, dt& =\int_0^\infty e^{-t}\|x\|\, dt
+=\|x\| \int_0^\infty e^{- t}\, dt 
+=\|x\|\lim_{b\to +\infty} \int_0^b e^{-t}\, dt\\
+& =\|x\|\lim_{b\to +\infty}-e^{-t}\Big\vert_{t=0}^{t=b} =\|x\|\lim_{b\to +\infty}\left(1-e^{-b}\right)={\|x\|}<+\infty.
+\end{align*}
+Portanto, pelo Teste de Weierstrass, $L_\lambda$ está bem definida. Claro que $L_\lambda$ é linear e além disso, procedendo como acima, 
+\begin{align*}
+\left\|L_\lambda x\right\|& \leq \int_0^\infty\|e^{-\lambda t}S(t)x\|\,dt\leq
+\int_0^\infty e^{-\lambda t}\|x\|\,dt\\
+& = \frac{\|x\|}{\lambda}\lim_{b\to +\infty}-e^{-\lambda t}\Big\vert_{t=0}^{t=b}
+=\frac{\|x\|}{\lambda},
+\end{align*}
+isto é, $L_\lambda$ define um operador linear limitado em $X$ e 
+$\nl{L_\lambda}\leq \frac{1}{\lambda}$.
+
+Resta mostrar que  $L_\lambda= R(\lambda,A)$, isto é, devemos mostrar que
+\begin{enumerate}
+\item $\forall\, x\in X,\ L_\lambda x\in D(A)$ e $(\lambda \id-A)L_\lambda x=x$, i.e., $A\left(L_\lambda x\right)=L_\lambda x -x$.
+\item $\forall\, x\in D(A),$ $L_\lambda(\lambda \id-A)x=x$, i.e., $L_\lambda(Ax)=\lambda L_\lambda x-x$.
+\end{enumerate}
+
+De fato, dado $x\in X$, seja $h>0$, como $A_h\in \mathcal{L}$, temos que
+\begin{align*}
+A_h(L_\lambda x)& =A_h\left(\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi\right)
+=\frac{1}{h}\int_0^\infty (S(h)-\id) e^{-\lambda \xi}S(\xi)x\, d\xi\\
+&= \frac{1}{h}\int_0^\infty e^{-\lambda \xi}S(\xi+h)x\, d\xi- 
+\frac{1}{h}\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi\\
+\shortintertext{(Fazendo a mudança $s=\xi+h$ na primeira integral e trocando $\xi$ por $s$ na segunda)}
+& = \frac{1}{h}\int_h^\infty e^{-\lambda (s-h)}S(s)x\, ds- 
+\frac{1}{h}\int_0^\infty e^{-\lambda s}S(s)x\, ds\\
+& = \frac{e^{\lambda h}}{h}\int_h^\infty e^{-\lambda s}S(s)x\, ds- 
+\frac{1}{h}\int_0^\infty e^{-\lambda s}S(s)x\, ds\\
+& = \frac{e^{\lambda h}}{h}\left(\int_0^\infty e^{-\lambda s}S(s)x\, ds
+-\int_0^h e^{-\lambda s}S(s)x\, ds\right)- 
+\frac{1}{h}\int_0^\infty e^{-\lambda s}S(s)x\, ds\\
+& = \frac{e^{\lambda h}-1}{h}\int_0^\infty e^{-\lambda s}S(s)x\, ds
+-\frac{e^{\lambda h}}{h}\int_0^h e^{-\lambda s}S(s)x\, ds\\
+&= \frac{e^{\lambda h}-1}{h}L_\lambda x
+-\frac{e^{\lambda h}}{h}\int_0^h e^{-\lambda s}S(s)x\, ds
+\end{align*}
+Com isso, 
+\begin{align*}
+A\left(L_\lambda x\right)&=\lim_{h\to0^+}A_h(L_\lambda x) =\lim_{h\to0^+}\left(\frac{e^{\lambda h}-1}{h}
+L_\lambda x-e^{\lambda h}\frac{1}{h}\int_0^h
+e^{-\lambda s}S(s)x\, ds\right)\\
+& =\frac{d}{dh}e^{\lambda h}\Big\vert_{h=0}
+L_\lambda x-\lim_{h\to0^+}\left(e^{\lambda h}\underbrace{\frac{1}{h}\int_0^h
+\overbrace{e^{-\lambda s}S(s)x}^{\text{contínua}}\, ds}_{\to\; x}\right)\\
+& =\lambda
+L_\lambda x-x,
+\end{align*}
+o que prova o o item 1.
+
+
+
+
+
+\end{proof}

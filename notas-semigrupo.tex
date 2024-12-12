@@ -66,6 +66,8 @@ lang={brazilian},
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\R}{\mathbb{R}}				      % conjunto dos reais
+\newcommand{\C}{\mathbb{C}}	
+\renewcommand{\Re}{\operatorname{Re}}	
 \newcommand{\dt}[1]{{\color{blue}\textbf{#1}}}
 \newcommand{\ep}{\varepsilon}
 \newcommand{\id}{\operatorname{\!I}}
@@ -159,6 +161,7 @@ Semigrupos de Operadores Lineares \copyright 2025 by Reginaldo Demarque and Luiz
 %%%%%       PÁGINAS PRÉ-TEXTUAIS
 %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
 \tableofcontents
 %----------------------------------------------------------------------
 %                         ESTILO DA PÁGINA
@@ -182,10 +185,15 @@ Semigrupos de Operadores Lineares \copyright 2025 by Reginaldo Demarque and Luiz
 %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\mainmatter
 \include{preliminares}
 \include{semigrupoC0}
 \include{hille-yosida}
+\appendix
+\include{apendiceA}
 
+\backmatter
 \bibliographystyle{acm}
 \bibliography{bibliografia}
 \addcontentsline{toc}{chapter}{Bibliografia}
