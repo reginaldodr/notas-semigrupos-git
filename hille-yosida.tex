@@ -17,7 +17,8 @@ O qual, pelo Teorema do Gráfico fechado, é um operador linear limitado.
 \end{definition}
 
 \begin{theorem}[Hille-Yosida]
-Seja $X$ um espaço de Banach. Um operador linear $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de um \underline{semigrupos de contrações} se, e somente se, 
+Seja $X$ um espaço de Banach. Um operador linear $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de um 
+\textbf{semigrupos de contrações} se, e somente se, 
 \begin{enumerate}[$(i)$]
 \item $A$ é fechado e densamente definido, i.e., $\overline{D(A)}=X$. 
 \item $(0,+\infty)\subset \rho(A)$ e para todo $\lambda>0$
@@ -96,21 +97,34 @@ A_h(L_\lambda x)& =A_h\left(\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi\right)
 &= \frac{e^{\lambda h}-1}{h}L_\lambda x
 -\frac{e^{\lambda h}}{h}\int_0^h e^{-\lambda s}S(s)x\, ds
 \end{align*}
-Com isso, 
+Aplicando-se o limite quando $h\to0^+$, obtemos
 \begin{align*}
 A\left(L_\lambda x\right)&=\lim_{h\to0^+}A_h(L_\lambda x) =\lim_{h\to0^+}\left(\frac{e^{\lambda h}-1}{h}
 L_\lambda x-e^{\lambda h}\frac{1}{h}\int_0^h
 e^{-\lambda s}S(s)x\, ds\right)\\
 & =\frac{d}{dh}e^{\lambda h}\Big\vert_{h=0}
-L_\lambda x-\lim_{h\to0^+}\left(e^{\lambda h}\underbrace{\frac{1}{h}\int_0^h
-\overbrace{e^{-\lambda s}S(s)x}^{\text{contínua}}\, ds}_{\to\; x}\right)\\
+L_\lambda x-\lim_{h\to0^+}
+\bigg(e^{\lambda h}\underbrace{\frac{1}{h}\int_0^h
+\overbrace{e^{-\lambda s}S(s)x}^{\text{contínua}}\,
+ ds}_{\substack{\downarrow \\ x}}\bigg)\\[-1em]
 & =\lambda
 L_\lambda x-x,
 \end{align*}
-o que prova o o item 1.
-
-
-
-
-
+o que prova o o item 1. Agora vamos provar o item 2. Dado $x\in D(A)$, 
+\begin{align*}
+L_\lambda(A)x& =\int_0^{\infty}e^{-\lambda
+ \xi}S(\xi)Ax\,d\xi=\int_0^{\infty}e^{-\lambda
+ \xi}\frac{d}{d\xi}S(\xi)x\,d\xi\\
+& =\int_0^{\infty}\frac{d}{d\xi}\left(e^{-\lambda
+ \xi}S(\xi)x\right)+\lambda e^{-\lambda
+ \xi}S(\xi)x \,d\xi\\
+& =\lim_{b\to +\infty}\left(e^{-\lambda
+ \xi}S(\xi)x\big\vert_{\xi=0}^{\xi=b}\right)+\lambda \int_0^{\infty}e^{-\lambda
+ \xi}S(\xi)x \,d\xi\\
+& =\lim_{b\to +\infty}\left(e^{-\lambda
+ b}S(b)x\right)-x+\lambda L_\lambda x\\
+\shortintertext{(como $S$ é uma contração, $\|e^{-\lambda b}S(b)x\|\leq e^{-\lambda b}\|x\|\to 0$, quando $b\to +\infty$)}
+& =-x+\lambda L_\lambda x,
+\end{align*}
+como queríamos.
 \end{proof}
