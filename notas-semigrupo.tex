@@ -28,6 +28,8 @@
 \usepackage{tikz}
 \usepackage{tcolorbox}
 
+\usepackage[nodayofweek]{datetime}
+
 
 % \setlength{\topmargin}{0in} \setlength{\headsep}{1cm}
 % \setlength{\textwidth}{6.5in} \setlength{\textheight}{8.5in}
@@ -132,7 +134,12 @@ x(t)=e^{t\color{red}A}x_0+\int_0^t e^{(t-s)}{\color{red}A}f(s)ds
 % {\footnotesize Departamento de Ciências da Natureza, Universidade Federal Fluminense, Rio das Ostras, RJ.}
 \vfill
 % Bottom of the page
-{\large Niterói, 2025}
+
+{\large Niterói, 2024}
+
+% Un-adjusted
+[Compilado \today, \currenttime] 
+\par
 \end{center}
 \end{titlepage}
 
