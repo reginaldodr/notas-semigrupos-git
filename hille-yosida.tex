@@ -12,11 +12,29 @@ Seja $X$ um espaço de Banach e $A:D(A)\subset X\longrightarrow X$ um operador l
 %\end{itemize}
 O conjunto $\sigma(A)=\mathbb{C}\setminus\rho(A)$ é dito \dt{espectro} \index{Espectro} de $A$. Para cada $\lambda\in \rho(A)$, definimos o  \dt{operador resolvente} \index{Resolvente!operador} por
 \[R(\lambda,A):=(\lambda \id -A)^{-1}: X\longrightarrow D(A).\]
-O qual, pelo Teorema do Gráfico fechado, é um operador linear limitado. 
+O qual, pelo Teorema do Gráfico fechado, é um operador linear limitado.
+
+
+Note que, se $\lambda \in \rho(A)$, então para todo $x\in X$ 
+\begin{equation*}
+(\lambda \id -A)R(\lambda,A)x=x\Rightarrow \lambda \rla x-x=A\rla x.
+\end{equation*}
+Analogamente, se $x\in D(A)$, então
+\begin{equation*}
+R(\lambda,A)(\lambda \id -A)x=x\Rightarrow \lambda \rla x-x=\rla Ax.
+\end{equation*}
+Destas duas equações, podemos concluir que
+\begin{equation}\label{RAAR}
+A\rla x=\lambda \rla x-x=\rla Ax,\; \forall\, x\in D(A).
+\end{equation}
+
+\begin{xca}
+Prove que se $\lambda, \mu\in \rho(A)$, então $\rla$ e $R(\mu,A)$ comutam.
+\end{xca}
 
 \end{definition}
 
-\begin{theorem}[Hille-Yosida]
+\begin{theorem}[Hille-Yosida]\label{HY-contr}
 Seja $X$ um espaço de Banach. Um operador linear $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de um 
 \textbf{semigrupos de contrações} se, e somente se, 
 \begin{enumerate}[$(i)$]
@@ -128,3 +146,81 @@ L_\lambda(A)x& =\int_0^{\infty}e^{-\lambda
 \end{align*}
 como queríamos.
 \end{proof}
+
+\begin{lemma} Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. Então
+\begin{equation*}
+\lim_{\lambda \to +\infty} \lambda\rla x=x, \; \forall\,x\in X.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+Se $x\in D(A)$, da identidade \eqref{RAAR}, temos que
+\begin{equation*}
+\|\lambda \rla x-x\|=\|\rla Ax\|\leq \frac{1}{\lambda}\|Ax\|\to 0\; 
+\text{ quando } \lambda\to +\infty.
+\end{equation*}
+Agora, \underline{dado $x\in X$}, \underline{para cada $\ep>0$}, como $D(A)$ é denso em $X$, tome $y\in D(A)$ tal que
+\[\|y-x\|< \frac{\ep}{4}.\]
+E, da convergência anterior, como $y\in D(A)$,\underline{ existe $\lambda_0>0$ tal que se
+$\lambda >\lambda_0$}, então
+\begin{equation*}
+\|\lambda \rla y-y\|< \frac{\ep}{2}.
+\end{equation*}
+Com isso, 
+\begin{align*}
+\underline{\|\lambda \rla x-x\|}& \leq \|\lambda \rla x-\lambda\rla y\|
++\|\lambda \rla y-y\|+\|y-x\|\\
+& < \lambda \|\rla (x-y)\|+ \frac{\ep}{2}+\frac{\ep}{4}\\
+& \leq \|x-y\|+ \frac{3\ep}{4}\\
+&< \frac{\ep}{4}+\frac{3\ep}{4}=\underline{\ep}\\
+\end{align*}
+\end{proof}
+
+\begin{definition}
+Para cada $\lambda \in (0,+\infty) \cap \rho(A)$, definimos o operador $A_\lambda: X\longrightarrow X$, chamado \dt{aproximação de Yosida}\index{Aproximação de Yosida} de $A$, por 
+\begin{equation*}
+A_\lambda :=\lambda A\rla =\lambda^2\rla -\lambda \id\in \mathcal{L}(X).
+\end{equation*}
+\end{definition}
+
+\begin{lemma}
+ Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. 
+Se $A_\lambda$ é a aproximação de Yosida do operador $A$, então
+\begin{equation*}
+\lim_{\lambda \to +\infty}A_\lambda x=Ax,\; \forall\, x\in D(A).
+\end{equation*}
+\end{lemma}
+\begin{proof}
+Se $x\in D(A)$, então, de \eqref{RAAR} e do Lema anterior, temos que
+\begin{equation*}
+\lim_{\lambda \to +\infty}A_\lambda x=\lim_{\lambda \to +\infty}\lambda\rla Ax=Ax
+\end{equation*}
+\end{proof}
+
+\begin{lemma}
+Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. Se $A_\lambda$ é  aproximação de Yosida de $A$, então $A_\lambda$ é o gerador infinitesimal de um semigrupo uniformemente contínuo de contrações $e^{tA_\lambda}$. Além disso, para cada $x\in X$, $\lambda,\mu>0$ temos que
+\begin{equation*}
+\left\|e^{tA_\lambda}x-e^{tA_\mu}x\right\|\leq t\|A_\lambda x-A_\mu x\|.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+Como $A_\lambda \in \mathcal{L}(X)$, então $A_\lambda$ é o gerador infinitesimal do semigrupo uniformemente contínuo $e^{tA_\lambda}$. Além disso,
+\begin{equation*}
+\left\|e^{tA_\lambda}\right\|=\left\|e^{t\lambda^2\rla-t\lambda \id}\right\|
+=e^{-t\lambda }\left\|e^{t\lambda^2\rla}\right\|
+\leq e^{-t\lambda }e^{t\lambda^2\left\|\rla\right\|}
+\leq e^{t\lambda }e^{-t\lambda }=1,
+\end{equation*}
+portanto, um semigrupo de contrações.
+
+Das definições de $A_\lambda$, $A_\mu$, $e^{tA_\lambda}$ e $e^{tA_\mu}$ comutam. Consequentemente,
+\end{proof}
+
+
+
+
+
+
+
+
+
+
