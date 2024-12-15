@@ -50,29 +50,29 @@ Veja em \cite[Theorem A3.2]{kesavan2015topics}
 \end{proof}
 
 \begin{proposition}
-Se $u:[a,b]\longrightarrow X$ é {contínua}, então
+Se $u:[a,a+h]\longrightarrow X$ é {contínua}, então
 \begin{equation}\label{ineq.VM}
-\lim\limits_{b\to a^+} \frac{1}{b-a}\int_a^b u(t)\,dt = u(a).
+\lim\limits_{h\to 0^+} \frac{1}{h}\int_a^{a+h} u(t)\,dt = u(a).
 \end{equation}
 \end{proposition}
 \begin{proof}
-A função  $f:t\in [a,b]\longmapsto \|u(t)-u(a)\|\in \R$ é contínua. Pelo Teorema do Valor Médio para integrais, existe $c\in [a,b]$ tal que 
+A função  $f:t\in [a,a+h]\longmapsto \|u(t)-u(a)\|\in \R$ é contínua. Pelo Teorema do Valor Médio para integrais, existe $\xi_h\in [a,a+h]$ tal que 
 \[
-\frac{1}{b-a}\int_a^b f(t)\,dt=f(c).
+\frac{1}{h}\int_a^{a+h} f(t)\,dt=f(\xi_h).
 \]
-Como $a\leq c\leq b$, se $b\to a^+$, então $c\to a^+$. Neste caso, 
+Como $a\leq \xi_h\leq a+h$, se $h\to 0^+$, então $\xi_h\to a^+$. Neste caso, 
 \[
-\lim_{b\to a^+}\frac{1}{b-a}\int_a^b f(t)\,dt=\lim_{b\to a^+}f(c)=f(a).
+\lim_{h\to 0^+}\frac{1}{h}\int_a^{a+h} f(t)\,dt=\lim_{h\to 0^+}f(\xi_h)=f(a).
 \]
 Isto é, 
 \begin{equation*}
-\lim_{b\to a^+}\frac{1}{b-a}\int_a^b \|u(t)-u(a)\|\,dt=0.
+\lim_{h\to 0^+}\frac{1}{h}\int_a^{a+h} \|u(t)-u(a)\|\,dt=0.
 \end{equation*}
 Assim, 
 \begin{align*}
-\lim_{b\to a^+}\left\|\frac{1}{b-a}\int_a^b u(t)\,dt -u(a)\right\|& =
-\lim_{b\to a^+}\left\|\frac{1}{b-a}\int_a^b u(t)-u(a)\,dt\right\|\\
-&\leq \lim_{b\to a^+}\frac{1}{b-a}\int_a^b\left\| u(t)-u(a)\right\|\,dt
+\lim_{h\to 0^+}\left\|\frac{1}{h}\int_a^{a+h} u(t)\,dt -u(a)\right\|& =
+\lim_{h\to 0^+}\left\|\frac{1}{h}\int_a^{a+h} u(t)-u(a)\,dt\right\|\\
+&\leq \lim_{h\to 0^+}\frac{1}{h}\int_a^{a+h}\left\| u(t)-u(a)\right\|\,dt
 =0.
 \end{align*}
 O que é equivalente à identidade \eqref{ineq.VM}.
