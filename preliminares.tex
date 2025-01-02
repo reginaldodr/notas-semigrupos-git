@@ -53,7 +53,7 @@ Em um espaço normado $(X,\|\cdot\|)$, valem:
     \[
     \displaystyle \|\cdot \|_2 : (x_1,\cdots , x_n) \in \mathbb K^n \longmapsto \sum_{j=1}^{n} |x_j| \in \R 
     \]
-    são normas e $\mathbb K ^n$.
+    são normas em $\mathbb K ^n$.
 \end{example}
 
 \begin{example}\label{limitadas}
@@ -275,14 +275,20 @@ Sejam $X$ e $Y$ dois espaços normados. Não é difícil constatar que:
 \end{remark}
 
 \begin{definition}
-Sejam $X$ e $Y$ dois espaços normados. Uma aplicação linear $T:X \longrightarrow Y$ é dita \textbf{limitada} se 
-\[
-\displaystyle \sup_{x\in X\setminus \{0\}} \frac{\|T(x)\|_Y}{\|x\|_X} <\infty.
-\]
+Sejam $X$ e $Y$ dois espaços normados. Uma aplicação linear $T:X 
+\longrightarrow Y$ é dita \dt{limitada} \index{Operador Linear!limtado} 
+se 
+\begin{equation}\label{ltdo}
+\sup_{x\in X\setminus \{0\}} \frac{\|T(x)\|_Y}{\|x\|_X} 
+<\infty.
+\end{equation}
+
 \end{definition}
 
 \begin{remark}
-Sejam $X$ e $Y$ dois espaços normados. Em virtude da Proposição \ref{continuous}, uma aplicação linear $T:X\longrightarrow Y$ é contínua se, e somente se, é limitada. 
+Sejam $X$ e $Y$ dois espaços normados. Em virtude da Proposição 
+\ref{continuous}, uma aplicação linear $T:X\longrightarrow Y$ é contínua 
+se, e somente se, é limitada. 
 \end{remark}
 
 \begin{example}
@@ -341,7 +347,7 @@ Se $X$ é um espaço métrico, então cada subespaço fechado $M$ de $X$ é tamb
 \end{remark}
 
 \begin{example}
-Dado um inteiro positivo $n$, $\mathbb K ^n$ é um espaço de Banach com a norma $\|\cdot\|_0$ do Exemplo \ref{ex21}. Na verdade, como as normas $\| \cdot\|_0$, $\| \cdot\|_1$ e $\| \cdot\|_2$ são duas a duas equivalentes, $(\mathbb K ^n ,$\| \cdot\|_j )$ é um espaço de Banach para todo $j\in \{1,2,3\}$. 
+Dado um inteiro positivo $n$, $\mathbb K ^n$ é um espaço de Banach com a norma $\|\cdot\|_0$ do Exemplo \ref{ex21}. Na verdade, como as normas $\| \cdot\|_0$, $\| \cdot\|_1$ e $\| \cdot\|_2$ são duas a duas equivalentes, $(\mathbb K ^n ,\| \cdot\|_j )$ é um espaço de Banach para todo $j\in \{1,2,3\}$. 
 \end{example}
 
 \begin{example}
@@ -355,14 +361,13 @@ Dado um conjunto $A\neq \emptyset$, não  é difícil constatar que $\mathcal B 
 \section{Operadores Lineares Ilimitados}
 
 Sejam $X$ e $Y$ dois espaços de Banach. Seja $A:D(A)\subset X\longrightarrow Y$ um operador linear,  onde $D(A)$ é um subespaço de $X$, chamado de \dt{domínio}\index{Operador Linear!domínio} de $A$.
-\medskip
-Dizemos que $A$ é \dt{limitado (ou contínuo)} \index{Operador Linear!limtado} se $D(A)=X$ e se existe  $C>0$ tal que 
-\begin{equation}\label{ltdo}
-\|Ax\|_{Y}\leq C\|x\|_X, \ \forall x\in X.
-\end{equation}
-Denotaremos por $\mathcal{L}(X,Y)$ o espaço de Banach dos \dt{operadores lineares limitados} com norma dada por
-\[\|A\|_{_{\mathcal{L}(X,Y)}}=\sup\limits_{x\in X, x\neq 0}\frac{\|Ax\|_{_Y}}{\|x\|_{_X}},\]
-por $\mathcal{L}(X)=\mathcal{L}(X,X)$ e $X'=\mathcal{L}(X,\R)$.
+%Dizemos que $A$ é \dt{limitado (ou contínuo)}  se $D(A)=X$ e se existe  $C>0$ tal que 
+%\begin{equation}\label{ltdo}
+%\|Ax\|_{Y}\leq C\|x\|_X, \ \forall x\in X.
+%\end{equation}
+%Denotaremos por $\mathcal{L}(X,Y)$ o espaço de Banach dos \dt{operadores lineares limitados} com norma dada por
+%\[\|A\|_{_{\mathcal{L}(X,Y)}}=\sup\limits_{x\in X, x\neq 0}\frac{\|Ax\|_{_Y}}{\|x\|_{_X}},\]
+%por $\mathcal{L}(X)=\mathcal{L}(X,X)$ e $X'=\mathcal{L}(X,\R)$.
 $A$ é dito ser \dt{ilimitado} \index{Operador Linear!ilimitado} quando não satisfazer \eqref{ltdo}. Dizemos que $A$ é \dt{densamente definito} \index{Operador Linear!desamente definido} se $\overline{D(A)}=X$.
 
 \begin{theorem}[Banach-Steinhaus]\label{th-BS}
