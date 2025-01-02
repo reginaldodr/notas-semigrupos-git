@@ -187,7 +187,7 @@ onde $q=\frac{p}{p-1}$. Multiplicando os membros de \eqref{ineqm} por $\bigg( \s
     Sendo $M$ um espaço métrico, denotemos por $\mathcal C_b (M)$ o subconjunto de $\mathcal B (M)$ formado por todas as funções contínuas e limitadas de $M$ em $\mathbb K$. Não é difícil constatar que $\mathcal C_b (M)$ é um subespaço vetorial fechado de $\mathcal B (M)$.
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex24}
 Denotemos por
 \begin{itemize}
 \item $\textbf{c}$ o conjunto de todas as sequências convergentes em $\mathbb K$;
@@ -361,6 +361,33 @@ Dado um conjunto $A\neq \emptyset$, não  é difícil constatar que $\mathcal B 
 \begin{example}
     Para cada espaço métrico $M$, $\mathcal C _b (M)$, apresentado no \ref{ex23} é um espaço de Banach, uma vez que é um subespaço fechado de $\mathcal B (M)$ (veja a Observação \ref{subespaço}).
 \end{example}
+
+\begin{example}
+O subespaço vetorial $\textbf{c}$ de $\ell_{\infty}$, mencionado no Exemplo \ref{ex24}, é um espaço de Banach, em virtude da Proposição \ref{continuous} e da Observação \ref{subespaço}.
+\end{example}
+
+\begin{example}
+O subespaço de $\textbf{c}_{00}$ de $\ell_{\infty}$, mencionado no Exemplo \ref{ex24}, NÃO é um espaço de Banach. De fato, para cada inteiro $n \geq 1$, consideremos
+\[
+\displaysytle x_n =\bigg( 1,\frac{1}{2}, \frac{1}{3}, \cdots , \frac{1}{n}, 0, 0, 0,\cdots \bigg) \in \textbf{c}_{00}.
+\]
+É fácil ver que $(x_n)_{n=1}^{\infty}$ é uma sequência em $\textbf{c} _{00}$ que converge a 
+\[
+\displaysytle x =\bigg( 1,\frac{1}{2}, \frac{1}{3}, \cdots , \frac{1}{n}, \cdots \bigg) \in \ell_{\infty} \setminus\textbf{c}_{00}.
+\]
+Isto significa que $(x_n)_{n=1}^{\infty}$ é uma sequência de Cauchy em $\textbf{c}_{00}$ que NÃO CONVERGE em $\textbf{c}_{00}$.
+\end{example}
+
+\begin{remark}
+    Aqui enfatizamos algumas observações importantes sobre espaços de Banach:
+\begin{itemize}
+\item[(a)] Sendo $X$ e $Y$ dois espaços normados, para que $\mathcal L (X,Y)$ seja um espaço de Banach, é necessário e suficiente que $Y$ seja completo.
+\item[(b)] Para cada $p\in [1,\infty )$, $\ell_p$ é um espaço de Banach.
+\item[(c)] Para que um espaço normado $X$ seja completo, é necessário e suficiente que toda série absolutamente convergente em $X$ seja convergente.
+\end{itemize}
+\end{remark}
+
+\section{Espaços normados de dimensão finita}
 
 \section{Operadores Lineares Ilimitados}
 
