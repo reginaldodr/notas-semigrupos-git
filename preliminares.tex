@@ -18,7 +18,7 @@ e
 \]
 respectivamente, onde $a\in M$ e $r>0$.
 
-\begin{definition}
+\begin{definition}\label{norma}
     Seja $X$ um $\mathbb K$-espaço vetorial. Uma aplicação
     \[
     \displaystyle \| \cdot \|: X\longrightarrow \R
@@ -41,7 +41,7 @@ Em um espaço normado $(X,\|\cdot\|)$, valem:
     \end{itemize}
 \end{remark}
 
-\begin{example}
+\begin{example}\label{ex21}
     Dado um número inteiro positivo $n$, não é difícil verificar que
     \[
     \displaystyle \|\cdot \|_0 : (x_1,\cdots , x_n) \in \mathbb K^n \longmapsto \bigg( \sum_{j=1}^{n} |x_j|^2\bigg)^{1/2} \in \R ,
@@ -183,7 +183,7 @@ onde $q=\frac{p}{p-1}$. Multiplicando os membros de \eqref{ineqm} por $\bigg( \s
     Assim, sendo imediata a boa definição da multiplicação por escalar em $\ell_p$, também declarada no Exemplo \ref{lp}, resulta que $(\ell_p , \|\cdot\|_p)$ é um espaço vetorial normado.
 \end{corollary}    
 
-\begin{example}
+\begin{example}\label{ex23}
     Sendo $M$ um espaço métrico, denotemos por $\mathcal C_b (M)$ o subconjunto de $\mathcal B (M)$ formado por todas as funções contínuas e limitadas de $M$ em $\mathbb K$. Não é difícil constatar que $\mathcal C_b (M)$ é um subespaço vetorial fechado de $\mathcal B (M)$.
 \end{example}
 
@@ -290,10 +290,67 @@ Sejam $X$ e $Y$ dois espaços normados. Vejamos que
 \[
 T\in \mathcal L (X,Y) \longmapsto \|T\|_{\mathcal L (X,Y)} = \sup_{x\in X\setminus \{0\}} \frac{\|T(x)\|_Y}{\|x\|_X} \in \R
 \]
-é uma norma em $\mathcal L (X,Y)$. De fato,
+é uma norma em $\mathcal L (X,Y)$. De fato, as condições (a), (b) e (c) da Definição \ref{norma} são claras. Além disso, se $T,S\in \mathcal L (X,Y)$, temos
+
+\begin{equation*}
+\displaystyle \|(T+S)(x)\|_Y=\|T(x)+S(x)\|_Y \leq \|T(x)\|_Y +\|S(x)\|_Y \leq (\|T\|_{\mathcal L (X,Y)} + \|S\|_{\mathcal L (X,Y)})\|x\|_X
+\end{equation*}
+para todo $x\in E$, ou seja,
+\begin{equation*}
+    \displaystyle \|T+S\|_{\mathcal L (X,Y)}=\sup_{x\in X\setminus \{0\}} \frac{\|(T+S)(x)\|_Y}{\|x\|_X} \leq \|T\|_{\mathcal L (X,Y)}+\|S\|_{\mathcal L (X,Y)}.
+\end{equation*}
+Assim, temos realmente uma norma em $\mathcal L (X,Y)$.
 \end{example}
 
+\begin{definition}
+Sejam $X$ e $Y$ dois espaços normados. Uma aplicação linear $T:X\longrightarrow Y$ é dita um \textbf{isomorfismo topológico} se for um homeomorfismo. 
+\end{definition}
 
+\begin{definition}
+Sejam $\|\cdot\|_1$ e $\|\cdot\|_2$ duas normas em um mesmo espaço vetorial $X$. Dizemos que tais normas são textbf{equivalentes} se a aplicação identidade
+\[
+\displaystyle I_X : (X,\|\cdot\|_1) \longrightarrow (X,\|\cdot\|_2)
+\]
+for um isomorfismo topológico.
+\end{definition}
+
+\begin{corollary}
+Sejam $\|\cdot\|_1$ e $\|\cdot\|_2$ duas normas em um mesmo espaço vetorial $X$. As seguintes condições são equivalentes:
+\begin{itemize}
+\item[(a)] $\|\cdot\|_1$ e $\|\cdot\|_2$ são equivalentes;
+\item[(b)] Existem constantes $A>0$ e $B>0$ tais que
+\[
+A\|x\|_2 \leq \|x\|_1 \leq \|x\|_2
+\]
+para todo $x\in X$.
+\end{itemize}
+\end{corollary}
+
+\begin{proof}
+Basta aplicar a Proposição \ref{continuous}.
+\end{proof}
+
+\section{Espaços de Banach}
+
+\begin{definition}
+    Seja $X$ um espaço normado. Dizemos que $X$ é um \textbf{espaço de Banach} se ele for um espaço métrico completo com a métrica proveniente da sua norma.
+\end{definition}
+
+\begin{remark}\label{subespaço}
+Se $X$ é um espaço métrico, então cada subespaço fechado $M$ de $X$ é também um espaço de Banach, com a norma induzida pela norma de $X$.
+\end{remark}
+
+\begin{example}
+Dado um inteiro positivo $n$, $\mathbb K ^n$ é um espaço de Banach com a norma $\|\cdot\|_0$ do Exemplo \ref{ex21}. Na verdade, como as normas $\| \cdot\|_0$, $\| \cdot\|_1$ e $\| \cdot\|_2$ são duas a duas equivalentes, $(\mathbb K ^n ,$\| \cdot\|_j )$ é um espaço de Banach para todo $j\in \{1,2,3\}$. 
+\end{example}
+
+\begin{example}
+Dado um conjunto $A\neq \emptyset$, não  é difícil constatar que $\mathcal B (A)$, introduzido no Exemplo \ref{limitadas}, é um espaço de Banach. Em particular, $\ell _{\infty}$ é um espaço de Banach.
+\end{example}
+
+\begin{example}
+    Para cada espaço métrico $M$, $\mathcal C _b (M)$, apresentado no \ref{ex23} é um espaço de Banach, uma vez que é um subespaço fechado de $\mathcal B (M)$ (veja a Observação \ref{subespaço}).
+\end{example}
 
 \section{Operadores Lineares Ilimitados}
 
