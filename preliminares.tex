@@ -240,13 +240,13 @@ para quaisquer $x,y\in X$. Ou seja: $T$ é uma aplicação lipschitziana e, port
     Sejam $X$ e $Y$ dois espaços normados. Denotaremos por $\mathcal L (X,Y)$ o espaço vetorial de todas as transformações lineares de $X$ em $Y$, com as operações de adição e multiplicação por escalar definidas pontualmente. Cabe observar que:
     \begin{itemize}
     \item[(a)] Quando $X=Y$, escreveremos $\mathcal L (X)$ em vez de $\mathcal L (X,X)$;
-    \item[(b)] Quando $Y=\mathbb K$, denotaremos $\mathcal L (X,\mathbb K)$ por $X'$, que é conhecido como \textbf{o dual topológico} de X;
-    \item[(c)] O conjunto de todos os funcionais lineares $\varphi : X\longrightarrow \mathbb K$, contínuos ou não, será denotador por $X^{\ast}$, que é conhecido como \textbf{o dual algébrico} de X.
+    \item[(b)] Quando $Y=\mathbb K$, denotaremos $\mathcal L (X,\mathbb K)$ por $X'$, que é conhecido como \dt{o dual topológico} \index{dual topológico} de X;
+    \item[(c)] O conjunto de todos os funcionais lineares $\varphi : X\longrightarrow \mathbb K$, contínuos ou não, será denotador por $X^{\ast}$, que é conhecido como \dt{o dual algébrico} \index{dual algébrico} de X.
     \end{itemize}
 \end{definition}
 
 \begin{remark}
-Seja $X$ um espaço normado. É sempre verdade que que $X' \subset X^{\ast}$. Além disso, quando $X$ tem dimensão infinita, sempre temos $X'\neq X^{\ast}$. De fato, em virtude do Lema de Zorn, sabemos que $X$ possui uma base (de Hamel)
+Seja $X$ um espaço normado. É sempre verdade que $X' \subset X^{\ast}$. Além disso, quando $X$ tem dimensão infinita, sempre temos $X'\neq X^{\ast}$. De fato, em virtude do Lema de Zorn, sabemos que $X$ possui uma base (de Hamel)
 \[
 \displaystyle \mathcal B = \{ x_i; i\in I\},
 \]
@@ -309,11 +309,11 @@ Assim, temos realmente uma norma em $\mathcal L (X,Y)$.
 \end{example}
 
 \begin{definition}
-Sejam $X$ e $Y$ dois espaços normados. Uma aplicação linear $T:X\longrightarrow Y$ é dita um \textbf{isomorfismo topológico} se for um homeomorfismo. 
+Sejam $X$ e $Y$ dois espaços normados. Uma aplicação linear $T:X\longrightarrow Y$ é dita um \dt{isomorfismo topológico} \index{isomorfismo topológico} se for um homeomorfismo. 
 \end{definition}
 
 \begin{definition}
-Sejam $\|\cdot\|_1$ e $\|\cdot\|_2$ duas normas em um mesmo espaço vetorial $X$. Dizemos que tais normas são textbf{equivalentes} se a aplicação identidade
+Sejam $\|\cdot\|_1$ e $\|\cdot\|_2$ duas normas em um mesmo espaço vetorial $X$. Dizemos que tais normas são \dt{equivalentes} \index{norma!equivalentes} se a aplicação identidade
 \[
 \displaystyle I_X : (X,\|\cdot\|_1) \longrightarrow (X,\|\cdot\|_2)
 \]
@@ -339,7 +339,11 @@ Basta aplicar a Proposição \ref{continuous}.
 \section{Espaços de Banach}
 
 \begin{definition}
-    Seja $X$ um espaço normado. Dizemos que $X$ é um \textbf{espaço de Banach} se ele for um espaço métrico completo com a métrica proveniente da sua norma.
+Seja $X$ um espaço normado. Uma sequência $(x_n)_{n\in \mathbb N}$ em $X$ é dita ser uma \dt{sequência de Cauchy} \index{Sequência de Cauchy} quando para todo $\ep>0$ dado, existe um número $n_0\in \mathbb N$ tal que 
+\begin{equation*}
+    m,n>n_0 \Rightarrow \|x_m-x_n\|< \ep.
+\end{equation*}
+Dizemos que $X$ é um \dt{espaço de Banach} \index{Espaço! de Banach} se ele for completo, isto é, quando toda sequência de Cauchy for  convergente.
 \end{definition}
 
 \begin{remark}\label{subespaço}
