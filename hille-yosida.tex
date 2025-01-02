@@ -204,15 +204,34 @@ Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. S
 \end{lemma}
 \begin{proof}
 Como $A_\lambda \in \mathcal{L}(X)$, então $A_\lambda$ é o gerador infinitesimal do semigrupo uniformemente contínuo $e^{tA_\lambda}$. Além disso,
-\begin{equation*}
-\left\|e^{tA_\lambda}\right\|=\left\|e^{t\lambda^2\rla-t\lambda \id}\right\|
-=e^{-t\lambda }\left\|e^{t\lambda^2\rla}\right\|
+\begin{multline*}
+\left\|e^{tA_\lambda}\right\|
+ =\left\|e^{t\lambda^2\rla-t\lambda \id}\right\|
+\leq \left\|e^{t\lambda^2\rla}\right\|\left\|e^{-t\lambda \id} \right\|
+=e^{-t\lambda }\left\|e^{t\lambda^2\rla}\right\|\\ 
 \leq e^{-t\lambda }e^{t\lambda^2\left\|\rla\right\|}
-\leq e^{t\lambda }e^{-t\lambda }=1,
-\end{equation*}
+ \leq e^{t\lambda }e^{-t\lambda }=1
+\end{multline*}
 portanto, um semigrupo de contrações.
 
-Das definições de $A_\lambda$, $A_\mu$, $e^{tA_\lambda}$ e $e^{tA_\mu}$ comutam. Consequentemente,
+Das definições de $A_\lambda$, $A_\mu$, $e^{tA_\lambda}$ e $e^{tA_\mu}$ 
+comutam. Como $A_\lambda,  A_\mu\in\mathcal{L}(X)$, defina 
+\[f(s)=e^{tsA_\lambda}e^{t(1-s)A_\mu}x=e^{tA_\mu}e^{st(A_\lambda-A_\mu)} \]
+e note que
+\begin{enumerate}
+\item $f(1)=e^{tA_\lambda}x$, $f(0)=e^{tA_\mu}x$
+\item $f'(s)=t(A_\lambda-A_\mu)e^{tsA_\lambda}e^{t(1-s)A_\mu}x$
+\end{enumerate}
+Consequentemente, pelo Teorema Fundamental do Cálculo,
+\begin{align*}
+\left\|e^{tA_\lambda}x-e^{tA_\mu}x \right\|
+& =\left\|f(1)-f(0) \right\|=
+\left\|\int_0^1 f'(s)\,ds \right\|\\
+& =\left\|\int_0^1 
+t(A_\lambda-A_\mu)e^{tsA_\lambda}e^{t(1-s)A_\mu}x\right\|\\
+& \leq t\underbrace{\left\|e^{tsA_\lambda}e^{t(1-s)A_\mu}\right\|}_{\leq 1}   \left\|A_\lambda x-A_\mu x\right\|\\
+& \leq t \left\|A_\lambda x-A_\mu x\right\|
+\end{align*}
 \end{proof}
 
 

@@ -24,7 +24,13 @@ Dizemos que $S$ é \dt{uniformemente contínuo} se
         \begin{enumerate}
             \item Sejam $X$ um espaço de Banach e  $A\in \mathcal{L}(X)$. Define-se a aplicação exponencial por
             \[e^{A}=\operatorname{Id}+\sum_{n=1}^\infty \frac{A^n}{n!}.\]
-            Pode-se mostrar que esta série é absolutamente convergente e define $e^{A}\in \mathcal{L}(X)$, veja \cite[Apêndice 2]{gomes1985semigrupos}. Neste caso,  $e^{tA}:[0,+\infty)\to \mathcal{L}(X)$, quando $A\in \mathcal{L}(X)$, é um semigrupo.
+Pode-se mostrar que esta série é absolutamente convergente e 
+define $e^{A}\in \mathcal{L}(X)$, veja \cite[Apêndice 
+2]{gomes1985semigrupos}. Além disso, 
+\begin{equation*}
+\nl{e^{tA}}\leq e^{|t|\nl{A}},\ \forall\, t\in \R.
+\end{equation*}
+Neste caso,  $e^{tA}:[0,+\infty)\to \mathcal{L}(X)$, quando $A\in \mathcal{L}(X)$, é um semigrupo.
             \item Seja $X=C_b(\R)$  o espaço das funções $f:\R\longrightarrow \R$ uniformemente contínuas e limitadas, com a norma do $\sup$. Então $S(t)f(s)=f(t+s)$ definie um semigrupo de classe $C^0$.
         \end{enumerate}
     \end{example}
