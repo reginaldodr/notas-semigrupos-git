@@ -182,7 +182,7 @@ A_\lambda :=\lambda A\rla =\lambda^2\rla -\lambda \id\in \mathcal{L}(X).
 \end{equation*}
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}\label{Plem3.3}
  Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. 
 Se $A_\lambda$ é a aproximação de Yosida do operador $A$, então
 \begin{equation*}
@@ -196,7 +196,7 @@ Se $x\in D(A)$, então, de \eqref{RAAR} e do Lema anterior, temos que
 \end{equation*}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{Plem3.4}
 Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. Se $A_\lambda$ é  aproximação de Yosida de $A$, então $A_\lambda$ é o gerador infinitesimal de um semigrupo uniformemente contínuo de contrações $e^{tA_\lambda}$. Além disso, para cada $x\in X$, $\lambda,\mu>0$ temos que
 \begin{equation*}
 \left\|e^{tA_\lambda}x-e^{tA_\mu}x\right\|\leq t\|A_\lambda x-A_\mu x\|.
@@ -235,7 +235,200 @@ t(A_\lambda-A_\mu)e^{tsA_\lambda}e^{t(1-s)A_\mu}x\right\|\\
 \end{proof}
 
 \begin{proof}[Demonstração do Teorema {\ref{HY-contr}} (Condição Suficiente) ]
-Seja $x\in D(A)$,
+\noindent
+
+\noindent\textbf{\underline{Passo 1}:} Existe $\displaystyle\lim_{\lambda \to +\infty} e^{tA_\lambda}x, \ \forall x\in D(A)$.
+\\
+
+Dado $x\in D(A)$, seja  $(\lambda_n)_{n\in\mathbb N}$  uma sequência  em $(0,+\infty)$ tal que 
+$\lambda_n\to +\infty$,  quando $n\to +\infty$.
+Pelos Lemas  \ref{Plem3.4} e \ref{Plem3.3} , temos que
+\begin{equation*}
+\left\|e^{tA_{\lambda_n}}x-e^{tA_{\lambda_m}}x\right\|
+\leq t\|A_{\lambda_n} x-A_{\lambda_m} x\|
+\leq  t\|A_{\lambda_n} x-A x\|+ t\|A x-A_{\lambda_m} x\|\to 0,\ 
+\text{ quando } m,n \to +\infty.
+\end{equation*}
+Neste caso, a sequência $(e^{tA_{\lambda_n}}x)_{n\in\mathbb N}$ é de Cauchy em $X$, portanto 
+convergente. Como $(\lambda_n)_{n\in\mathbb N}$ é tomada arbitrária, temos que o 
+limite $\displaystyle\lim_{\lambda \to +\infty} e^{tA_\lambda}x$ existe.
+Portanto, para cada $t\in[0,+\infty)$, podemos definir $S(t):D(A)\longrightarrow 
+X$ por:
+\begin{equation}\label{P3.14}
+S(t)x:=\lim_{\lambda \to +\infty} e^{tA_\lambda}x.
+\end{equation}
+
+\noindent\textbf{\underline{Passo 2}:} A convergência  
+$\displaystyle\lim_{\lambda \to +\infty} e^{tA_\lambda}x$ é uniforme em 
+intervalos limitados com respeito a $t$. 
+\\
+
+
+De fato, 
+dado $T>0$, para todo $t\in [0,T]$ e $\lambda,\mu\in 
+(0,+\infty)$, pelo Lema \ref{Plem3.4}, temos que
+\begin{align*}
+\left\|e^{tA_{\lambda}}x-S(t)x\right\|
+& \leq \left\|e^{tA_{\lambda}}x-e^{tA_{\mu}}x\right\|
++\left\|e^{tA_{\mu}}x-S(t)x\right\|\\
+& \leq  T\|A_{\lambda} x-A_\mu x\|+ \|e^{tA_{\mu}}x-S(t)x\|.
+\end{align*}
+De \eqref{P3.14} e do Lema \ref{Plem3.3}, fazendo $\mu\to +\infty$, obtemos
+\begin{equation*}
+\left\|e^{tA_{\lambda}}x-S(t)x\right\|
+ \leq  T\|A_{\lambda} x-Ax\|, 
+\end{equation*}
+o que garante a convergência uniforme. Com efeito, dado $\ep>0$, como 
+$A_\lambda x\to Ax$, existe $\lambda_0>0$ (independente de $t$) tal que se $\lambda>\lambda_0$, então
+\[\|A_{\lambda} x-Ax\|< \frac{\ep}{T}.\]
+Consequentemente, 
+\begin{equation*}
+\left\|e^{tA_{\lambda}}x-S(t)x\right\|
+ \leq  T\|A_{\lambda} x-Ax\|<\ep, \text{ qualquer que seja } t\in [0,T]. 
+\end{equation*}
+
+
+
+\noindent\textbf{\underline{Passo 3}:} Vamos estender a $S(t)$ para todo $x\in X$
+\\
+%
+%Através da densidade de $D(A)$ em $X$ e o fato de que $e^{t\lambda }x$ 
+%um semigrupo de contrações, vamos estender a $S(t)$ para todo $x\in X$. 
+
+De fato, já temos a definição para $x\in D(A)$, quando $x\in X\setminus D(A)$,
+pela densidade, tome $(x_n)_{n\in \mathbb N}$ em $D(A)$
+tal que $x_n\to x$ em $X$. 
+Como $e^{tA_\lambda}$ é um semigrupo de contrações, temos que
+\begin{align*}
+\left\|S(t)x_m-S(t)x_n\right\|
+&  \leq \left\|e^{tA_{\lambda}}x_m-S(t)x_m\right\|
++\left\|e^{tA_{\lambda}}x_m-e^{tA_{\lambda}}x_n\right\|+
+\left\|e^{tA_{\lambda}}x_n-S(t)x_n\right\|\\
+& \leq \left\|e^{tA_{\lambda}}x_m-S(t)x_m\right\|
++\left\|x_m-x_n\right\|+
+\left\|e^{tA_{\lambda}}x_n-S(t)x_n\right\|
+\end{align*}
+Fazendo $\lambda \to +\infty$, temos
+\begin{equation*}
+\left\|S(t)x_m-S(t)x_n\right\|
+ \leq \left\|x_m-x_n\right\|, 
+\end{equation*}
+isto é, $(S(t)x_n)_{n\in \mathbb{N}}$ é de Cauchy em $X$ e portanto convergente. 
+Assim, definimos 
+\begin{equation}\label{lim2.1}
+S(t)x:=\displaystyle \lim_{n\to +\infty} S(t)x_n.
+\end{equation}
+Como a sequência de Cauchy é uniformemente convergente em $t$, então este limite 
+é uniformemente convergente em $t$.
+
+
+\noindent\textbf{\underline{Passo 4}:} Vamos provar que
+\begin{equation}\label{P3.14.2}
+S(t)x =\lim\limits_{\lambda \to +\infty}e^{tA_\lambda}x
+\text{ para todo } x\in X.
+\end{equation}
+E que esta convergência é uniforme em intervalos limitados.
+\\
+
+
+Com efeito, se $x\in D(A)$, segue de \eqref{P3.14}. Se $x\in X\setminus D(A)$, 
+pela densidade, tome $(x_n)_{n\in \mathbb{N}}$ tal que $x_n\to x$ quando $n\to +\infty$.
+Como $e^{tA_\lambda}$ é um semigrupo de contrações, note que
+%\begin{equation*}
+%\left\|e^{tA_{\lambda}}x_n-e^{tA_{\lambda}}x\right\| \leq \|x_n-x\|\to 0, \text{ quando } n\to +\infty.
+%\end{equation*}
+%Daí, 
+\begin{align*}
+\left\|e^{tA_{\lambda}}x-S(t)x\right\|
+& \leq \left\|e^{tA_{\lambda}}x_n-e^{tA_\lambda}x\right\|
++\left\|e^{tA_{\lambda}}x_n-S(t)x_n\right\|
++\left\|S(t)x_n-S(t)x\right\|\\
+&\leq  \|x_n-x\|
++\left\|e^{tA_{\lambda}}x_n-S(t)x_n\right\|
++\left\|S(t)x_n-S(t)x\right\|.
+\end{align*}
+Dado $\ep>0$, de \eqref{lim2.1}, existe $n_0$ suficientemente grande tal  que
+\begin{equation*}
+\left\|e^{tA_{\lambda}}x-S(t)x\right\|
+<  \frac{\ep}{3}
++\left\|e^{tA_{\lambda}}x_{n_0}-S(t)x_{n_0}\right\|
++\frac{\ep}{3}.
+\end{equation*}
+De \eqref{P3.14}, temos que existe $\lambda_0>0$ tal que se $\lambda>\lambda_0$, então
+\begin{equation*}
+\left\|e^{tA_{\lambda}}x_{n_0}-S(t)x_{n_0}\right\| < \frac{\ep}{3},
+\end{equation*}
+donde concluímos que
+\begin{equation*}
+\left\|e^{tA_{\lambda}}x-S(t)x\right\|
+<\ep.
+\end{equation*}
+Como cada convergência é uniformemente em intervalos limitados, temos que \eqref{P3.14.2} também o é.
+\\
+
+\noindent\textbf{\underline{Passo 5}:} $(S(t))_{t\geq 0}$ é um semigrupo de Classe $C^0$ de contrações.
+\\
+
+Já definimos $S(t):X\to X$, para todo $t\in [0,+\infty)$. De \eqref{P3.14.2}, 
+temos que $S(t)$ é linear. Note ainda  que
+\begin{equation*}
+\|S(t)x\|\leq \lim\limits_{\lambda \to +\infty} \|e^{tA_\lambda}x\|\leq \|x\|,\ 
+\forall\, x\in X
+\end{equation*}
+Portanto $S:[0,+\infty)\to \mathcal{L}(X)$ e é uma contração. Do Passo 4, temos 
+que
+\[
+S(0)x=\lim_{\lambda \to +\infty} e^{0A_\lambda}x
+=\lim_{\lambda \to +\infty} x= x\Rightarrow S(0)=\id.
+\]
+Além disso, escrevendo dado $x\in X$ e escrevendo $y=S(s)x$, vemos que
+\begin{align*}
+& \left\| S(t+s)x-S(t)S(s)x \right\| \\
+& \qquad \leq \left\| S(t+s)x-e^{(t+s)A_\lambda}x \right\|
++\left\| e^{(t+s)A_\lambda}x - e^{tA_\lambda}S(s)x\right\|
++\left\|e^{tA_\lambda}S(s)x-S(t)S(s)x\right\|\\
+& \qquad \leq \left\| S(t+s)x-e^{(t+s)A_\lambda}x \right\|
++\underbrace{\nl{e^{tA_\lambda}}}_{\leq 1} \left\| e^{sA_\lambda}x - S(s)x\right\|
++\left\|e^{tA_\lambda}y-S(t)y\right\|
+\end{align*}
+Fazendo $\lambda \to +\infty$, temos que
+\begin{equation*}
+\left\| S(t+s)x-S(t)S(s)x \right\| = 0,\ \forall\, x\in X.
+\end{equation*}
+Assim, $S$ satisfaz a propriedade de semigrupo (item 2 da Definição 
+\ref{def-semigrupo}) e portanto é um semigrupo. Resta mostrar que $S$ é de classe 
+$C^0$. 
+
+De fato, dado $x\in X$, tome algum $T>0$ (Por exemplo $T=1$). Como a convergência em 
+\eqref{P3.14.2} é uniforme em $[0,T]$, dado $\ep>0$, existe $\lambda_0>0$
+(independente de $t\in [0,T]$), suficientemente grande, tal que 
+\begin{equation*}
+\left\|S(t)x-e^{tA_{\lambda_0}}x \right\|< \frac{\ep}{2},\ \forall\, t\in [0,T].
+\end{equation*}
+Por outro lado, como $e^{tA_{\lambda_0}}$ é um semigrupo uniformemente contínuo, temos que 
+\begin{equation*}
+\lim\limits_{t\to +\infty} \nl{e^{t\lambda_0}-\id}=0.
+\end{equation*}
+Daí, existe $0<\delta<T$ tal que se $t\in (0,\delta)$, então
+\begin{equation*}
+\nl{e^{t\lambda_0}-\id}<\frac{\ep}{2\|x\|}.
+\end{equation*}
+Portanto,
+\begin{align*}
+\left\|S(t)x-x \right\|
+& \leq
+ \left\|S(t)x-e^{tA_{\lambda_0}}x \right\| 
++\left\|e^{tA_{\lambda_0}}x - x\right\|\\
+&\leq  \left\|S(t)x-e^{tA_{\lambda_0}}x \right\|
+ + \nl{e^{tA_{\lambda_0}}- \id}\|x\|\\
+&\leq  \frac{\ep}{2}+\frac{\ep}{2\|x\|}\|x\|=\ep.
+\end{align*}
+
+
+\noindent\textbf{\underline{Passo 6}:} $A$ é o gerador infinitesimal de $S(t)$.
+\\
+
+
 \end{proof}
 
 
