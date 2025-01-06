@@ -428,6 +428,76 @@ Portanto,
 \noindent\textbf{\underline{Passo 6}:} $A$ é o gerador infinitesimal de $S(t)$.
 \\
 
+Como $S(t)$ é um semigrupo de Classe $C^0$, seja $B$ seu gerador infinitesimal.
+Basta mostrar que provar que $A=B$. 
+
+Primeiro vamos provar que $D(A)\subset D(B)$ e $Ax=Bx$. Para 
+isso, tome $x\in D(A)$ e, de acordo com a Definição 
+\ref{def-ger}, devemos mostrar que 
+\begin{enumerate}
+\item $\lim\limits_{h \to 0^+}\frac{S(h)x-x}{h}$ existe, portanto $x\in D(B)$;
+\item $Bx:=\lim\limits_{h \to 0^+}\frac{S(h)x-x}{h}=Ax$.
+\end{enumerate}
+Para isso, como $e^{tA_\lambda}$ é um semigrupo de classe $C^0$, de \eqref{TFC1},
+\begin{align*}
+S(h)x-x& =\lim\limits_{\lambda \to +\infty} \left(e^{hA_\lambda}x-x\right)
+=\lim\limits_{\lambda \to +\infty} \int_0^h e^{tA_\lambda}A_\lambda x\,dt\\
+&= \lim\limits_{\lambda \to +\infty} \int_0^h e^{tA_\lambda}(A_\lambda x-Ax)\,dt
++\lim\limits_{\lambda \to +\infty} \int_0^h e^{tA_\lambda}A x\,dt\\
+& = L_1+L_2.
+\end{align*}
+Vamos calcular cada limite separadamente. Primeiramente, note que
+\begin{align*}
+\left\|\int_0^h e^{tA_\lambda}(A_\lambda x-Ax)\,dt \right\|
+& \leq \int_0^h \underbrace{\nl{e^{tA_\lambda}} }_{\leq 1}\|A_\lambda x-Ax\|\,dt\\
+& \leq h\|A_\lambda x-Ax\|\to 0, \ \text{ quando } \lambda \to +\infty,
+\end{align*}
+portanto, $L_1=0$. Para calcular $L_2$, relembre que provamos a convergência 
+uniforme \eqref{P3.14.2}. Neste caso, dado $\ep>0$, existe $\lambda_0>0$  tal que
+se $\lambda>\lambda_0$, então
+\begin{equation*}
+\|e^{tA_\lambda}Ax-S(t)Ax\|< \frac{\ep}{h}, \ \forall\, t\in [0,h].
+\end{equation*}
+Com isso, 
+\begin{equation*}
+\left\|\int_0^h e^{tA_\lambda}A x-S(t)Ax\,dt\right\|
+\leq \int_0^h \|e^{tA_\lambda}A x-S(t)Ax\|\,dt < \ep.
+\end{equation*}
+O que significa que $L_2=\int_0^h S(t)Ax\,dt$. Como consequência,
+\begin{equation*}
+S(h)x-x=\int_0^h S(t)Ax\,dt.
+\end{equation*}
+Neste caso, como $S(\cdot)Ax$ é contínua (Corolário \ref{continuous}),
+segue da Proposição \ref{Prop.VM}  que
+\begin{equation*}
+\lim\limits_{h\to 0^+}\frac{S(h)x-x}{h}
+=\lim\limits_{h\to 0^+}\frac{1}{h}\int_0^h S(t)Ax\,dt=Ax.
+\end{equation*}
+Logo, provamos simultaneamente  que $x\in D(B)$ e que $Bx=Ax$.
+
+Por outro lado, se $x\in D(B)$, seja $v=(\id-B)x$. Por hipótese, como $1\in 
+\rho(A)$, então $\id-A:D(A)\longrightarrow X$ é bijetor. Neste caso, existe 
+$y\in D(A)$ tal que
+\begin{equation*}
+(\id-A)y=(\id-B)x.
+\end{equation*}
+Já que $y\in D(A)\subset D(B)$, como acabamos de provar $Ay=By$. Daí,
+\begin{equation*}
+(\id-B)y=(\id-B)x\Rightarrow (\id-B)(y-x)=0.
+\end{equation*}
+Como $B$ é o gerador infinitesimal de $S(t)$, que é um semigrupo de contrações, 
+então pela condição necessária do Teorema de Hille-Yosida, que já foi provada, 
+temos que $1\in \rho(B)$, o que implica que $\id-B$ é invertível e portanto
+\begin{equation*}
+(\id-B)(y-x)=0\Rightarrow R(1,B)(\id-B)(y-x)=0\Rightarrow x=y\in D(A).
+\end{equation*}
+Já que $x\in D(B)$ foi tomado arbritário, temos que $D(B)\subset D(A)$. Donde,
+concluímos que $D(A)=D(B)$ e que consequentemente $Bx=Ax$. O que encerra a prova 
+do Teorema de Hille-Yosida para semigrupos de contrações.
+
+
+
+
 
 \end{proof}
 
