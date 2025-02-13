@@ -52,7 +52,7 @@ Veja \cite{gomes1985semigrupos}  Teorema 1.1.1.
 \end{proof}
 
 
-\begin{proposition}
+\begin{proposition}\label{exp}
     Se $S$ é um semigrupo de classe $C^0$ em X, então existem $\mu\geq 0$ e $M>0$ tais que 
     \begin{equation}\label{des.wT}
     \|S(t)\|_{\mathcal{L}(X)}\leq Me^{\mu t},\ \forall t\geq 0.  
@@ -60,13 +60,12 @@ Veja \cite{gomes1985semigrupos}  Teorema 1.1.1.
     Em particular, $\|S(t)\|_{\mathcal{L}(X)}$ é uma função limitada em todo intervalo $[0,T]$. 
 \end{proposition}
 
-\begin{proof}
-\textbf{\underline{Afirmação 1}:} Existem $\delta >0$ e $M\geq 1$ tais 
+\begin{proof} \textbf{\underline{Afirmação 1}:} Existem $\delta >0$ e $M\geq 1$ tais 
 \begin{equation*}
 \|S(t) \|_{\mathcal L (X)} \leq M \text{ para todo } t\in [0,\delta].
 \end{equation*}
 
-De fato, se a Afirmação 1 não se verificasse, para cada inteiro $n\geq 1$, existitia $t_n \in \bigg( 0,\frac{1}{n} \bigg)$ tal que
+De fato, se a Afirmação 1 não se verificasse, para cada inteiro $n\geq 1$, existiria $t_n \in \bigg( 0,\frac{1}{n} \bigg)$ tal que
 \[
 \displaystyle \| S(t_n )\|_{\mathcal L (X)} >n.
 \]
@@ -87,46 +86,54 @@ Em particular, como $(t_n)_{n=1}^{\infty}$ é um sequência em $[0,+\infty )$ co
 \displaystyle\lim_{n\to +\infty} \|S(t_n)x - x\|_X =0,
 \]
 ou seja, $(S(t_n)x)_{n=1}^{\infty}$ converge a $x$ em $X$. Observemos que isto contradiz o fato de 
-o conjunto $\{\|S(t_n) x_0 \|_{X}; n\geq 1 \}$ ser ilimitado.
+o conjunto $\{\|S(t_n) x_0 \|_{X}; n\geq 1 \}$ ser ilimitado. \\
 
-\textbf{\underline{Afirmação 2}:} $M\geq 1$.
+\noindent\textbf{\underline{Afirmação 2}:} $M\geq 1$.
 
 Como caso particular da Afirmação 1, temos
 \[
 \displaystyle 1=\|I\|_{\mathcal L (x)} = \| S(0)\|_{\mathcal L (x)} \leq M.
 \]
+\\
 
-\textbf{\underline{Afirmação 3}:} Existe $\mu \geq 0$ (dependendo das constantes $M\geq $)
+\noindent\textbf{\underline{Afirmação 3}:} Existe $\mu \geq 0$ (dependendo das constantes $M\geq 1$ e $\delta >0$ na Afirmação 1), tal que 
+\[
+\displaystyle \| S(t)\|_{\mathcal L (x)} \leq Me^{\mu t} \text{ para todo } t\in [0,\infty). 
+\]
+Em particular, ficado $T>0$, o conjunto não vazio 
+\[
+\displaystyle \{ \| S(t)\|_{\mathcal L (x)}; t\in [0,T]\}
+\]
+é limitado.
 
-à família  $\{S(t)\}_{t\geq 0}$ em $\mathcal{L}(X)$, onde $X$ é Banach. Para isso, basta mostrar que esta família é pontualmente limitada. 
-
-De fato,  $S$ é um semigrupo de classe $C^0$, então
-\[\lim\limits_{t\to 0^+}\|S(t)x-x\|=0,\ \forall x\in X.\]
-Com isso, dado $x\in X$, para $\ep=1$, existe $\delta>0$ tal que, se $0\leq t\leq \delta$, então
-\[\|S(t)x\|\leq \|S(t)x-x\|+\|x\|\leq 1+\|x\|=C_x.\]
-
-Portanto, pelo Teorema de Banach-Steinhaus, $\{S(t)\}_{0\leq t\leq\delta}$ é uniformemente limitada, isto é, $\exists\, M>0$ tal que
-\begin{equation}\label{eq1}
-\|S(t)\|_{\mathcal{L}(X)}\leq M,\, \text{ para todo  } t\in [0,\delta]. 
-\end{equation}
-Além disso, $M\geq \|S(0)\|_{\mathcal{L}(X)}=\|\id\|_{\mathcal{L}(X)}=1$.
-
-Por outro lado, dado $t>\delta$, pelo algorítimo da divisão, existem $n\in\mathbb{N}$ e $r\in [0,\delta)$ tais que $t=n\delta+r$. Com isso, do item 2 da definição de Semigrupo e da desigualdade \eqref{eq1}, temos que
+Realmente, considerando as constantes $M\geq 1$ e $\delta >0$ na Afirmação 1, e fixando $t\in [0,+\infty)$, sabemos que o conjunto
+\[
+\displaystyle B:= \bigg\{ n\in \mathbb N; n>\frac{t}{\delta}\bigg\}.
+\]
+Pelo Princípio da Boa Ordenação, existe $n_0=\min B$, ou seja
+\[
+\displaystyle n_0 -1 \leq \frac{t}{\delta} <n_0.
+\]
+Pondo $m=n_0 -1$ e definindo $r:= t-m\delta$, claramente chegamos a
+\[
+\displaystyle t=m\delta +r, \text{ com } r\in [0,\delta).
+\]
+Uma vez que $m\geq 1$, tomando $\mu =\frac{\log M}{\delta} \geq 0$, concluímos que
 \begin{align*}
  \|S(t)\|_{\mathcal{L}(X)} &
- \leq \|S(n\delta +r)\|_{\mathcal{L}(X)}= \|S(n\delta)S(r)\|_{\mathcal{L}(X)}=
- \|\overbrace{S(\delta)\cdots S(\delta)}^{n \text{ vezes}}S(r)\|_{\mathcal{L}(X)}\\
+ \leq \|S(m\delta +r)\|_{\mathcal{L}(X)}= \|S(m\delta)S(r)\|_{\mathcal{L}(X)} \|\overbrace{S(\delta)\cdots S(\delta)}^{m \text{ vezes}}S(r)\|_{\mathcal{L}(X)}\\
 & \leq 
-\|S(\delta)\|^n_{\mathcal{L}(X)}\|S(r)\|_{\mathcal{L}(X)}\leq M^{n+1}. 
+\|S(\delta)\|^m_{\mathcal{L}(X)}\|S(r)\|_{\mathcal{L}(X)}\leq M^{m+1} \\
+&\leq M M^{t/\delta} \leq Me^{\frac{t}{\delta}\log(M)}
+=Me^{\mu t}. 
 \end{align*}
- Note que, como $n\leq t/\delta$ e $M\geq 1$, temos que $M^n\leq M^{t/\delta}$. Da desigualdade anterior,
-\[\|S(t)\|_{\mathcal{L}(X)}\leq M M^{t/\delta}=Me^{\frac{t}{\delta}\log(M)}
-=Me^{\mu t},\]
-onde $\mu=\frac{1}{\delta}\log(M)$.
-
-Em particular, 
-\[\|S(t)\|_{\mathcal{L}(X)}\leq Me^{\mu t}\leq Me^{\mu T},\, \forall t\in [0,T].\]
-Em outras palavras, $\nl{S(t)}$ é limitada em $[0,T]$.
+ %Note que, como $n\leq t/\delta$ e $M\geq 1$, temos que $M^n\leq M^{t/\delta}$. Da desigualdade anterior,
+%\[\|S(t)\|_{\mathcal{L}(X)}\leq M %M^{t/\delta}=Me^{\frac{t}{\delta}\log(M)}
+%=Me^{\mu t},\]
+%onde $\mu=\frac{1}{\delta}\log(M)$.
+Em particular, para cada $T>0$ fixado, vale
+\[\|S(t)\|_{\mathcal{L}(X)}\leq Me^{\mu t}\leq Me^{\mu T},\, \forall t\in [0,T],\]
+o que completa a demonstração.
 \end{proof}
 
 
@@ -139,7 +146,31 @@ $t\in [0,+\infty)\longmapsto S(t)x\in  X$ é contínua.
 \end{corollary}
 
 \begin{proof}
-    Dado $x\in X$, devemos mostrar que, para todo $t\in [0,+\infty)$,
+    Dado $x\in X$, ponhamos $g(t)=S(t)x \in X$ para cada $t\in [0,+\infty)$. \\
+
+\noindent\textbf{\underline{Afirmação 1}:} $g:[0,+\infty) \longrightarrow X$ é contínua em $t_0 =0$. \\
+
+    De fato, como $S:[0,+\infty) \longrightarrow \mathcal L (X)$ é um semigrupo de classe $C^0$, temos
+    \[
+    \|g(t)-g(0)\|_X =\|S(h)x-S(0)x\|_{X}=\|(S(h)-\id)x\|_{X} \to 0,\, \text{ quando } h\to 0,
+    \]
+    ou seja, $\displaystyle\lim_{t\to 0^+} g(t) = g(0)$ em $X$, seguindo a Afirmação 1. \\
+
+\noindent\textbf{\underline{Afirmação 2}:} $g:[0,+\infty) \longrightarrow X$ é contínua em cada $t_0 \in (0,+\infty )$. \\
+
+    Realmente, para cada $h>0$, utilizamos a Proposição \ref{exp} para obter
+    \begin{align*}
+    \displaystyle \|g(t_0 +h)-g(t_0)\|_X
+    \|S(t_0+h)x-S(t)x\|_X& =\|S(t_0)S(h)x-S(t)x\|_X=\|S(t_0)(S(h)-\id)x\|\\
+    & \leq \|S(t_0)\|_{\mathcal{L}(X)}\|(S(h)-\id)x\|_X \\
+    & \leq Me^{\mu t_0}\|(S(h)-\id)x\|_X,
+\end{align*}
+ou seja, lembrando que $S:[0,+\infty)\longrightarrow \mathcal L (X)$ é um semigrupo de classe $C^0$, resulta que
+\[
+\displaystyle\lim_{h\to 0^+} g(t_0 +h)=g(t_0) \text{ em } X.
+\]
+
+    devemos mostrar que, para todo $t\in [0,+\infty)$,
     \[\|S(t+h)x-S(t)x\|\to 0,\, \text{ quando } h\to 0.\]
 Do item (3) da Definição  \ref{def-semigrupo} , já temos
   \[\|S(h)x-S(0)x\|=\|(S(h)-\id)x\|\to 0,\, \text{ quando } h\to 0.\]
