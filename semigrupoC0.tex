@@ -6,38 +6,54 @@
 
 \begin{definition}\label{def-semigrupo}
      Seja $X$ um espaço de Banach. Dizemos que a aplicação $S:[0,+\infty)\longrightarrow \mathcal{L}(X)$ é um  \dt{semigrupo de operadores limitados em X} quando:
-\begin{enumerate}
-    \item $S(0)=\operatorname{Id}$;
-    \item $S(t+s)=S(t)S(s)$, $\forall t,s\in [0,+\infty)$;
+\begin{equation}
+S(0)=\id\quad \text{ e }\quad S(t+s)=S(t)S(s),\ \forall\, t,s\in [0,+\infty)
+\end{equation}
+%\begin{enumerate}
+%    \item $S(0)=\id$;
+%    \item $S(t+s)=S(t)S(s)$, $\forall t,s\in [0,+\infty)$.
+%\end{enumerate}
 
-Dizemos que $S$ é \dt{de classe $C^0$ ou fortemente contínuo} se
+Dizemos que um semigrupo $S$ é \dt{de classe $C^0$ ou fortemente contínuo} se
+\begin{equation}
+\lim\limits_{t\to0^+} \|(S(t)-\id)x\|_X =0,\ \forall x\,\in X.
+\end{equation}
 
-    \item $\lim\limits_{t\to0^+} \|(S(t)-\operatorname{Id})x\|=0$, $\forall x\in X$.
+Dizemos que um semigrupo $S$ é \dt{uniformemente contínuo} se 
+\begin{equation}
+\lim\limits_{t\to 0^+}\|S(t)-\id\|_{\mathcal{L}(X)}=0.
+\end{equation}
 
-Dizemos que $S$ é \dt{uniformemente contínuo} se 
 
-\item $\lim\limits_{t\to 0^+}\|S(t)-\operatorname{Id}\|_{\mathcal{L}(X)}=0$.
-\end{enumerate}
 \end{definition}
 
-   \begin{example} São exemplos de semigrupos:
+   \begin{example}\label{ex} São exemplos de semigrupos:
         \begin{enumerate}
-            \item Sejam $X$ um espaço de Banach e  $A\in \mathcal{L}(X)$. Define-se a aplicação exponencial por
-            \[e^{A}=\operatorname{Id}+\sum_{n=1}^\infty \frac{A^n}{n!}.\]
-Pode-se mostrar que esta série é absolutamente convergente e 
-define $e^{A}\in \mathcal{L}(X)$, veja \cite[Apêndice 
-2]{gomes1985semigrupos}. Além disso, 
+            \item Sejam $X$ um espaço de Banach e  $A\in \mathcal{L}(X)$. Pela Definição \ref{expoperator},
+            \[e^{A}=\id+\sum_{n=1}^\infty \frac{A^n}{n!},\]
+com tal série convergindo absolutamente convergente e $e^{A}\in \mathcal{L}(X)$. Além disso, 
 \begin{equation*}
-\nl{e^{tA}}\leq e^{|t|\nl{A}},\ \forall\, t\in \R.
+\nl{e^{tA}}\leq |t| \|A\|_{\mathcal L (X)}e^{|t|\nl{A}},\ \forall\, t\in \R.
 \end{equation*}
-Neste caso,  $e^{tA}:[0,+\infty)\to \mathcal{L}(X)$, quando $A\in \mathcal{L}(X)$, é um semigrupo.
-            \item Seja $X=C_b(\R)$  o espaço das funções $f:\R\longrightarrow \R$ uniformemente contínuas e limitadas, com a norma do $\sup$. Então $S(t)f(s)=f(t+s)$ definie um semigrupo de classe $C^0$.
+Nesse caso,  $e^{tA}:[0,+\infty)\to \mathcal{L}(X)$, quando $A\in \mathcal{L}(X)$, é um semigrupo uniformemente contínuo.
+
+\item Seja $X=C_b(\R)$  o espaço das funções $f:\R\longrightarrow \R$ uniformemente contínuas e limitadas, com a norma do $\sup$. Então $(S(t)f)(s)=f(t+s)$ define um semigrupo de classe $C^0$.
         \end{enumerate}
     \end{example}
 
+\begin{proposition}
+Se $S$ é um semigrupo uniformemente contínuo em $X$, então $S(t)=e^{tA}$,  onde $A\in \mathcal{L}(X)$ é dado por
+\begin{equation*}
+A:=\lim\limits_{h\to 0^+}\frac{S(h)-\id}{h}.
+\end{equation*}
+\end{proposition}
+\begin{proof}
+Veja \cite{gomes1985semigrupos}  Teorema 1.1.1.
+\end{proof}
+
 
 \begin{proposition}
-    Se $S$ é um semigrupo de classe $C^0$ em X, então existem $\mu\geq 0$ e $M\geq 1$ tais que 
+    Se $S$ é um semigrupo de classe $C^0$ em X, então existem $\mu\geq 0$ e $M>0$ tais que 
     \begin{equation}\label{des.wT}
     \|S(t)\|_{\mathcal{L}(X)}\leq Me^{\mu t},\ \forall t\geq 0.  
     \end{equation}    
@@ -45,7 +61,44 @@ Neste caso,  $e^{tA}:[0,+\infty)\to \mathcal{L}(X)$, quando $A\in \mathcal{L}(X)
 \end{proposition}
 
 \begin{proof}
-Vamos aplicar o Teorema de Banach-Steinhaus (Teorema \ref{th-BS} )  à família  $\{S(t)\}_{t\geq 0}$ em $\mathcal{L}(X)$, onde $X$ é Banach. Para isso, basta mostrar que esta família é pontualmente limitada. 
+\textbf{\underline{Afirmação 1}:} Existem $\delta >0$ e $M\geq 1$ tais 
+\begin{equation*}
+\|S(t) \|_{\mathcal L (X)} \leq M \text{ para todo } t\in [0,\delta].
+\end{equation*}
+
+De fato, se a Afirmação 1 não se verificasse, para cada inteiro $n\geq 1$, existitia $t_n \in \bigg( 0,\frac{1}{n} \bigg)$ tal que
+\[
+\displaystyle \| S(t_n )\|_{\mathcal L (X)} >n.
+\]
+Nesse caso, 
+\[
+\displaystyle \{ \|S(t_n )\|_{\mathcal L (X)}; n\geq 1\}
+\]
+seria um conjunto ilimitado. Pelo Teorema de Banach-Steinhaus (Teorema \ref{th-BS} ), existiria $x_0 \in X$ com
+\[
+\displaystyle \{\|S(t_n) x_0 \|_{X}; n\geq 1 \}
+\]
+também sendo um conjunto ilimitado. Entretanto, como $S:[0,+\infty) \longrightarrow \mathcal L(X)$ é um semigrupo de classe $C^0$, temos
+\[
+\displaystyle\lim_{t\to 0^+} \|S(t)x - x\|_X =0.
+\]
+Em particular, como $(t_n)_{n=1}^{\infty}$ é um sequência em $[0,+\infty )$ convergindo para zero, temos
+\[
+\displaystyle\lim_{n\to +\infty} \|S(t_n)x - x\|_X =0,
+\]
+ou seja, $(S(t_n)x)_{n=1}^{\infty}$ converge a $x$ em $X$. Observemos que isto contradiz o fato de 
+o conjunto $\{\|S(t_n) x_0 \|_{X}; n\geq 1 \}$ ser ilimitado.
+
+\textbf{\underline{Afirmação 2}:} $M\geq 1$.
+
+Como caso particular da Afirmação 1, temos
+\[
+\displaystyle 1=\|I\|_{\mathcal L (x)} = \| S(0)\|_{\mathcal L (x)} \leq M.
+\]
+
+\textbf{\underline{Afirmação 3}:} Existe $\mu \geq 0$ (dependendo das constantes $M\geq $)
+
+à família  $\{S(t)\}_{t\geq 0}$ em $\mathcal{L}(X)$, onde $X$ é Banach. Para isso, basta mostrar que esta família é pontualmente limitada. 
 
 De fato,  $S$ é um semigrupo de classe $C^0$, então
 \[\lim\limits_{t\to 0^+}\|S(t)x-x\|=0,\ \forall x\in X.\]
@@ -56,7 +109,7 @@ Portanto, pelo Teorema de Banach-Steinhaus, $\{S(t)\}_{0\leq t\leq\delta}$ é un
 \begin{equation}\label{eq1}
 \|S(t)\|_{\mathcal{L}(X)}\leq M,\, \text{ para todo  } t\in [0,\delta]. 
 \end{equation}
-Além disso, $M\geq \|S(0)\|_{\mathcal{L}(X)}=\|\operatorname{Id}\|_{\mathcal{L}(X)}=1$.
+Além disso, $M\geq \|S(0)\|_{\mathcal{L}(X)}=\|\id\|_{\mathcal{L}(X)}=1$.
 
 Por outro lado, dado $t>\delta$, pelo algorítimo da divisão, existem $n\in\mathbb{N}$ e $r\in [0,\delta)$ tais que $t=n\delta+r$. Com isso, do item 2 da definição de Semigrupo e da desigualdade \eqref{eq1}, temos que
 \begin{align*}
@@ -88,21 +141,21 @@ $t\in [0,+\infty)\longmapsto S(t)x\in  X$ é contínua.
 \begin{proof}
     Dado $x\in X$, devemos mostrar que, para todo $t\in [0,+\infty)$,
     \[\|S(t+h)x-S(t)x\|\to 0,\, \text{ quando } h\to 0.\]
-Do item (3) da definição de semigrupos, já temos que
-  \[\|S(h)x-S(0)x\|=\|(S(h)-\operatorname{Id})x\|\to 0,\, \text{ quando } h\to 0.\]
+Do item (3) da Definição  \ref{def-semigrupo} , já temos
+  \[\|S(h)x-S(0)x\|=\|(S(h)-\id)x\|\to 0,\, \text{ quando } h\to 0.\]
 Isto é, $S(\cdot)x$ é contínua em $t=0$. Dado $t\in (0,+\infty)$, se $h>0$, então
 \begin{align*}
-    \|S(t+h)x-S(t)x\|& =\|S(t)S(h)x-S(t)x\|=\|S(t)(S(h)-\operatorname{Id})x\|\\
-    & \leq \|S(t)\|_{\mathcal{L}(X)}\|(S(h)-\operatorname{Id})x\|\\
-    & \leq Me^{\mu t}\|(S(h)-\operatorname{Id})x\|\to 0,\, \text{ quando } h\to 0^+.
+    \|S(t+h)x-S(t)x\|& =\|S(t)S(h)x-S(t)x\|=\|S(t)(S(h)-\id)x\|\\
+    & \leq \|S(t)\|_{\mathcal{L}(X)}\|(S(h)-\id)x\|\\
+    & \leq Me^{\mu t}\|(S(h)-\id)x\|\to 0,\, \text{ quando } h\to 0^+.
 \end{align*}
 
-Se $h<0$, então seja $k=-h>0$. Daí, se $h\to 0^+$, então $k\to0^+$. Com isso,
+Se {\color{pink} $-t<h<0$, então seja $k=-h>0$}. Daí, se $h\to 0^+$, então $k\to0^+$. Com isso,
 \begin{align*}
-    \|S(t+h)x-S(t)x\|& = \|S(t-k)x-S(t)x\|=\|S(t-k)x-S(t-k+k)x\|\\
+    \|S({\color{pink} t+h})x-S(t)x\|& = \|S(t-k)x-S(t)x\|=\|S(t-k)x-S(t-k+k)x\|\\
     & =\|S(t-k)x-S(t-k)S(k)x\|=\|S(t-k)(\id-S(k)x\|\\
-    & \leq \|S(t-k)\|_{\mathcal{L}(X)}\|(S(k)-\operatorname{Id})x\|\\
-    & \leq Me^{\mu t}\|(S(k)-\operatorname{Id})x\|\to 0,\, \text{ quando } k\to 0^+.
+    & \leq \|S(t-k)\|_{\mathcal{L}(X)}\|(S(k)-\id)x\|\\
+    & \leq Me^{\mu t}\|(S(k)-\id)x\|\to 0,\, \text{ quando } k\to 0^+.
 \end{align*}
 \end{proof}
 
@@ -208,7 +261,7 @@ Consequentemente,
 \end{definition}
 
 Dado $S$ um semigrupo de classe $C^0$ em $X$, vamos designar por $A_h$ o operador linear limitado 
-    \[A_hx=\frac{S(h)x-x}{h},\ \forall x\in X.\]
+    \[A_hx:=\frac{S(h)x-x}{h},\ \forall x\in X.\]
 
 \begin{proposition}\label{DAsubspace}
      $D(A)$ é um subespaço vetorial de $X$ e $A$ é um operador linear.
@@ -233,7 +286,7 @@ De acordo com a definição acima, todo semigrupo tem um gerador infinitesimal a
 %\end{enumerate}
 
 \begin{theorem}\label{th-der}
-Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Dado $x\in D(A)$, então 
+Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ o seu gerador infinitesimal. Dado $x\in D(A)$, então 
 \[S(t)x\in C^0([0,+\infty);D(A))\cap C^1([0,+\infty);X)\]
 e
 \begin{equation}\label{eq-der}
@@ -329,8 +382,8 @@ y'_+(s)& = \lim\limits_{h\to 0^+}\frac{y(s+h)-y(s)}{h}
 \\
 & =\lim\limits_{h\to 0^+}\left(S(s+h)\frac{x(s+h)-x(s)}{h}+S(s)\frac{S(h)x(s)-S(s)x(s)}{h}\right)\\
 & =\lim\limits_{h\to 0^+}\left(S(s+h)\frac{x(s+h)-x(s)}{h}+S(s)A_h(x(s))\right)\\
-& =\lim\limits_{h\to 0^+}\left(S(s+h)\left(\frac{x(s+h)-x(s)}{h}-S(s+h)x'(s)+S(s+h)x'(s)\right)
-+S(s)A_h(x(s))\right)\\
+& =\lim\limits_{h\to 0^+}\left(S(s+h)\left(\frac{x(s+h)-x(s)}{h} \right) -S(s+h)x'(s)+S(s+h)x'(s)
++S(s)A_h(x(s)) \right)\\
 & =\lim\limits_{h\to 0^+}\left(S(s+h)\left(\frac{x(s+h)-x(s)}{h}-x'(s)\right)+S(s+h)x'(s)
 +S(s)A_h(x(s))\right)\\
 &\stackrel{(\ast)}{=}S(s)x'(s)+S(s)Ax(s).
@@ -346,7 +399,7 @@ Me^{\omega(s+h)}\underbrace{\left\|\frac{x(s+h)-x(s)}{h}-x'(s)\right\|}_{\to\  0
 =0
 \end{equation*}
 
-Como $S(\cdot)x$ é contínua, temos que
+Como $S(\cdot)x$ é contínua (Corolário \ref{Scontinua}), temos que
 \[
 \lim\limits_{h\to 0^+}S(s+h)x'(s)=S(s)x'(s).
 \]
@@ -387,7 +440,7 @@ y'_-(s)&=\lim_{h\to 0^+}\frac{y(s-h)-y(s)}{-h}
 &= S(s)x'(s)+\lim_{h\to0^+}\left(\underbrace{S(s-h)}_{\text{limitado}}
 \left(\underbrace{A_h(x(s)-Ax(s)}_{\to 0}\right)+\underbrace{S(s-h)Ax(s)}_{S(\cdot)x \text{ contínua}})
 \right)\\
-& = S(s)x'(s)+S(s)Ax(s)
+& = S(s)x'(s)+S(s)Ax(s).
 \end{align*}
 
 
@@ -503,7 +556,7 @@ Dado $x\in X$, basta mostrar que
 De fato, que $v_h\in D(A)$ decorre diretamente da Proposição \ref{prop2.11}. Como $S(\cdot)x$ é contínua, pela identidade \eqref{ineq.VM}, 
 \[\lim\limits_{h\to 0^+} v_h=\lim\limits_{h\to 0^+}\frac{1}{h}\int_0^h S(t)x\,dt=x.\]
 
-\noindent\textbf{1. $A$ é fechado.}
+\noindent\textbf{2. $A$ é fechado.}
 
 Seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ e $Ax_n\to y$ 
 em  $X$. Devemos mostrar que $x\in D(A)$ e $Ax=y$.
@@ -538,110 +591,113 @@ Ax=\lim_{h \to 0^+} A_hx=\lim_{h \to 0^+} \frac{1}{h}\int_0^h S(t)y\,dt=S(0)y=y.
 \end{proof}
 
 \begin{remark}
-    Esta última proposição nos dá uma condição necessária para que um operador $A$ seja o gerador infinitesimal de um semigrupo.
+    A Proposição \ref{Afd} nos dá uma condição necessária para que um operador $A$ seja o gerador infinitesimal de um semigrupo de classe $C^0$ em $X$.
 \end{remark}
 
 \begin{proposition}[Unicidade]
-Sejam $S_1,S_2$ dois semigrupos de classe $C^0$ em $X$ com o mesmo gerador infinitesimal $A$. Então $S_1=S_2$.
+Sejam $S_1,S_2$ dois semigrupos de classe $C^0$ em $X$, com o mesmo gerador infinitesimal $A$. Então $S_1=S_2$.
 \end{proposition}
 \begin{proof}
    Primeiramente, vamos mostrar que $S_1(t)x=S_2(t)x$, para todo $x\in D(A)$.
 De fato, dado $x\in D(A)$, como $S_1$ e $S_2$ tem o mesmo gerador infinitesimal,  pelo Teorema \ref{PVI}, temos que $x_1(t)=S_1(t)x$ e $x_2(t)=S_2(t)x$ são duas soluções do mesmo PVI. Da unicidade de soluções, temos que $S_1(t)x=S_2(t)x$.
 
 Agora vamos usar a densidade de $D(A)$ em $X$ para concluir a demonstração. Com efeito, dado $x\in X$, seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ em $X$ quando $n\to +\infty$. Como   $x_n\in D(A)$, temos que $S_1(t)x_n=S_2(t)x_n$, para todo $n\in \mathbb{N}$. E como  $S_1(t),S_2(t)\in \mathcal{L}(X)$, então
-\[S_1(t)x=\lim_{n\to +\infty}S_1(t)x_n=\lim_{n\to +\infty}S_2(t)x_n=S_2x.\]
+\[S_1(t)x=\lim_{n\to +\infty}S_1(t)x_n=\lim_{n\to +\infty}S_2(t)x_n=S_2 (t)x.\]
 \end{proof}
 
-\begin{definition}
-    Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Defina $A^0=\operatorname{Id}$, $A^1=A$ e, supondo que $A^{n-1}$ esteja definido, vamos definir $A^n$ pondo:
-\[D(A^n)=\{x\in D(A^{n-1});\ A^{n-1}x\in D(A)\},\]
-\[A^nx=A(A^{n-1}x), \ \forall x\in D(A^{n}).\]
-\end{definition}
-
-\begin{proposition}
-Seja   $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Temos:
-
-\begin{enumerate}[$(i)$]
- \item $D\left(A^n\right)$ é um subespaço de $X$ e $A^n$ é um operador linear de $X$;
-
- \item Se $x \in {D}\left(A^n\right)$, então $S(t) x \in {D}\left(A^n\right), \forall t \geq 0$ e
-\begin{equation}\label{id-dern}
-\frac{d^n}{d t^n} S(t) x=A^n S(t) x=S(t) A^n x, \forall n \in \mathbb{N}
-\end{equation}
-\item É válida a fórmula de Taylor: se $x \in {D}\left(A^n\right)$, então
-\[
-S(t) x=\sum_{k=0}^{n-1} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{(n-1)!} \int_a^t(t-\tau)^{n-1} A^n S(\tau) x d \tau
-\]
-\item  $(S(t)-I)^n x=\displaystyle\int_0^t \cdots \int_0^t S\left(\tau_1+\cdots+\tau_n\right) A^n x\, d \tau_1 \cdots d \tau_n, \forall x \in D\left(A^n\right)$;
-\item $\displaystyle\bigcap_n {D}\left(A^n\right)$ é denso em $X$.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}\noindent
-
-\begin{enumerate}[$(i)$]
-\item Sabemos que $D(A)$ é um subespaço de $X$. Suponha que $D(A^{n-1})$ seja subspaço. Dados $x,y\in D(A^n)$ e $\lambda\in \R$, como $x,y\in D(A^{n-1})$, então
-$x+\lambda y\in D(A^{n-1})$ e, como $A^{n-1}$ é linear,
-\[A^{n-1}(x+\lambda y)=\underbrace{A^{n-1}x}_{\in D(A)}+\lambda \underbrace{A^{n-1}y}_{\in D(A)}\in D(A).\]
-Portanto, $D(A^n)$ também é subespaço. Logo, por indução, segue o resultado. $A^n$ é linear pois é a composição de operadores lineares.
-
-\item Teorema \ref{th-der} garante a validade para $n=1$. 
-
-\begin{tcolorbox}
-\noindent\textbf{Hipótese de Indução:} Suponha que, para algum $k>1$,
-
-\noindent Se $x \in {D}\left(A^k\right)$, então $S(t) x \in {D}\left(A^k\right), \forall t \geq 0$ e
-\[
-\frac{d^k}{d t^k} S(t) x=A^k S(t) x=S(t) A^k x
-\]
-\end{tcolorbox}
-
-Vamos mostrar que é válido para $n=k+1$. De fato, se \underline{$x\in D(A^{k+1})$}, por definição, $x\in D(A^k)$ e $y=A^kx\in D(A)$. Aplicando-se o  Teorema \ref{th-der} a $y$, temos que $S(t)A^kx=S(t)y\in D(A)$.  Da Hipótese de Indução, temos que $S(t)x\in D(A^k)$ e $A^kS(t)x=S(t)A^kx\in D(A)$, portanto \underline{$S(t)x\in D(A^{k+1})$}. Além disso, da identidade \eqref{eq-der}, temos que
-\[
-\frac{d}{dt} S(t)y=AS(t)y=S(t)Ay.
-\]
-Donde,
-\[
-\frac{d}{dt}S(t)A^kx=AS(t)A^k=S(t)A^{k+1}x.
-\]
-Da Hipótese de Indução, já temos que $S(t)x\in D(A^k)$ e, da identidade anterior, que $A^kS(t)x=S(t)A^kx\in D(A)$, portanto $S(t)x\in D(A^{k+1})$. temos que $S(t)A^k=\frac{d^k}{dt^k}S(t)x$ e $S(t)A^kx=A^kS(t)x$. Substituindo-se na identidade anterior, Obtemos
-\[
-\frac{d}{dt}\left(\frac{d^k}{dt^k}S(t)x\right)=AA^kS(t)x=S(t)A^{k+1}x.
-\]
-Portanto, 
-\[
-\frac{d^{k+1}}{dt^{k+1}}S(t)x=A^{k+1}S(t)x=S(t)A^{k+1}x.
-\]
-O que prova a identidade \eqref{id-dern} para $n={k+1}$. Logo, o resultado segue pelo princípio da indução finita.
-
-\item Este resultado também segue por indução. Para $n=1$ é simplesmente a identidade \eqref{TFC1}. 
-
-\begin{tcolorbox}
-\noindent\textbf{Hipótese de Indução:} Suponha que, para algum $m>1$, se $x \in {D}\left(A^m\right)$, então vale a fórmula de Taylor:
-\[
-S(t) x=\sum_{k=0}^{m-1} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{(m-1)!} \int_a^t(t-\tau)^{m-1} A^m S(\tau) x d \tau
-\]
-\end{tcolorbox}
-Vamos mostrar que também vale para $n=m+1$. Par isso, vamos fazer uma integação por partes e usar a fórmula do item $(ii)$. 
-\begin{align*}
-&\frac{1}{m!}\int_a^t (t-\tau)^mA^{m+1}S(t)x\,d\tau\\
-& \quad \stackrel{(ii)}{=}\frac{1}{m!}\int_a^t (t-\tau)^m\frac{d^{m+1}}{d\tau^{m+1}}S(t)x\,d\tau\\
-&\quad =\frac{1}{m!}(t-\tau)^m\frac{d^m}{dt^m}S(t)x\Big\vert_{\tau=a}^{\tau=t}-\frac{1}{m!}\int_a^t -m(t-\tau)^{m-1}\frac{d^m}{dt^m}S(t)x\, d\tau\\
-&\quad \stackrel{(ii)}{=}\frac{1}{m!}(t-\tau)^mA^mS(t)x\Big\vert_{\tau=a}^{\tau=t}
-+\frac{1}{(m-1)!}\int_a^t (t-\tau)^{m-1} A^mS(t)x\\
-&\quad =-\frac{1}{m!}(t-a)^mA^mS(a)x+\frac{1}{(m-1)!}\int_a^t (t-\tau)^{m-1} A^mS(t)x\\
-\shortintertext{(Hipótese de Indução)}
-&\quad= -\frac{1}{m!}(t-a)^mA^mS(a)x+S(t)x-\sum_{k=0}^{m-1} \frac{(t-a)^k}{k!} A^k S(a) x\\
-&\quad= S(t)x-\sum_{k=0}^{m} \frac{(t-a)^k}{k!} A^k S(a) x.
-\end{align*}
-Logo, 
-\[
-S(t)x=\sum_{k=0}^{m} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{m!}\int_a^t (t-\tau)^mA^{m+1}S(t)x\,d\tau,
-\]
-como queríamos.
-
-\item {\color{red} COMPLETAR A PROVA}
 
 
-\end{enumerate}
-\end{proof}
+%%--------------- regularidade  -------------------------------
+% \begin{definition}
+%     Seja $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Defina $A^0=\id$, $A^1=A$ e, supondo que $A^{n-1}$ esteja definido, vamos definir $A^n$ pondo:
+% \[D(A^n)=\{x\in D(A^{n-1});\ A^{n-1}x\in D(A)\},\]
+% \[A^nx=A(A^{n-1}x), \ \forall x\in D(A^{n}).\]
+% \end{definition}
+
+% \begin{proposition}
+% Seja   $S$ um semigrupo de classe $C^0$ em $X$ e $A$ seu gerador infinitesimal. Temos:
+
+% \begin{enumerate}[$(i)$]
+%  \item $D\left(A^n\right)$ é um subespaço de $X$ e $A^n$ é um operador linear de $X$;
+
+%  \item Se $x \in {D}\left(A^n\right)$, então $S(t) x \in {D}\left(A^n\right), \forall t \geq 0$ e
+% \begin{equation}\label{id-dern}
+% \frac{d^n}{d t^n} S(t) x=A^n S(t) x=S(t) A^n x, \forall n \in \mathbb{N}
+% \end{equation}
+% \item É válida a fórmula de Taylor: se $x \in {D}\left(A^n\right)$, então
+% \[
+% S(t) x=\sum_{k=0}^{n-1} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{(n-1)!} \int_a^t(t-\tau)^{n-1} A^n S(\tau) x d \tau
+% \]
+% \item  $(S(t)-I)^n x=\displaystyle\int_0^t \cdots \int_0^t S\left(\tau_1+\cdots+\tau_n\right) A^n x\, d \tau_1 \cdots d \tau_n, \forall x \in D\left(A^n\right)$;
+% \item $\displaystyle\bigcap_n {D}\left(A^n\right)$ é denso em $X$.
+% \end{enumerate}
+% \end{proposition}
+
+% \begin{proof}\noindent
+
+% \begin{enumerate}[$(i)$]
+% \item Sabemos que $D(A)$ é um subespaço de $X$. Suponha que $D(A^{n-1})$ seja subspaço. Dados $x,y\in D(A^n)$ e $\lambda\in \R$, como $x,y\in D(A^{n-1})$, então
+% $x+\lambda y\in D(A^{n-1})$ e, como $A^{n-1}$ é linear,
+% \[A^{n-1}(x+\lambda y)=\underbrace{A^{n-1}x}_{\in D(A)}+\lambda \underbrace{A^{n-1}y}_{\in D(A)}\in D(A).\]
+% Portanto, $D(A^n)$ também é subespaço. Logo, por indução, segue o resultado. $A^n$ é linear pois é a composição de operadores lineares.
+
+% \item Teorema \ref{th-der} garante a validade para $n=1$. 
+
+% \begin{tcolorbox}
+% \noindent\textbf{Hipótese de Indução:} Suponha que, para algum $k>1$,
+
+% \noindent Se $x \in {D}\left(A^k\right)$, então $S(t) x \in {D}\left(A^k\right), \forall t \geq 0$ e
+% \[
+% \frac{d^k}{d t^k} S(t) x=A^k S(t) x=S(t) A^k x
+% \]
+% \end{tcolorbox}
+
+% Vamos mostrar que é válido para $n=k+1$. De fato, se \underline{$x\in D(A^{k+1})$}, por definição, $x\in D(A^k)$ e $y=A^kx\in D(A)$. Aplicando-se o  Teorema \ref{th-der} a $y$, temos que $S(t)A^kx=S(t)y\in D(A)$.  Da Hipótese de Indução, temos que $S(t)x\in D(A^k)$ e $A^kS(t)x=S(t)A^kx\in D(A)$, portanto \underline{$S(t)x\in D(A^{k+1})$}. Além disso, da identidade \eqref{eq-der}, temos que
+% \[
+% \frac{d}{dt} S(t)y=AS(t)y=S(t)Ay.
+% \]
+% Donde,
+% \[
+% \frac{d}{dt}S(t)A^kx=AS(t)A^k=S(t)A^{k+1}x.
+% \]
+% Da Hipótese de Indução, já temos que $S(t)x\in D(A^k)$ e, da identidade anterior, que $A^kS(t)x=S(t)A^kx\in D(A)$, portanto $S(t)x\in D(A^{k+1})$. temos que $S(t)A^k=\frac{d^k}{dt^k}S(t)x$ e $S(t)A^kx=A^kS(t)x$. Substituindo-se na identidade anterior, Obtemos
+% \[
+% \frac{d}{dt}\left(\frac{d^k}{dt^k}S(t)x\right)=AA^kS(t)x=S(t)A^{k+1}x.
+% \]
+% Portanto, 
+% \[
+% \frac{d^{k+1}}{dt^{k+1}}S(t)x=A^{k+1}S(t)x=S(t)A^{k+1}x.
+% \]
+% O que prova a identidade \eqref{id-dern} para $n={k+1}$. Logo, o resultado segue pelo princípio da indução finita.
+
+% \item Este resultado também segue por indução. Para $n=1$ é simplesmente a identidade \eqref{TFC1}. 
+
+% \begin{tcolorbox}
+% \noindent\textbf{Hipótese de Indução:} Suponha que, para algum $m>1$, se $x \in {D}\left(A^m\right)$, então vale a fórmula de Taylor:
+% \[
+% S(t) x=\sum_{k=0}^{m-1} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{(m-1)!} \int_a^t(t-\tau)^{m-1} A^m S(\tau) x d \tau
+% \]
+% \end{tcolorbox}
+% Vamos mostrar que também vale para $n=m+1$. Par isso, vamos fazer uma integação por partes e usar a fórmula do item $(ii)$. 
+% \begin{align*}
+% &\frac{1}{m!}\int_a^t (t-\tau)^mA^{m+1}S(t)x\,d\tau\\
+% & \quad \stackrel{(ii)}{=}\frac{1}{m!}\int_a^t (t-\tau)^m\frac{d^{m+1}}{d\tau^{m+1}}S(t)x\,d\tau\\
+% &\quad =\frac{1}{m!}(t-\tau)^m\frac{d^m}{dt^m}S(t)x\Big\vert_{\tau=a}^{\tau=t}-\frac{1}{m!}\int_a^t -m(t-\tau)^{m-1}\frac{d^m}{dt^m}S(t)x\, d\tau\\
+% &\quad \stackrel{(ii)}{=}\frac{1}{m!}(t-\tau)^mA^mS(t)x\Big\vert_{\tau=a}^{\tau=t}
+% +\frac{1}{(m-1)!}\int_a^t (t-\tau)^{m-1} A^mS(t)x\\
+% &\quad =-\frac{1}{m!}(t-a)^mA^mS(a)x+\frac{1}{(m-1)!}\int_a^t (t-\tau)^{m-1} A^mS(t)x\\
+% \shortintertext{(Hipótese de Indução)}
+% &\quad= -\frac{1}{m!}(t-a)^mA^mS(a)x+S(t)x-\sum_{k=0}^{m-1} \frac{(t-a)^k}{k!} A^k S(a) x\\
+% &\quad= S(t)x-\sum_{k=0}^{m} \frac{(t-a)^k}{k!} A^k S(a) x.
+% \end{align*}
+% Logo, 
+% \[
+% S(t)x=\sum_{k=0}^{m} \frac{(t-a)^k}{k!} A^k S(a) x+\frac{1}{m!}\int_a^t (t-\tau)^mA^{m+1}S(t)x\,d\tau,
+% \]
+% como queríamos.
+
+% \item {\color{red} COMPLETAR A PROVA}
+
+
+% \end{enumerate}
+% \end{proof}

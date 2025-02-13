@@ -1,0 +1,178 @@
+
+\section{Espaços $\ell_p$}
+
+\begin{example}\label{lp}
+    Seja $p\in [1,+\infty )$ e definamos 
+    \[
+    \displaystyle \ell_p =\left\{ (x_n )_{n=1}^{\infty}; \sum_{n=1}^{\infty} |x_n|^p <+\infty \right\}
+    \]
+    
+    Mostraremos que as operações 
+    \[
+    \bigg( (x_n )_{n=1}^{\infty},(y_n )_{n=1}^{\infty} \bigg) \in \ell_p \times \ell_p \longmapsto (x_n +y_n )_{n=1}^{\infty} \in \ell_p
+    \]
+    e
+    \[
+    \bigg( \lambda ,(x_n )_{n=1}^{\infty} \bigg) \in \mathbb K \times \ell_p \longmapsto (\lambda x_n )_{n=1}^{\infty} \in \ell_p
+    \]
+    estão bem definidas e que a aplicação 
+    \[
+    \displaystyle (x_n )_{n=1}^{\infty} \in \ell_p \longmapsto \bigg( \sum_{n=1}^{\infty} |x_n|^p \bigg)^{1/p} \in \R .
+    \]
+    Tais objetivos serão alcançados no Corolário \ref{dms}.
+\end{example}
+
+\begin{proposition}[Desigualdade de Hölder para somas] \label{dhsomas}
+    Sejam $p,q \in (1,+\infty)$ tais que 
+    \[
+    \displaystyle \frac{1}{p} + \frac{1}{q} =1.
+    \]
+    Se $(x_1, \cdots , x_n) \in \mathbb K^n$ e $(y_1, \cdots , y_n) \in \mathbb K^n$, então 
+    \[
+    \displaystyle \sum_{j=1}^{n} |x_j y_j|\leq \bigg( \sum_{j=1}^{n} |x_j|^p \bigg)^{1/p} \bigg( \sum_{j=1}^{n} |y_j|^q \bigg)^{1/q} .
+    \]
+\end{proposition}
+\begin{proof}
+    Em virtude do Teorema do Valor Médio, não é difícil constatar que, para quaisquer $a,b\in [0,+\infty )$ e $\alpha \in [0,1]$, tem-se
+    \begin{equation}\label{TVM}
+    \displaystyle a^{\alpha} b^{1-\alpha} \leq \alpha a + (1-\alpha )b.
+    \end{equation}
+    Como claramente podemos supor que
+    \[
+    \sum_{j=1}^{n} |x_j|^p >0 \text{  e  } \sum_{j=1}^{n} |y_j|^p >0,
+    \]
+    consideremos 
+    \[
+    \displaystyle a_{m} = \frac{|x_{m}|^p}{\sum_{j=1}^{n} |x_j|^p} \text{  e  } b_{m} = \frac{|y_{m}|^q}{\sum_{j=1}^{n} |y_j|^p},
+    \]
+    para cada $m\in \{1,\cdots , n\}$. Logo, tomando $\alpha = \frac{1}{p}$ e aplicando \eqref{TVM}, temos
+    \[
+    \displaystyle a_{m}^{\alpha} b_{m}^{1-\alpha} \leq \alpha a_m + (1-\alpha )b_m ,
+    \]
+    isto é,
+    \begin{equation}\label{ineq}
+    \displaystyle \frac{|x_{m}|}{\bigg(\sum_{j=1}^{n} |x_j|^p \bigg)^{1/p}} \cdot \frac{|y_{m}|}{\bigg(\sum_{j=1}^{n} |y_j|^p \bigg)^{1/q}}
+    \leq \frac{1}{p} \cdot \frac{|x_{m}|^p}{\sum_{j=1}^{n} |x_j|^p}+ \frac{1}{q} \cdot \frac{|y_{m}|^q}{\sum_{j=1}^{n} |y_j|^p},
+    \end{equation}
+    para cada $m\in \{ 1,\cdots , n\}$. Somando membro a membro as $n$ relações descritas em \eqref{ineq}, fica demonstrada a desigualdade de Hölder do enunciado.
+\end{proof}
+
+\begin{corollary}[Desigualdade de Hölder para séries]
+    Sejam $p,q \in (1,+\infty)$ satisfazendo $\frac{1}{p} + \frac{1}{q} =1$. Se $(x_n)_{n=1}^{\infty} \in \ell _p$ e $(y_n)_{n=1}^{\infty} \in \ell _q$, então $(x_n y_n)_{n=1}^{\infty} \in \ell _1$ e vale
+    \[
+    \displaystyle \sum_{n=1}^{\infty} |x_n y_n|\leq \bigg( \sum_{n=1}^{\infty} |x_n|^p \bigg)^{1/p} \bigg( \sum_{n=1}^{\infty} |y_n|^q \bigg)^{1/q} .
+    \]
+\end{corollary}
+\begin{proof}
+Segue imediatamente da Proposição \ref{dhsomas}.
+\end{proof}
+
+
+\begin{proposition}[Desigualdade de Minkowski para somas]
+Seja $p\in (1,+\infty)$. Se $(x_1, \cdots , x_n) \in \mathbb K^n$ e $(y_1, \cdots , y_n) \in \mathbb K^n$, então 
+    \[
+    \displaystyle \bigg( \sum_{j=1}^{n} |x_j + y_j|^p \bigg)^{1/p} \leq \bigg( \sum_{j=1}^{n} |x_j|^p \bigg)^{1/p} +\bigg( \sum_{j=1}^{n} |y_j|^p \bigg)^{1/p} .
+    \]
+\end{proposition}
+
+\begin{proof}
+Como claramente podemos supor que
+\[
+\displaystyle \sum_{j=1}^{n} |x_j + y_j|^p >0,
+\]
+a Proposição \ref{dhsomas} nos dá
+
+\begin{align}
+\displaystyle \sum_{j=1}^{n} |x_j + y_j|^p
+&=\sum_{j=1}^{n} |x_j + y_j|^{p-1} |x_j + y_j| \nonumber \\
+&\leq \sum_{j=1}^{n} |x_j + y_j|^{p-1} |x_j|
++\sum_{j=1}^{n} |x_j + y_j|^{p-1} |y_j| \nonumber \\
+&\leq \bigg( \sum_{j=1}^{n} |x_j + y_j|^{(p-1)q} \bigg)^{1/q} \bigg( \sum_{j=1}^{n} |x_j|^p \bigg)^{1/p} \nonumber\\
+&\hspace{1cm}+\bigg( \sum_{j=1}^{n} |x_j + y_j|^{(p-1)q} \bigg)^{1/q} \bigg( \sum_{j=1}^{n} |y_j|^p \bigg)^{1/p} \nonumber \\
+&=\bigg( \sum_{j=1}^{n} |x_j + y_j|^{p} \bigg)^{1/q} \bigg[ \bigg( \sum_{j=1}^{n} |x_j|^p \bigg)^{1/p} + \bigg( \sum_{j=1}^{n} |y_j|^p \bigg)^{1/p}\bigg] \label{ineqm},
+\end{align}
+onde $q=\frac{p}{p-1}$. Multiplicando os membros de \eqref{ineqm} por $\bigg( \sum_{j=1}^{n} |x_j + y_j|^p \bigg)^{-1/q}$, fica demonstrada a desigualdade de Minkowski do enunciado.
+\end{proof}
+
+\begin{corollary}[Desigualdade de Minkowski para séries]\label{dms}
+    Seja $p\in (1,+\infty)$. Se $x=(x_n)_{n=1}^{\infty} \in \ell_p $ e $y=(y_n)_{n=1}^{\infty} \in \ell_q$, então $(x_n + y_n)_{n=1}^{\infty} \in \ell_p$ e vale
+     \[
+    \displaystyle \bigg( \sum_{n=1}^{\infty} |x_n + y_n|^p \bigg)^{1/p} \leq \bigg( \sum_{n=1}^{\infty} |x_n|^p \bigg)^{1/p} +\bigg( \sum_{n=1}^{\infty} |y_n|^p \bigg)^{1/p} .
+    \]
+    Em outras palavras, $x+y \in \ell_p$, ou seja, a adição em $\ell_p$ apresentada no Exemplo \ref{lp} encontra-se bem definida e, além disso, vale a desigualdade triangular
+    \[
+    \displaystyle \|x+y\|_p \leq \|x\|_p +\|y\|_p.
+    \]
+    Assim, sendo imediata a boa definição da multiplicação por escalar em $\ell_p$, também declarada no Exemplo \ref{lp}, resulta que $(\ell_p , \|\cdot\|_p)$ é um espaço vetorial normado.
+\end{corollary}    
+
+
+\begin{example}\label{ex24}
+Denotemos por
+\begin{itemize}
+\item $\textbf{c}$ o conjunto de todas as sequências convergentes em $\mathbb K$;
+\item $\textbf{c}_0$ o conjunto de todas as sequências convergentes em $\mathbb K$ convergindo para zero;
+\item $\textbf{c}_{00}$ o conjunto de todas as sequências $(x_n)_{n=1}^{\infty}$ em $\mathbb K$ com a seguinte propriedade: existe um inteiro positivo $n_0$ tal que $x_n=0$ para todo $n\geq n_0$.
+\end{itemize}
+Claramente, 
+\[
+\textbf{c}_{00} \subset \textbf{c}_{0} \subset \textbf{c} \subset \ell_{\infty}.
+\]
+Além disso, não é difícil constatar que $\textbf{c}$ é um subespaço vetorial fechado de $\ell_{\infty}$.
+\end{example}
+
+\begin{example}
+    Para cada espaço métrico $M$, $\mathcal C _b (M)$, apresentado no \ref{ex23} é um espaço de Banach, uma vez que é um subespaço fechado de $\mathcal B (M)$ (veja a Observação \ref{subespaço}).
+\end{example}
+
+\begin{example}
+O subespaço vetorial $\textbf{c}$ de $\ell_{\infty}$, mencionado no Exemplo \ref{ex24}, é um espaço de Banach, em virtude da Proposição \ref{continuous} e da Observação \ref{subespaço}.
+\end{example}
+
+\begin{example}\label{incompleto}
+O subespaço de $\textbf{c}_{00}$ de $\ell_{\infty}$, mencionado no Exemplo \ref{ex24}, NÃO é um espaço de Banach. De fato, para cada inteiro $n \geq 1$, consideremos
+\[
+\displaystyle x_n =\bigg( 1,\frac{1}{2}, \frac{1}{3}, \cdots , \frac{1}{n}, 0, 0, 0,\cdots \bigg) \in \textbf{c}_{00}.
+\]
+É fácil ver que $(x_n)_{n=1}^{\infty}$ é uma sequência em $\textbf{c} _{00}$ que converge a 
+\[
+\displaystyle x =\bigg( 1,\frac{1}{2}, \frac{1}{3}, \cdots , \frac{1}{n}, \cdots \bigg) \in \ell_{\infty} \setminus\textbf{c}_{00}.
+\]
+Isto significa que $(x_n)_{n=1}^{\infty}$ é uma sequência de Cauchy em $\textbf{c}_{00}$ que NÃO CONVERGE em $\textbf{c}_{00}$.
+\end{example}
+
+\section{Funcionais e operadores lineares ilimitados}
+
+
+\begin{proposition}\label{dual-topVSalg}
+Se é $X$ um espaço normado de dimensão infinita, então $X'\neq X^{\ast}$.
+\end{proposition}
+\begin{proof}
+De fato, em virtude do Lema de Zorn, sabemos que $X$ possui uma base (de Hamel)
+\[
+\displaystyle \mathcal B = \{ x_i; i\in I\},
+\]
+onde $I$ é um conjunto infinito. Podemos supor que $\| x_i \|_X =1$ para todo $i\in I$. Agora, seja 
+\[
+\displaystyle J = \{ i_1, i_2, \cdots , i_k, \cdots \}
+\]
+um subconjunto infinito e enumerável de $I$. Logo, existe um único funcional linear $\varphi : X \longrightarrow \mathbb K$ tal que 
+\begin{itemize}
+\item $\varphi (x_{i_k})=k$ para cada $k\in \mathbb N$;
+\item $\varphi (x_i)=0$ se $i\in I\setminus J$.
+\end{itemize}
+Um vez que 
+\[
+\displaystyle \mathbb N \subset \left\{ \frac{|\varphi (x)|}{\|x\|_{X}}; x\in X\setminus \{0\}\right\},
+\]
+não existe $C>0$ de modo que valha $|\varphi (x)|\leq \|x\|_X$ para todo $x\in X$. Pela Proposição \ref{continuous}, $\varphi$ não é contínua, isto é, $\varphi \in X^{\ast} \setminus X'$.
+\end{proof}
+
+\begin{remark}\label{opilimitado}
+Dados dois espaços normados $X$ e $Y$, com $X$ de dimensão infinita, sempre podemos definir uma aplicação linear descontínua $T:X\longrightarrow Y$. Realmente, consideremos $\mathcal B$ e $I$ como na Proposição \ref{dual-topVSalg}, e seja $y\in Y$ com $\|y\|_Y =1$. Nesse caso, basta tomar $T:X\longrightarrow Y$ como sendo a única aplicação linear satisfazendo
+\begin{itemize}
+\item $T(x_{i_k})=ky$ para cada $k\in \mathbb N$;
+\item $T(x_i)=0$ se $i\in I\setminus J$.
+\end{itemize}
+\end{remark}
+ 

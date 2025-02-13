@@ -1,4 +1,5 @@
-\chapter{Apêndice}
+                                 
+                            \chapter{Apêndice}
 
 \section{Resultados Clássicos}
 
@@ -20,14 +21,59 @@ converge absolutamente para cada $\lambda $ pertecente ao conjunto $\Lambda$ e a
 \end{proof}
 
 
-\section{Resultados sobre Integração que todos devem saber}
+A seguir, enunciamos dois resultados básicos da Análise Funcional que serão utilizados nas exposições deste minicurso. O primeiro deles é o Princípio da Limitação Uniforme (versão do Teorema de Banach-Steinhaus no contexto dos espaços normados) e o outro é o Teorema do Gráfico Fechado, ambos consequências do importante Lema de Baire (veja \cite{pombo1999introduccao}).
 
-
-\begin{theorem}[Teorema da Convergência Dominada de Lebesgue]
-Seja $(f_n)$ uma sequência de funções em $L^1(X)$ que satisfaz:
-\begin{enumerate}[a]
-\item $f_n(x)\to f(x)$ q.s em $X$,
-\item Existe $g\in L^1(X)$ tal que $|f_n(x)|\leq g(x)$ q.s. em $X$.
-\end{enumerate} 
-Então $f\in L^1(X)$ e $\|{f_n-f}_{L^1(X)}\|_{L^1(X)} \to 0$.
+\begin{theorem}[Banach-Steinhaus]\label{th-BS}
+	Sejam $X$ e $Y$ dois espaços normado, com $X$ completo, e consideremos uma família
+    \[
+    \displaystyle \mathcal F =\{T_i :X\longrightarrow Y; i\in I\} \subset \mathcal L (X,Y),
+    \]
+    não necessariamente enumerável, com a seguinte propriedade: para cada $x\in X$, temos
+    \[
+    \sup_{i\in I}\|T_ix\|_{Y} < \infty .
+    \] 
+    Então 
+    \[
+    \sup_{i\in I}\|T_i\|_{\mathcal{L}(X,Y)}<\infty.
+    \]
+    Em outras palavras, a limitação pontual da família $\mathcal F$ implica a sua limitação uniforme. 
+    %Se $\{T_i\}_{i\in I}$  é uma família (não necessariamente enumerável) em $\mathcal{L}(X,Y)$ pontualmente limitada, então $\{T_i\}_{i\in I}$ é uniformemente limitada, isto é, se 
+	% \[\sup_{i\in I}\|T_ix\|< \infty,\ \forall x\in X,\] 
+%	 então
+	% \[\sup_{i\in I}\|T_i\|_{\mathcal{L}(X,Y)}<\infty.\]
 \end{theorem}
+
+\begin{remark}
+\begin{itemize}
+\item[(a)] No Teorema \ref{th-BS}, a hipótese de que $X$ seja coompleto não pode ser removida. De fato, definindo 
+\[
+\displaystyle \varphi_n : x=(x_j)_{j=1}^{\infty} \in c_{00} \longmapsto nx_n \in \mathbb K ,
+\]
+para cada inteiro positivo $n$, fica estabelecida uma família pontualmente limitada que não é uniformemente limitada (relembre o Exemplo \ref{incompleto} e consulte \cite{pombo1999introduccao}).
+\item[(b)] Ainda com as notações do Teorema de \ref{th-BS}, a limitação uniforme de $\mathcal F$, expressa por 
+\[
+\sup_{i\in I}\|T_i\|_{\mathcal{L}(X,Y)}<\infty ,
+\]
+é o mesmo que dizer que $\mathcal F$ é uma família equicontínua (de fato, basta adaptar a demonstração da Proposição \ref{continuous} para obter este fato).
+\end{itemize}
+\end{remark}
+
+\begin{theorem}[Gráfico Fechado]\label{th-GF}
+    Sejam $X$ e $Y$ dois espaços de Banach, e consideremos uma aplicação linear $T:X\longrightarrow Y$. Se
+    \[
+    \displaystyle G_T = \{ (x,y)\in X\times Y; y=Tx\}
+    \]
+    é um subespaço fechado de $X\times Y$, então $T$ é contínua.
+\end{theorem}
+
+\begin{remark}
+    \begin{itemize}
+    \item[(a)] Dentre as hipóteses do Teorema \ref{th-GF}, a completude de cada um dos dois espaços não pode ser removida (veja \cite{pombo1999introduccao}).
+    \item[(b)] Conforme o enunciado do Teorema do \ref{th-GF}, $G_T$ é um subespaço vetorial de $X\times Y$ (não apenas um subconjunto do mesmo, como ocorre em geral para aplicações entre dois conjuntos dados). Isto é verdadeiro porque $T:X\longrightarrow Y$ é uma aplicação linear. 
+    \item[(c)] É fácil ver que a aplicação linear $T:X\longrightarrow Y$ se exprime como a composição
+    \[
+    T=\pi_2 \circ (\pi_1 |_{G_T})^{-1},
+    \]
+    onde $\pi_1$ e $\pi_2$ são as projeções naturais de $X\times Y$ sobre $X$ e $Y$, respectivamente. A principal dificuldade na obtenção do Teorema \ref{th-GF} é demonstrar que $(\pi_1 |_{G_T})^{-1}: X\longrightarrow G_T$ é uma aplicação contínua (veja \cite{pombo1999introduccao}).
+    \end{itemize}
+\end{remark}

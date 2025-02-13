@@ -12,7 +12,7 @@ Seja $X$ um espaço de Banach e $A:D(A)\subset X\longrightarrow X$ um operador l
 %\end{itemize}
 O conjunto $\sigma(A)=\mathbb{C}\setminus\rho(A)$ é dito \dt{espectro} \index{Espectro} de $A$. Para cada $\lambda\in \rho(A)$, definimos o  \dt{operador resolvente} \index{Resolvente!operador} por
 \[R(\lambda,A):=(\lambda \id -A)^{-1}: X\longrightarrow D(A).\]
-O qual, pelo Teorema do Gráfico fechado, é um operador linear limitado.
+O qual, \textcolor{orange}{pelo Teorema do Gráfico fechado, é um operador linear limitado.}
 
 
 Note que, se $\lambda \in \rho(A)$, então para todo $x\in X$ 
@@ -36,17 +36,17 @@ Prove que se $\lambda, \mu\in \rho(A)$, então $\rla$ e $R(\mu,A)$ comutam.
 
 \begin{theorem}[Hille-Yosida]\label{HY-contr}
 Seja $X$ um espaço de Banach. Um operador linear $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de um 
-\textbf{semigrupos de contrações} se, e somente se, 
+\textbf{semigrupos de contrações} se, e somente se, são válidas as seguintes afirmações:
 \begin{enumerate}[$(i)$]
-\item $A$ é fechado e densamente definido, i.e., $\overline{D(A)}=X$. 
-\item $(0,+\infty)\subset \rho(A)$ e para todo $\lambda>0$
+\item $A$ é fechado e densamente definido, i.e., $\overline{D(A)}=X$; 
+\item $(0,+\infty)\subset \rho(A)$ e, para todo $\lambda>0$, temos
 \begin{equation*}
 \nl{R(\lambda,A)}\leq \frac{1}{\lambda}.
 \end{equation*}
 \end{enumerate}
 \end{theorem}
 
-A prova deste teorema será divida em  lemas.
+A prova do Teorema \ref{HY-contr} será divida em  lemas.
 
 \begin{lemma}[Condição Necessária]
 Seja $A$ o gerador infinitesimal de um semigrupo de contrações. Então $A$ é fechado e densamente definido. Além disso, $(0,+\infty)\subset \rho(A)$, 
@@ -59,28 +59,34 @@ Dados $x\in X$ e $\lambda>0$ defina
 \begin{equation*}
 L_\lambda x =\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi.
 \end{equation*}
-Primeiramente, vejamos que $L_\lambda x$ está bem definida. 
-Para isso, vamos usar o Teste de Weierstrass
-(Proposição \ref{TWeierstrass}). Do Corolário \ref{Scontinua}, temos que a função
+Primeiramente, vejamos que $L_\lambda x$ {está bem definida.} 
+Para isso, %vamos usar o Teste de Weierstrass
+%(Proposição \ref{TWeierstrass}).
+do Corolário \ref{Scontinua}, temos que a função
 \begin{equation*}
-(t,\lambda)\in [0,+\infty)\times (0,+\infty)\longmapsto e^{-\lambda t}S(t)x\in  X,
+(t,\lambda)\in [0,+\infty)\times (0,+\infty)\longmapsto
+\| e^{-\lambda t}S(t)x\|\in  \R,
 \end{equation*}
 é contínua em $t$ para cada $\lambda\in (0,+\infty)$. 
-
 Como $S$ é um semigrupo de contrações, temos que
-\begin{equation*}
-\|e^{-\lambda t}S(t)x\| =e^{-\lambda t}\|S(t)x\|\leq e^{-\lambda t}\|x\|
-\leq e^{-t}\|x\| =:M(t), 
-\; \forall\ (t,\lambda)\in [0,+\infty)\times (0,+\infty)
-\end{equation*}
-Além disso, 
 \begin{align*}
- \int_0^\infty M(t)\, dt& =\int_0^\infty e^{-t}\|x\|\, dt
-=\|x\| \int_0^\infty e^{- t}\, dt 
-=\|x\|\lim_{b\to +\infty} \int_0^b e^{-t}\, dt\\
-& =\|x\|\lim_{b\to +\infty}-e^{-t}\Big\vert_{t=0}^{t=b} =\|x\|\lim_{b\to +\infty}\left(1-e^{-b}\right)={\|x\|}<+\infty.
+\int_0^\infty \|e^{-\lambda t}S(t)x\|\,dt& =
+\int_0^\infty e^{-\lambda t}\|S(t)x\|\,dt\leq\|x\|
+ \int_0^\infty e^{-\lambda t}\, dt =\|x\|\lim_{b\to +\infty} \int_0^b e^{-\lambda t}\, dt\\
+& =\|x\|\lim_{b\to +\infty}-\frac{e^{-\lambda t}}{\lambda}\Big\vert_{t=0}^{t=b} =\frac{\|x\|}{\lambda}\lim_{b\to +\infty}\left(1-e^{-b}\right)=\frac{\|x\|}{\lambda}<+\infty.
 \end{align*}
-Portanto, pelo Teste de Weierstrass, $L_\lambda$ está bem definida. Claro que $L_\lambda$ é linear e além disso, procedendo como acima, 
+%\begin{equation*}
+%\|e^{-\lambda t}S(t)x\| =e^{-\lambda t}\|S(t)x\|\leq e^{-\lambda t}\|x\|, 
+%\; \forall\ (t,\lambda)\in [0,+\infty)\times (0,+\infty)
+%\end{equation*}
+%Daí, 
+%\begin{align*}
+%\int_0^\infty e^{-t}\|x\|\, dt
+%=\|x\| \int_0^\infty e^{- t}\, dt 
+%=\|x\|\lim_{b\to +\infty} \int_0^b e^{-t}\, dt\\
+%& =\|x\|\lim_{b\to +\infty}-e^{-t}\Big\vert_{t=0}^{t=b} =\|x\|\lim_{b\to +\infty}\left(1-e^{-b}\right)={\|x\|}<+\infty.
+%\end{align*}
+Isto é, a integral imprópria é absolutamente convergente, consequentemente $L_\lambda$ está bem definida. Claro que $L_\lambda$ é linear e além disso, procedendo como acima, 
 \begin{align*}
 \left\|L_\lambda x\right\|& \leq \int_0^\infty\|e^{-\lambda t}S(t)x\|\,dt\leq
 \int_0^\infty e^{-\lambda t}\|x\|\,dt\\
@@ -90,9 +96,9 @@ Portanto, pelo Teste de Weierstrass, $L_\lambda$ está bem definida. Claro que $
 isto é, $L_\lambda$ define um operador linear limitado em $X$ e 
 $\nl{L_\lambda}\leq \frac{1}{\lambda}$.
 
-Resta mostrar que  $L_\lambda= R(\lambda,A)$, isto é, devemos mostrar que
+Resta mostrar que  $L_\lambda= R(\lambda,A)$, isto é, devemos verificar que
 \begin{enumerate}
-\item $\forall\, x\in X,\ L_\lambda x\in D(A)$ e $(\lambda \id-A)L_\lambda x=x$, i.e., $A\left(L_\lambda x\right)=L_\lambda x -x$.
+\item $\forall\, x\in X,\ L_\lambda x\in D(A)$ e $(\lambda \id-A)L_\lambda x=x$, i.e., $A\left(L_\lambda x\right)=\lambda L_\lambda x -x$.
 \item $\forall\, x\in D(A),$ $L_\lambda(\lambda \id-A)x=x$, i.e., $L_\lambda(Ax)=\lambda L_\lambda x-x$.
 \end{enumerate}
 
@@ -130,12 +136,12 @@ L_\lambda x-x,
 \end{align*}
 o que prova o o item 1. Agora vamos provar o item 2. Dado $x\in D(A)$, 
 \begin{align*}
-L_\lambda(A)x& =\int_0^{\infty}e^{-\lambda
+L_\lambda(Ax)& =\int_0^{\infty}e^{-\lambda
  \xi}S(\xi)Ax\,d\xi=\int_0^{\infty}e^{-\lambda
  \xi}\frac{d}{d\xi}S(\xi)x\,d\xi\\
-& =\int_0^{\infty}\frac{d}{d\xi}\left(e^{-\lambda
+& =\int_0^{\infty} \bigg[ \frac{d}{d\xi}\left(e^{-\lambda
  \xi}S(\xi)x\right)+\lambda e^{-\lambda
- \xi}S(\xi)x \,d\xi\\
+ \xi}S(\xi)x \bigg]\,d\xi\\
 & =\lim_{b\to +\infty}\left(e^{-\lambda
  \xi}S(\xi)x\big\vert_{\xi=0}^{\xi=b}\right)+\lambda \int_0^{\infty}e^{-\lambda
  \xi}S(\xi)x \,d\xi\\
@@ -147,7 +153,7 @@ L_\lambda(A)x& =\int_0^{\infty}e^{-\lambda
 como queríamos.
 \end{proof}
 
-\begin{lemma} Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. Então
+\begin{lemma}\label{ap} Suponhamos que $A$ satisfaça as condições $(i)$ e $(ii)$ do enunciado do Teorema \ref{HY-contr}. Então
 \begin{equation*}
 \lim_{\lambda \to +\infty} \lambda\rla x=x, \; \forall\,x\in X.
 \end{equation*}
@@ -183,21 +189,21 @@ A_\lambda :=\lambda A\rla =\lambda^2\rla -\lambda \id\in \mathcal{L}(X).
 \end{definition}
 
 \begin{lemma}\label{Plem3.3}
- Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. 
+ Suponhamos que $A$ satisfaça as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. 
 Se $A_\lambda$ é a aproximação de Yosida do operador $A$, então
 \begin{equation*}
 \lim_{\lambda \to +\infty}A_\lambda x=Ax,\; \forall\, x\in D(A).
 \end{equation*}
 \end{lemma}
 \begin{proof}
-Se $x\in D(A)$, então, de \eqref{RAAR} e do Lema anterior, temos que
+Seja $x\in D(A)$. De \eqref{RAAR} e do Lema \ref{ap}, temos
 \begin{equation*}
-\lim_{\lambda \to +\infty}A_\lambda x=\lim_{\lambda \to +\infty}\lambda\rla Ax=Ax
+\lim_{\lambda \to +\infty}A_\lambda x=\lim_{\lambda \to +\infty}\lambda\rla Ax=Ax.
 \end{equation*}
 \end{proof}
 
 \begin{lemma}\label{Plem3.4}
-Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. Se $A_\lambda$ é  aproximação de Yosida de $A$, então $A_\lambda$ é o gerador infinitesimal de um semigrupo uniformemente contínuo de contrações $e^{tA_\lambda}$. Além disso, para cada $x\in X$, $\lambda,\mu>0$ temos que
+Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do enunciado do Teorema \ref{HY-contr}. Se $A_\lambda$ é  aproximação de Yosida de $A$, então $A_\lambda$ é o gerador infinitesimal de um semigrupo uniformemente contínuo de contrações $e^{tA_\lambda}$. Além disso, para quaisquer $x\in X$ e $\lambda,\mu>0$, temos
 \begin{equation*}
 \left\|e^{tA_\lambda}x-e^{tA_\mu}x\right\|\leq t\|A_\lambda x-A_\mu x\|.
 \end{equation*}
