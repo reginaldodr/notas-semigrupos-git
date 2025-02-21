@@ -161,33 +161,53 @@ $t\in [0,+\infty)\longmapsto S(t)x\in  X$ é contínua.
     Realmente, para cada $h>0$, utilizamos a Proposição \ref{exp} para obter
     \begin{align*}
     \displaystyle \|g(t_0 +h)-g(t_0)\|_X
-    \|S(t_0+h)x-S(t)x\|_X& =\|S(t_0)S(h)x-S(t)x\|_X=\|S(t_0)(S(h)-\id)x\|\\
+    =\|S(t_0+h)x-S(t)x\|_X& =\|S(t_0)S(h)x-S(t)x\|_X=\|S(t_0)(S(h)-\id)x\|\\
     & \leq \|S(t_0)\|_{\mathcal{L}(X)}\|(S(h)-\id)x\|_X \\
     & \leq Me^{\mu t_0}\|(S(h)-\id)x\|_X,
 \end{align*}
 ou seja, lembrando que $S:[0,+\infty)\longrightarrow \mathcal L (X)$ é um semigrupo de classe $C^0$, resulta que
-\[
+\begin{equation}\label{direita}
 \displaystyle\lim_{h\to 0^+} g(t_0 +h)=g(t_0) \text{ em } X.
+\end{equation}
+
+Por outro lado, se $-t_0< -h <0$, temos
+\begin{align*}
+    \displaystyle \|g(t_0 -h)-g(t_0)\|_X
+    =\|S(t_0-h)x-S(t_0)x\|_X& =\|S(t_0 -h)x-S(t_0-h) S(h)x\|_X \\
+    &=\|S(t_0-h)(\id -s(h))x\|\\
+    & \leq \|S(t_0 -h)\|_{\mathcal{L}(X)}\|(S(h)-\id)x\|_X \\
+    & \leq Me^{\mu (t_0-h)}\|(S(h)-\id)x\|_X.
+\end{align*}
+Novamente, sendo $S:[0,+\infty)\longrightarrow \mathcal L (X)$ é um semigrupo de classe $C^0$, concluímos que 
+\begin{equation}\label{esquerda}
+\displaystyle\lim_{h\to 0^+} g(t_0 -h)=g(t_0) \text{ em } X.
+\end{equation}
+Por \eqref{direita} e \eqref{esquerda}, 
+\[
+\displaystyle\lim_{t\to t_0} g(t)=g(t_0) \text{ em } X,
 \]
+o que significa que $g$ é uma função contínua em $t_0$. Isto completa a demonstração.
 
-    devemos mostrar que, para todo $t\in [0,+\infty)$,
-    \[\|S(t+h)x-S(t)x\|\to 0,\, \text{ quando } h\to 0.\]
-Do item (3) da Definição  \ref{def-semigrupo} , já temos
-  \[\|S(h)x-S(0)x\|=\|(S(h)-\id)x\|\to 0,\, \text{ quando } h\to 0.\]
-Isto é, $S(\cdot)x$ é contínua em $t=0$. Dado $t\in (0,+\infty)$, se $h>0$, então
-\begin{align*}
-    \|S(t+h)x-S(t)x\|& =\|S(t)S(h)x-S(t)x\|=\|S(t)(S(h)-\id)x\|\\
-    & \leq \|S(t)\|_{\mathcal{L}(X)}\|(S(h)-\id)x\|\\
-    & \leq Me^{\mu t}\|(S(h)-\id)x\|\to 0,\, \text{ quando } h\to 0^+.
-\end{align*}
+%$t\in [0,+\infty)$,
+%    \[\|S(t+h)x-S(t)x\|\to 0,\, %\text{ quando } h\to 0.\]
+%Do item (3) da Definição  \ref{def-%semigrupo} , já temos
+%  \[\|S(h)x-S(0)x\|=\|(S(h)-%\id)x\|\to 0,\, \text{ quando } h\to %0.\]
+%Isto é, $S(\cdot)x$ é contínua em %$t=0$. Dado $t\in (0,+\infty)$, se %$h>0$, então
+%\begin{align*}
+%    \|S(t+h)x-S(t)x\|& =\|S(t)S(h)x-%S(t)x\|=\|S(t)(S(h)-\id)x\|\\
+%    & \leq \|S(t)\|_{\mathcal{L}(X)}\|
+%(S(h)-\id)x\|\\
+%    & \leq Me^{\mu t}\|(S(h)-%\id)x\|\to 0,\, \text{ quando } h\to %0^+.
+%\end{align*}
 
-Se {\color{pink} $-t<h<0$, então seja $k=-h>0$}. Daí, se $h\to 0^+$, então $k\to0^+$. Com isso,
-\begin{align*}
-    \|S({\color{pink} t+h})x-S(t)x\|& = \|S(t-k)x-S(t)x\|=\|S(t-k)x-S(t-k+k)x\|\\
-    & =\|S(t-k)x-S(t-k)S(k)x\|=\|S(t-k)(\id-S(k)x\|\\
-    & \leq \|S(t-k)\|_{\mathcal{L}(X)}\|(S(k)-\id)x\|\\
-    & \leq Me^{\mu t}\|(S(k)-\id)x\|\to 0,\, \text{ quando } k\to 0^+.
-\end{align*}
+%Se {\color{pink} $-t<h<0$, então seja %$k=-h>0$}. Daí, se $h\to 0^+$, então %$k\to0^+$. Com isso,
+%\begin{align*}
+%    \|S({\color{pink} t+h})x-S(t)x\|& %= \|S(t-k)x-S(t)x\|=\|S(t-k)x-S(t-%k+k)x\|\\
+%    & =\|S(t-k)x-S(t-k)S(k)x\|=\|S(t-%k)(\id-S(k)x\|\\
+%    & \leq \|S(t-k)\|_{\mathcal{L}
+%(X)}\|(S(k)-\id)x\|\\
+%    & \leq Me^{\mu t}\|(S(k)-%\id)x\|\to 0,\, \text{ quando } k\to %0^+.
+%\end{align*}
 \end{proof}
 
 Vamos melhorar a estimativa \eqref{des.wT} através do seguinte teorema. 
@@ -204,7 +224,7 @@ e para cada $\omega>\omega_0$, existe {$M\geq 1$} tal que
 \begin{remark}
 Quando $\omega_0<0$, então para $\omega=0$, temos que 
 \[\nl{S(t)}\leq M,\ \forall t\geq 0. \]
-Neste caso, dizemos que $S$ é um \dt{semigrupo uniformemente limitado}. Se, além disso, $M=1$, $S$ é dito \dt{semigrupo das contrações}. \index{semigrupo das contrações}
+Neste caso, dizemos que $S$ é um \dt{semigrupo uniformemente limitado}. Se, além disso, $M=1$, $S$ é dito um \dt{semigrupo de contrações}. \index{semigrupo das contrações}
     
 \end{remark}
 
@@ -303,7 +323,7 @@ Dado $S$ um semigrupo de classe $C^0$ em $X$, vamos designar por $A_h$ o operado
 
 
 \begin{remark}
-De acordo com a definição acima, todo semigrupo tem um gerador infinitesimal associado. A principal questão é a recíproca, isto é, {\color{blue} quando um operador $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de algum semigrupo?} O Teorema de Hille-Yosida nos dará as condições para responder a essa pergunta.
+De acordo com a definição acima, todo semigrupo tem um gerador infinitesimal associado. A principal questão é a recíproca, isto é, {\color{blue} quando um operador linear $A:D(A)\subset X\longrightarrow X$ é o gerador infinitesimal de algum semigrupo?} O Teorema de Hille-Yosida nos dará as condições para responder a essa pergunta.
 \end{remark}
 
 
@@ -587,7 +607,7 @@ Dado $x\in X$, basta mostrar que
 De fato, que $v_h\in D(A)$ decorre diretamente da Proposição \ref{prop2.11}. Como $S(\cdot)x$ é contínua, pela identidade \eqref{ineq.VM}, 
 \[\lim\limits_{h\to 0^+} v_h=\lim\limits_{h\to 0^+}\frac{1}{h}\int_0^h S(t)x\,dt=x.\]
 
-\noindent\textbf{2. $A$ é fechado.}
+\noindent\textbf{2. $A$ tem gráfico fechado\footnote{O gráfico $G_A$ de $A$ é um subespaço fechado de $X\times X$.}}
 
 Seja $(x_n)_{n\in \mathbb{N}}\subset D(A)$ tal que $x_n\to x$ e $Ax_n\to y$ 
 em  $X$. Devemos mostrar que $x\in D(A)$ e $Ax=y$.

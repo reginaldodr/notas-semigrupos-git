@@ -77,3 +77,37 @@ para cada inteiro positivo $n$, fica estabelecida uma família pontualmente limi
     onde $\pi_1$ e $\pi_2$ são as projeções naturais de $X\times Y$ sobre $X$ e $Y$, respectivamente. A principal dificuldade na obtenção do Teorema \ref{th-GF} é demonstrar que $(\pi_1 |_{G_T})^{-1}: X\longrightarrow G_T$ é uma aplicação contínua (veja \cite{pombo1999introduccao}).
     \end{itemize}
 \end{remark}
+
+A seguir, apresentamos uma importante consideração sobre o operador resolvente mencionado na Definição \ref{res}.
+
+\begin{remark}\label{reslim}
+    Consideremos as notações da Definição \ref{res}. Para cada $\lambda \in \rho (A)$, vejamos que o operador linear $\rla :X\longrightarrow D(A) \subset X$ é limitado. Com efeito, como $X$ é um espaço de Banach, o Teorema do \ref{th-GF} garante que é suficiente verificarmos que o gráfico $G$ de $\rla$ é um subespaço fechado de $X\times X$. Nesse caso, consideremos uma sequência $(x_n ,\rla x_n )_{n=1}^{\infty}$ em $G$ convergindo a $(x,y)\in X\times X$. Isto significa que
+    \begin{equation}\label{conv}
+    \displaystyle x_n \to x \text{  e 
+ } \rla x_n \to y \text{ em } X.
+    \end{equation}
+    Da Observação \ref{rl} (a), para todo $n\in \mathbb N$, temos
+    \[
+    \displaystyle A\rla x_n = \lambda \rla x_n -x_n 
+    %\Longrightarrow x_n = \lambda \rla x_n - A\rla x_n \in D(A).
+    \]
+    %Portanto, pela Observação \ref{rl}, os operadores $A$ e $\rla$ comutam em cada termo da sequência $(x_n )_{n=1}^{\infty}$, o que implica
+    %\[
+    %\displaystyle x_n = \lambda \rla %x_n - \rla A x_n 
+    %\]
+    %para todo $n\in \mathbb N$. 
+    Das convergências em \eqref{conv}, temos
+    \[
+    \displaystyle\lim_{n\to +\infty} A\rla x_n 
+    %=\lim_{n\to +\infty} \rla Ax_n 
+    = \lim_{n\to +\infty} [\lambda \rla x_n - x_n] = \lambda y-x \text{  em  } X.
+    \]
+    Como 
+    \[
+    \displaystyle y_n :=\rla x_n \to y \text{  e   } Ay_n  = A\rla x_n \to \lambda y-x
+    \]
+    em $X$, o fato de $A$ ser um operador fechado nos diz que $y\in D(A)$ e que $Ay = \lambda y-x$. Logo,
+    \[
+    \displaystyle (\lambda \id -A)y =x \Longrightarrow \rla x=y \Longrightarrow (x,y)\in G.
+    \]
+\end{remark}

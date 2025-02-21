@@ -2,34 +2,39 @@
 
 
 
-\begin{definition}
-Seja $X$ um espaço de Banach e $A:D(A)\subset X\longrightarrow X$ um operador linear fechado. Chamamos de \dt{resolvente de $A$}, \index{Resolvente!conjunto} o seguinte conjunto
-\[\rho(A)=\{\lambda \in \mathbb{C};\ \lambda \id -A \text{ é bijetor }\}\]
+\begin{definition}\label{res}
+Seja $X$ um espaço de Banach e $A:D(A)\subset X\longrightarrow X$ um operador linear fechado. O conjunto \index{Resolvente!conjunto} 
+\[\rho(A)=\{\lambda \in \mathbb{K};\ \lambda \id -A \text{ é bijetor }\}\]
 %O conjunto \dt{resolvente de $A$}, \index{Resolvente!conjunto} denotado por $\rho(A)$, é o conjunto de todos os $\lambda\in \mathbb{C}$ tais que:
 %\begin{itemize}
 %    \item $\lambda \id -A$ é bijetor;
 %    \item $R(\lambda,A):=(\lambda \id -A)^{-1}: X\to $, chamado de \dt{operador resolvente} \index{Resolvente!operador} de $A$, é limitado.
 %\end{itemize}
-O conjunto $\sigma(A)=\mathbb{C}\setminus\rho(A)$ é dito \dt{espectro} \index{Espectro} de $A$. Para cada $\lambda\in \rho(A)$, definimos o  \dt{operador resolvente} \index{Resolvente!operador} por
-\[R(\lambda,A):=(\lambda \id -A)^{-1}: X\longrightarrow D(A).\]
-O qual, \textcolor{orange}{pelo Teorema do Gráfico fechado, é um operador linear limitado.}
+e chamado de \dt{resolvente de $A$}, enquanto $\sigma(A)=\mathbb{K}\setminus\rho(A)$ é dito o \dt{espectro} \index{Espectro} de $A$. Além disso, para cada $\lambda\in \rho(A)$, definimos o  \dt{operador resolvente} \index{Resolvente!operador} por
+\[R(\lambda,A):=(\lambda \id -A)^{-1}: X\longrightarrow D(A),\]
+o qual pertence a $\mathcal L (X)$ em virtude do Teorema do Gráfico fechado (veja o Teorema \ref{th-GF} e a Observação \ref{reslim}).
 
-
-Note que, se $\lambda \in \rho(A)$, então para todo $x\in X$ 
+\begin{remark}\label{rl}
+    Consideremos as notações da Definição \ref{res}. Nesse caso, se $\lambda \in \rho(A)$, então os operadores $A$ e $\rla$ comutam em $D(A)$. Mais precisamente,
+    \begin{enumerate}[(a)]
+    \item $AR(\lambda ,A)x = \lambda R(\lambda ,A)x-x$ para todo $x\in X$;
+    \item $R(\lambda ,A)Ax = \lambda R(\lambda ,A)x-x$ para todo $x\in D(A)$;
+    \item $AR(\lambda ,A)x =R(\lambda ,A)Ax  $ para todo $x\in D(A)$.
+    \end{enumerate}
+    Com efeito, se $x_0\in X$, temos
 \begin{equation*}
-(\lambda \id -A)R(\lambda,A)x=x\Rightarrow \lambda \rla x-x=A\rla x.
+(\lambda \id -A)R(\lambda,A)x_0=x_0 \Longrightarrow \lambda \rla x_0 -x_0 =A\rla x_0 ,
 \end{equation*}
-Analogamente, se $x\in D(A)$, então
+provando o item (a). Analogamente, se $x_1 \in D(A)$, então
 \begin{equation*}
-R(\lambda,A)(\lambda \id -A)x=x\Rightarrow \lambda \rla x-x=\rla Ax.
+R(\lambda,A)(\lambda \id -A)x_1 =x_1 \Longrightarrow \lambda \rla x_1-x_1 =\rla Ax_1 ,
 \end{equation*}
-Destas duas equações, podemos concluir que
-\begin{equation}\label{RAAR}
-A\rla x=\lambda \rla x-x=\rla Ax,\; \forall\, x\in D(A).
-\end{equation}
+seguindo o item (b). O item (c) é uma consequência imediata dos itens (a) e (b).
+\end{remark}
 
-\begin{xca}
-Prove que se $\lambda, \mu\in \rho(A)$, então $\rla$ e $R(\mu,A)$ comutam.
+
+\begin{xca}\label{comutam}
+Dados dois operadores lineares invertíveis $U,V:D(A)\subset X\longrightarrow X$, prove que $U^{-1}-V^{-1} = U^{-1} (V-U)V^{-1}$. Conclua que, se $\lambda, \mu\in \rho(A)$, então $\rla$ e $R(\mu,A)$ comutam.  
 \end{xca}
 
 \end{definition}
@@ -46,29 +51,29 @@ Seja $X$ um espaço de Banach. Um operador linear $A:D(A)\subset X\longrightarro
 \end{enumerate}
 \end{theorem}
 
-A prova do Teorema \ref{HY-contr} será divida em  lemas.
+A demonstração do Teorema \ref{HY-contr} será organizada em alguns lemas.
 
 \begin{lemma}[Condição Necessária]
 Seja $A$ o gerador infinitesimal de um semigrupo de contrações. Então $A$ é fechado e densamente definido. Além disso, $(0,+\infty)\subset \rho(A)$, 
 \[R(\lambda,A)x=\displaystyle\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi,\] 
 e $\nl{R(\lambda, A)}\leq \displaystyle\frac{1}{\lambda}$.
 \end{lemma}
-\begin{proof} Da Proposição \ref{Afd}, temos que $A$ é fechado e densamente definido.
+\begin{proof} Da Proposição \ref{Afd}, já vimos que $A$ é fechado e densamente definido.
 
-Dados $x\in X$ e $\lambda>0$ defina
+Fixemos $\lambda>0$ e, para cada $x\in X$, definamos
 \begin{equation*}
-L_\lambda x =\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi.
+L_\lambda x :=\int_0^\infty e^{-\lambda \xi}S(\xi)x\, d\xi.
 \end{equation*}
 Primeiramente, vejamos que $L_\lambda x$ {está bem definida.} 
 Para isso, %vamos usar o Teste de Weierstrass
 %(Proposição \ref{TWeierstrass}).
 do Corolário \ref{Scontinua}, temos que a função
 \begin{equation*}
-(t,\lambda)\in [0,+\infty)\times (0,+\infty)\longmapsto
+t \in [0,+\infty) \longmapsto
 \| e^{-\lambda t}S(t)x\|\in  \R,
 \end{equation*}
-é contínua em $t$ para cada $\lambda\in (0,+\infty)$. 
-Como $S$ é um semigrupo de contrações, temos que
+é contínua. 
+Como $S$ é um semigrupo de contrações, temos
 \begin{align*}
 \int_0^\infty \|e^{-\lambda t}S(t)x\|\,dt& =
 \int_0^\infty e^{-\lambda t}\|S(t)x\|\,dt\leq\|x\|
@@ -84,19 +89,21 @@ Como $S$ é um semigrupo de contrações, temos que
 %\int_0^\infty e^{-t}\|x\|\, dt
 %=\|x\| \int_0^\infty e^{- t}\, dt 
 %=\|x\|\lim_{b\to +\infty} \int_0^b e^{-t}\, dt\\
-%& =\|x\|\lim_{b\to +\infty}-e^{-t}\Big\vert_{t=0}^{t=b} =\|x\|\lim_{b\to +\infty}\left(1-e^{-b}\right)={\|x\|}<+\infty.
+%& =\|x\|\lim_{b\to +\infty}-e^{-t}\Big\vert_{t=0}^{t=b} =\|x\|\lim_{b\to +\infty}\left(1-e^{-b}\right)={\|x\|}<+\infty,
 %\end{align*}
-Isto é, a integral imprópria é absolutamente convergente, consequentemente $L_\lambda$ está bem definida. Claro que $L_\lambda$ é linear e além disso, procedendo como acima, 
+ou seja, a integral imprópria  utilizada para definir pontualmente $L_{\lambda}$ é absolutamente convergente. Consequentemente $L_\lambda$ está bem definida. Claramente, $L_\lambda$ é linear e além disso, procedendo como fizemos acima, 
 \begin{align*}
 \left\|L_\lambda x\right\|& \leq \int_0^\infty\|e^{-\lambda t}S(t)x\|\,dt\leq
 \int_0^\infty e^{-\lambda t}\|x\|\,dt\\
 & = \frac{\|x\|}{\lambda}\lim_{b\to +\infty}-e^{-\lambda t}\Big\vert_{t=0}^{t=b}
 =\frac{\|x\|}{\lambda},
 \end{align*}
-isto é, $L_\lambda$ define um operador linear limitado em $X$ e 
+isto é, $L_\lambda \in \mathcal L (X)$ e 
 $\nl{L_\lambda}\leq \frac{1}{\lambda}$.
 
-Resta mostrar que  $L_\lambda= R(\lambda,A)$, isto é, devemos verificar que
+\noindent \textbf{\underline{Afirmação}:} $L_\lambda= R(\lambda,A)$.
+
+Provaremos que
 \begin{enumerate}
 \item $\forall\, x\in X,\ L_\lambda x\in D(A)$ e $(\lambda \id-A)L_\lambda x=x$, i.e., $A\left(L_\lambda x\right)=\lambda L_\lambda x -x$.
 \item $\forall\, x\in D(A),$ $L_\lambda(\lambda \id-A)x=x$, i.e., $L_\lambda(Ax)=\lambda L_\lambda x-x$.
@@ -159,74 +166,93 @@ como queríamos.
 \end{equation*}
 \end{lemma}
 \begin{proof}
-Se $x\in D(A)$, da identidade \eqref{RAAR}, temos que
+\noindent \textbf{\underline{Caso 1}:} $x_0 \in D(A)$.
+
+Nessa situção, a Observação \ref{rl} nos dá
 \begin{equation*}
-\|\lambda \rla x-x\|=\|\rla Ax\|\leq \frac{1}{\lambda}\|Ax\|\to 0\; 
+\|\lambda \rla x_0 -x_0\|_X =\|\rla Ax_0 \|_{X}
+\leq \| \rla \|_{\mathcal L (X)} \|Ax_0 \|_{X}
+\leq \frac{1}{\lambda}\|Ax_0 \|_{X}\to 0\; 
 \text{ quando } \lambda\to +\infty.
 \end{equation*}
-Agora, \underline{dado $x\in X$}, \underline{para cada $\ep>0$}, como $D(A)$ é denso em $X$, tome $y\in D(A)$ tal que
-\[\|y-x\|< \frac{\ep}{4}.\]
-E, da convergência anterior, como $y\in D(A)$,\underline{ existe $\lambda_0>0$ tal que se
-$\lambda >\lambda_0$}, então
+\noindent \textbf{\underline{Caso 2}:} $x_1 \in X$.
+
+Tomemos $\ep >0$. Como $D(A)$ é denso em $X$, seja $y\in D(A)$ tal que
+\[\|y-x_1 \|_X < \frac{\ep}{4}.\]
+Pela convergência obtida no Caso 1, existe $\lambda_0>0$ tal que, se
+$\lambda >\lambda_0$, então
 \begin{equation*}
-\|\lambda \rla y-y\|< \frac{\ep}{2}.
+\|\lambda \rla y-y\|_X < \frac{\ep}{2}.
 \end{equation*}
 Com isso, 
 \begin{align*}
-\underline{\|\lambda \rla x-x\|}& \leq \|\lambda \rla x-\lambda\rla y\|
-+\|\lambda \rla y-y\|+\|y-x\|\\
-& < \lambda \|\rla (x-y)\|+ \frac{\ep}{2}+\frac{\ep}{4}\\
-& \leq \|x-y\|+ \frac{3\ep}{4}\\
-&< \frac{\ep}{4}+\frac{3\ep}{4}=\underline{\ep}\\
+\underline{\|\lambda \rla x_1-x_1\|}& \leq \|\lambda \rla x_1 -\lambda\rla y\|
++\|\lambda \rla y-y\|+\|y-x_1 \|\\
+&\leq \lambda \|\rla \|_{\mathcal L (X)} \|x_1 -y\|_{X} +\|\lambda \rla y-y\|+\|y-x_1 \|  \\ 
+&\leq 2\|x_1 -y\|_{X} +\|\lambda \rla y-y\|_X  \\ 
+&< 2\cdot \frac{\ep}{4} +\frac{\ep}{2} \\
+&=\ep ,
 \end{align*}
+sempre que $\lambda > \lambda _0$. Isto significa que $\displaystyle\lim_{\lambda \to +\infty} \lambda \rla x_1 = x_1$, o que completa a demonstração.
 \end{proof}
 
 \begin{definition}
-Para cada $\lambda \in (0,+\infty) \cap \rho(A)$, definimos o operador $A_\lambda: X\longrightarrow X$, chamado \dt{aproximação de Yosida}\index{Aproximação de Yosida} de $A$, por 
+Seja $\lambda \in (0,+\infty) \cap \rho(A)$. O operador linear limitado $A_\lambda: X\longrightarrow X$, definido por 
 \begin{equation*}
-A_\lambda :=\lambda A\rla =\lambda^2\rla -\lambda \id\in \mathcal{L}(X).
+A_\lambda :=\lambda A\rla =\lambda^2\rla -\lambda \id 
 \end{equation*}
+é dito uma \dt{aproximação de Yosida}\index{Aproximação de Yosida} de $A$
 \end{definition}
 
 \begin{lemma}\label{Plem3.3}
- Suponhamos que $A$ satisfaça as condições $(i)$ e $(ii)$ do Teorema \ref{HY-contr}. 
-Se $A_\lambda$ é a aproximação de Yosida do operador $A$, então
+ Suponhamos que $A$ satisfaça as condições $(i)$ e $(ii)$ do enunciado do Teorema \ref{HY-contr}.
+Se $\{ A_\lambda ; \lambda >0 \}$ é a família de aproximações de Yosida do operador $A$, então
 \begin{equation*}
 \lim_{\lambda \to +\infty}A_\lambda x=Ax,\; \forall\, x\in D(A).
 \end{equation*}
 \end{lemma}
 \begin{proof}
-Seja $x\in D(A)$. De \eqref{RAAR} e do Lema \ref{ap}, temos
+Seja $x\in D(A)$. Utilizando a Observação \ref{rl} (c)0 e o Lema \ref{ap}, é imediato que
 \begin{equation*}
 \lim_{\lambda \to +\infty}A_\lambda x=\lim_{\lambda \to +\infty}\lambda\rla Ax=Ax.
 \end{equation*}
 \end{proof}
 
 \begin{lemma}\label{Plem3.4}
-Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do enunciado do Teorema \ref{HY-contr}. Se $A_\lambda$ é  aproximação de Yosida de $A$, então $A_\lambda$ é o gerador infinitesimal de um semigrupo uniformemente contínuo de contrações $e^{tA_\lambda}$. Além disso, para quaisquer $x\in X$ e $\lambda,\mu>0$, temos
+Seja $A$ satisfazendo as condições $(i)$ e $(ii)$ do enunciado do Teorema \ref{HY-contr}. Se $\{ A_\lambda ; \lambda >0 \}$ é a família de aproximações de Yosida do operador $A$, então:
+\begin{enumerate}[(a)]
+    \item Para cada $\lambda >0$, $A_\lambda$ é o gerador infinitesimal de um semigrupo uniformemente contínuo de contrações $e^{tA_\lambda}$;
+    \item Dados $x\in X$ e $\lambda,\mu>0$, temos
 \begin{equation*}
-\left\|e^{tA_\lambda}x-e^{tA_\mu}x\right\|\leq t\|A_\lambda x-A_\mu x\|.
+\left\|e^{tA_\lambda}x-e^{tA_\mu}x\right\|_X \leq t\|A_\lambda x-A_\mu x\|_X .
 \end{equation*}
+para todo $t\in [0,+\infty )$.
+\end{enumerate}
 \end{lemma}
 \begin{proof}
-Como $A_\lambda \in \mathcal{L}(X)$, então $A_\lambda$ é o gerador infinitesimal do semigrupo uniformemente contínuo $e^{tA_\lambda}$. Além disso,
-\begin{multline*}
+\begin{enumerate}[(a)]
+\item
+Fixemos $\lambda >0$. Como $A_\lambda \in \mathcal{L}(X)$, então $A_\lambda$ é o gerador infinitesimal do semigrupo uniformemente contínuo $e^{tA_\lambda}$ (veja o Exemplo \ref{ex} (a)). Além disso, para cada $t\geq 0$, temos
+\begin{align*}
 \left\|e^{tA_\lambda}\right\|
  =\left\|e^{t\lambda^2\rla-t\lambda \id}\right\|
 \leq \left\|e^{t\lambda^2\rla}\right\|\left\|e^{-t\lambda \id} \right\|
 =e^{-t\lambda }\left\|e^{t\lambda^2\rla}\right\|\\ 
 \leq e^{-t\lambda }e^{t\lambda^2\left\|\rla\right\|}
- \leq e^{t\lambda }e^{-t\lambda }=1
-\end{multline*}
-portanto, um semigrupo de contrações.
+ \leq 1,
+\end{align*}
+pois 
+\[
+t\lambda ^2 \| \rla \| \leq t\lambda ^2 \cdot \frac{1}{\lambda} = t\lambda .
+\]
+Portanto, $\{ e^{tA_\lambda} ; t\in [0,+\infty )\}$ é um semigrupo de contrações.
 
-Das definições de $A_\lambda$, $A_\mu$, $e^{tA_\lambda}$ e $e^{tA_\mu}$ 
-comutam. Como $A_\lambda,  A_\mu\in\mathcal{L}(X)$, defina 
-\[f(s)=e^{tsA_\lambda}e^{t(1-s)A_\mu}x=e^{tA_\mu}e^{st(A_\lambda-A_\mu)} \]
-e note que
-\begin{enumerate}
-\item $f(1)=e^{tA_\lambda}x$, $f(0)=e^{tA_\mu}x$
-\item $f'(s)=t(A_\lambda-A_\mu)e^{tsA_\lambda}e^{t(1-s)A_\mu}x$
+\item Fixemos $x\in X$, $\lambda , \mu >0$ e $t\geq 0$. Como $A_\lambda,  A_\mu\in\mathcal{L}(X)$, definamos $f:[0,1] \longrightarrow \mathcal L (X)$ pondo
+\[f(s):=e^{tsA_\lambda}e^{t(1-s)A_\mu}x=e^{tA_\mu}e^{st(A_\lambda-A_\mu)}x ,\]
+para cada $s\in [0,1]$, onde a segunda igualdade segue do fato de os operadores $A_{\lambda}$ e $A_{\mu}$ comutarem (veja o Exercício \ref{comutam} ). Cabe observar que
+\begin{enumerate}[1.]
+\item $f(0)=e^{tA_\mu}x$ e $f(1)=e^{tA_\lambda}x$;
+\item $f'(s)=t(A_\lambda-A_\mu)e^{tsA_\lambda}e^{t(1-s)A_\mu}x$.
 \end{enumerate}
 Consequentemente, pelo Teorema Fundamental do Cálculo,
 \begin{align*}
@@ -234,10 +260,11 @@ Consequentemente, pelo Teorema Fundamental do Cálculo,
 & =\left\|f(1)-f(0) \right\|=
 \left\|\int_0^1 f'(s)\,ds \right\|\\
 & =\left\|\int_0^1 
-t(A_\lambda-A_\mu)e^{tsA_\lambda}e^{t(1-s)A_\mu}x\right\|\\
+t(A_\lambda-A_\mu)e^{tsA_\lambda}e^{t(1-s)A_\mu}x \,ds \right\|\\
 & \leq t\underbrace{\left\|e^{tsA_\lambda}e^{t(1-s)A_\mu}\right\|}_{\leq 1}   \left\|A_\lambda x-A_\mu x\right\|\\
 & \leq t \left\|A_\lambda x-A_\mu x\right\|
 \end{align*}
+\end{enumerate}
 \end{proof}
 
 \begin{proof}[Demonstração do Teorema {\ref{HY-contr}} (Condição Suficiente) ]
